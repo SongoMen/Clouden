@@ -1,21 +1,123 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ReactDOM from 'react-dom';
 
-class App extends Component {
+const scaleNames = {
+  a: 'Number1',
+  b: 'Number2',
+  c: 'Number3',
+  d: "result"
+};
+
+function toNumber1(Number2) {
+  return (Number2 - 32) * 5 / 9;
+}
+
+function toNumber2(Number1) {
+  return (Number1 * 9 / 5) + 32;
+}
+
+function toResult(Number1,Number2,Number3) {
+  return (Number2 * Number2)-(4 * Number1 * Number3);
+}
+
+function tryConvert(number, convert) {
+  const input = parseFloat(number);
+  if (Number.isNaN(input)) {
+    return '';
+  }
+  const output = convert(input);
+  const rounded = Math.round(output * 1000) / 1000;
+  return rounded.toString();
+}
+
+function delta(Number1, Number2, Number3) {
+  return ((Number2*Number1)-(4*Number1*Number3));
+}
+
+class TemperatureInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.props.onTemperatureChange(e.target.value);
+  }
+
   render() {
+    const number = this.props.number;
+    const scale = this.props.scale;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <fieldset>
+        <legend>Enter temperature in {scaleNames[scale]}:</legend>
+        <input value={number}
+               onChange={this.handleChange} />
+      </fieldset>
+    );
+  }
+}
+
+class Calculator extends React.Component {
+  constructor(props) {
+    super(props);
+      this.state = {
+      Number1: '',
+      Number2: '',
+      Number3: '',
+      result: ''
+        };
+    this.handleNumber1Change = this.handleNumber1Change.bind(this);
+    this.handleNumber2Change = this.handleNumber2Change.bind(this);
+    this.state = {number: '', scale: 'c'};
+  }
+
+  handleNumber1Change(number) {
+    this.setState({scale: 'c', number});
+  }
+
+  handleNumber2Change(number) {
+    this.setState({scale: 'f', number});
+  }
+
+  
+  render() {
+    const scale = this.state.scale;
+    const number = this.state.number;
+    const Number1 = scale === 'f' ? tryConvert(number, toNumber1) : number;
+    const Number2 = scale === 'c' ? tryConvert(number, toNumber2) : number;
+    const Number3 = scale === 'c' ? tryConvert(number, toNumber2) : number;
+    const result = scale === 'c' ? tryConvert(number, toResult) : number;
+
+
+    return (
+      <div>
+        <TemperatureInput
+          scale="a"
+          number={Number1}
+          onTemperatureChange={this.handleNumber1Change} />
+        <TemperatureInput
+          scale="b"
+          number={Number2}
+          value={this.state.inputValue} />
+        <TemperatureInput
+          scale="c"
+          number={Number3}
+          onTemperatureChange={this.handleNumber3Change} />
+        <TemperatureInput
+          scale="d"
+          number={result}
+          onTemperatureChange={this.handleNumber3Change} />
       </div>
     );
   }
 }
 
-export default App;
+ReactDOM.render(
+  <Calculator />,
+  document.getElementById('root')
+);
+
+
+export default Calculator;
