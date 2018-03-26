@@ -62,14 +62,9 @@ class TemperatureInput extends React.Component {
 class Calculator extends React.Component {
   constructor(props) {
     super(props);
-      this.state = {
-      Number1: '',
-      Number2: '',
-      Number3: '',
-      result: ''
-        };
     this.handleNumber1Change = this.handleNumber1Change.bind(this);
     this.handleNumber2Change = this.handleNumber2Change.bind(this);
+    this.handleNumber4Change = this.handleNumber2Change.bind(this);
     this.state = {number: '', scale: 'c'};
   }
 
@@ -80,15 +75,17 @@ class Calculator extends React.Component {
   handleNumber2Change(number) {
     this.setState({scale: 'f', number});
   }
-
+  handleNumber4Change(number) {
+    this.setState({scale: 'd', number});
+  }
   
   render() {
     const scale = this.state.scale;
     const number = this.state.number;
-    const Number1 = scale === 'f' ? tryConvert(number, toNumber1) : number;
-    const Number2 = scale === 'c' ? tryConvert(number, toNumber2) : number;
+    const Number1 = scale === 'a' ? tryConvert(number, toNumber1) : number;
+    const Number2 = scale === 'b' ? tryConvert(number, toNumber2) : number;
     const Number3 = scale === 'c' ? tryConvert(number, toNumber2) : number;
-    const result = scale === 'c' ? tryConvert(number, toResult) : number;
+    const result = scale === 'd' ? tryConvert(number, toResult) : number;
 
 
     return (
@@ -108,7 +105,7 @@ class Calculator extends React.Component {
         <TemperatureInput
           scale="d"
           number={result}
-          onTemperatureChange={this.handleNumber3Change} />
+          onTemperatureChange={this.handleNumber4Change} />
       </div>
     );
   }
