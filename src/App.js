@@ -10,107 +10,51 @@ const scaleNames = {
   d: "result"
 };
 
-function toNumber1(Number2) {
-  return (Number2 - 32) * 5 / 9;
-}
-
-function toNumber2(Number1) {
-  return (Number1 * 9 / 5) + 32;
-}
-
-function toResult(Number1,Number2,Number3) {
-  return (Number2 * Number2)-(4 * Number1 * Number3);
-}
-
-function tryConvert(number, convert) {
-  const input = parseFloat(number);
-  if (Number.isNaN(input)) {
-    return '';
-  }
-  const output = convert(input);
-  const rounded = Math.round(output * 1000) / 1000;
-  return rounded.toString();
-}
-
-function delta(Number1, Number2, Number3) {
-  return ((Number2*Number1)-(4*Number1*Number3));
-}
-
-class TemperatureInput extends React.Component {
+class Calculator extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.state = {a: ''};
+    this.state = {b: ''};
+    this.state = {c: ''};
+    this.state = {d: ''};
   }
 
   handleChange(e) {
-    this.props.onTemperatureChange(e.target.value);
+    this.setState({a: e.target.value});
+    this.setState({b: e.target.value});
+    this.setState({c: e.target.value});
+    this.setState({d: e.target.value});
   }
 
   render() {
-    const number = this.props.number;
-    const scale = this.props.scale;
+    const a = this.state.temperature;
+    const b = this.state.temperature;
+    const c = this.state.temperature;
+    const d = this.state.temperature;
     return (
       <fieldset>
-        <legend>Enter temperature in {scaleNames[scale]}:</legend>
-        <input value={number}
-               onChange={this.handleChange} />
+        <legend>Enter a:</legend>
+        <input
+          value={a}
+          onTemperatureChange={this.handleCelsiusChange} />
+
+        <legend>Enter b:</legend>
+        <input
+          value={b}
+          onChange={this.handleChange} />
+        <legend>Enter c:</legend>
+        <input
+          value={c}
+          onChange={this.handleChange} />
+        <legend>Enter d:</legend>
+        <input
+          value={d}
+          onChange={this.handleChange} />
       </fieldset>
     );
   }
 }
-
-class Calculator extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleNumber1Change = this.handleNumber1Change.bind(this);
-    this.handleNumber2Change = this.handleNumber2Change.bind(this);
-    this.handleNumber4Change = this.handleNumber2Change.bind(this);
-    this.state = {number: '', scale: 'c'};
-  }
-
-  handleNumber1Change(number) {
-    this.setState({scale: 'c', number});
-  }
-
-  handleNumber2Change(number) {
-    this.setState({scale: 'f', number});
-  }
-  handleNumber4Change(number) {
-    this.setState({scale: 'd', number});
-  }
-  
-  render() {
-    const scale = this.state.scale;
-    const number = this.state.number;
-    const Number1 = scale === 'a' ? tryConvert(number, toNumber1) : number;
-    const Number2 = scale === 'b' ? tryConvert(number, toNumber2) : number;
-    const Number3 = scale === 'c' ? tryConvert(number, toNumber2) : number;
-    const result = scale === 'd' ? tryConvert(number, toResult) : number;
-
-
-    return (
-      <div>
-        <TemperatureInput
-          scale="a"
-          number={Number1}
-          onTemperatureChange={this.handleNumber1Change} />
-        <TemperatureInput
-          scale="b"
-          number={Number2}
-          value={this.state.inputValue} />
-        <TemperatureInput
-          scale="c"
-          number={Number3}
-          onTemperatureChange={this.handleNumber3Change} />
-        <TemperatureInput
-          scale="d"
-          number={result}
-          onTemperatureChange={this.handleNumber4Change} />
-      </div>
-    );
-  }
-}
-
 ReactDOM.render(
   <Calculator />,
   document.getElementById('root')
