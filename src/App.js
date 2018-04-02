@@ -3,62 +3,82 @@ import logo from './logo.svg';
 import './App.css';
 import ReactDOM from 'react-dom';
 
-const scaleNames = {
+
+const Numbers = {
   a: 'Number1',
   b: 'Number2',
   c: 'Number3',
-  d: "result"
+}
+
+function handleClick(number1) {
+  console.log(number1+11);
+
+}
+
+var buttonStyle = {
+  margin: '10px 10px 10px 0'
 };
 
-class Calculator extends React.Component {
-  constructor(props) {
+class App extends React.Component{
+  constructor(props){
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.state = {a: ''};
-    this.state = {b: ''};
-    this.state = {c: ''};
-    this.state = {d: ''};
+    this.handleChange2 = this.handleChange2.bind(this);
+    this.handleChange3 = this.handleChange3.bind(this);
+    this.state = {number1: ''};
+  }
+  
+  handleChange(e) {
+    this.setState({number1: e.target.value});
   }
 
-  handleChange(e) {
-    this.setState({a: e.target.value});
-    this.setState({b: e.target.value});
-    this.setState({c: e.target.value});
-    this.setState({d: e.target.value});
+  handleChange2(f) {
+    this.setState({number2: f.target.value});
   }
+
+  handleChange3(n) {
+    this.setState({number3: n.target.value});
+  }
+
 
   render() {
-    const a = this.state.temperature;
-    const b = this.state.temperature;
-    const c = this.state.temperature;
-    const d = this.state.temperature;
+    const number1 = this.state.numbers;
+    const number2 = this.state.numbers;
+    const number3 = this.state.numbers;
     return (
-      <fieldset>
-        <legend>Enter a:</legend>
-        <input
-          value={a}
-          onTemperatureChange={this.handleCelsiusChange} />
+      <div>
+        <fieldset>
+          <legend>Enter temperature in Celsius:</legend>
+          <input
+            value={number1}
+            onChange={this.handleChange} />
 
-        <legend>Enter b:</legend>
-        <input
-          value={b}
-          onChange={this.handleChange} />
-        <legend>Enter c:</legend>
-        <input
-          value={c}
-          onChange={this.handleChange} />
-        <legend>Enter d:</legend>
-        <input
-          value={d}
-          onChange={this.handleChange} />
-      </fieldset>
+          <legend>Enter temperature in Celsius:</legend>
+          <input
+            value={number2}
+            onChange={this.handleChange2} />
+
+          <legend>Enter temperature in Celsius:</legend>
+          <input
+            value={number3}
+            onChange={this.handleChange3} />
+        </fieldset>
+        <button
+        className="btn btn-default"
+        style={buttonStyle}
+        onClick={handleClick}>Halo</button>
+      </div>
     );
   }
 }
+
+
 ReactDOM.render(
-  <Calculator />,
+  <div>
+    <App /> 
+  </div>,
   document.getElementById('root')
 );
 
+export default App;
 
-export default Calculator;
