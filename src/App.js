@@ -1,84 +1,49 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios, { post } from 'axios';
 import ReactDOM from 'react-dom';
+class App extends React.Component {
 
-
-const Numbers = {
-  a: 'Number1',
-  b: 'Number2',
-  c: 'Number3',
-}
-
-function handleClick(number1) {
-  console.log(number1+11);
-
-}
-
-var buttonStyle = {
-  margin: '10px 10px 10px 0'
-};
-
-class App extends React.Component{
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleChange2 = this.handleChange2.bind(this);
-    this.handleChange3 = this.handleChange3.bind(this);
-    this.state = {number1: ''};
+    this.state ={
+      file:null
+    }
+    this.onFormSubmit = this.onFormSubmit.bind(this)
+    this.onChange = this.onChange.bind(this)
+    this.fileUpload = this.fileUpload.bind(this)
   }
-  
-  handleChange(e) {
-    this.setState({number1: e.target.value});
+  onFormSubmit(e){
+    e.preventDefault() // Stop form submit
+    this.fileUpload(this.state.file).then((response)=>{
+      console.log(response.data);
+    })
   }
-
-  handleChange2(f) {
-    this.setState({number2: f.target.value});
+  onChange(e) {
+    this.setState({file:e.target.files[0]})
   }
-
-  handleChange3(n) {
-    this.setState({number3: n.target.value});
+  fileUpload(file){
+    const url = 'http://localhost:8080';
+    const formData = new FormData();
+    formData.append('file',file)
+    const config = {
+        headers: {
+            'content-type': 'multipart/form-data'
+        }
+    }
+    return  post(url, formData,config)
   }
-
 
   render() {
-    const number1 = this.state.numbers;
-    const number2 = this.state.numbers;
-    const number3 = this.state.numbers;
     return (
-      <div>
-        <fieldset>
-          <legend>Enter temperature in Celsius:</legend>
-          <input
-            value={number1}
-            onChange={this.handleChange} />
-
-          <legend>Enter temperature in Celsius:</legend>
-          <input
-            value={number2}
-            onChange={this.handleChange2} />
-
-          <legend>Enter temperature in Celsius:</legend>
-          <input
-            value={number3}
-            onChange={this.handleChange3} />
-        </fieldset>
-        <button
-        className="btn btn-default"
-        style={buttonStyle}
-        onClick={handleClick}>Halo</button>
-      </div>
-    );
+      <form onSubmit={this.onFormSubmit}>
+        <h1>File Upload</h1>
+        <input type="file" onChange={this.onChange} />
+        <button type="submit">Upload</button>
+      </form>
+   )
   }
 }
 
-
-ReactDOM.render(
-  <div>
-    <App /> 
-  </div>,
-  document.getElementById('root')
-);
-
 export default App;
-
