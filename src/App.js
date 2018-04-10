@@ -3,6 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import axios, { post } from 'axios';
 import ReactDOM from 'react-dom';
+import Dropzone from 'react-dropzone'
+
+
 class App extends React.Component {
 
   constructor(props) {
