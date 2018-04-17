@@ -3,10 +3,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar from "material-ui/AppBar";
 import RaisedButton from "material-ui/RaisedButton";
 import TextField from "material-ui/TextField";
-import DropDownMenu from "material-ui/DropDownMenu";
-import MenuItem from "material-ui/MenuItem";
 import axios from "axios";
-var apiBaseUrl = "http://localhost:4000/api/";
 
 
 class Login extends Component {
@@ -18,19 +15,18 @@ class Login extends Component {
     };
   }
   handleClick(event) {
-    var apiBaseUrl = "http://localhost:4000/api/";
-    var self = this;
+    var apiBaseUrl = "https://webapp-0021.firebaseio.com";
     var payload = {
       email: this.state.username,
       password: this.state.password
     };
     axios
-      .post(apiBaseUrl + "login", payload)
+      .get(apiBaseUrl + "/users.json", payload)
       .then(function(response) {
         console.log(response);
-        if (response.data.code == 200) {
+        if (response.data.code === 200) {
           console.log("Login successfull");
-        } else if (response.data.code == 204) {
+        } else if (response.data.code === 204) {
           console.log("Username password do not match");
           alert("username password do not match");
         } else {

@@ -3,6 +3,8 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import RaisedButton from "material-ui/RaisedButton";
 import Login from "./Login";
 import Register from "./Register";
+
+
 class Loginscreen extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +23,7 @@ class Loginscreen extends Component {
     var loginmessage;
     if (this.state.isLogin) {
       var loginscreen = [];
-      loginscreen.push(<Register parentContext={this} />);
+      loginscreen.push(<Register parentContext={this} key={4} />);
       loginmessage = "Already registered.Go to Login";
       this.setState({
         loginscreen: loginscreen,
@@ -30,7 +32,6 @@ class Loginscreen extends Component {
         isLogin: false
       });
     } else {
-      var loginscreen = [];
       loginscreen.push(<Login parentContext={this} />);
       loginmessage = "Not Registered yet.Go to registration";
       this.setState({
@@ -45,7 +46,7 @@ class Loginscreen extends Component {
   componentWillMount() {
     var loginscreen = [];
     loginscreen.push(
-      <Login parentContext={this} appContext={this.props.parentContext} />
+      <Login parentContext={this} key={2} appContext={this.props.parentContext} />
     );
     var loginmessage = "Not registered yet, Register Now";
     this.setState({

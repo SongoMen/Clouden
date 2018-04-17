@@ -11,13 +11,13 @@ class App extends Component {
   }
   componentWillMount() {
     var loginPage = [];
-    loginPage.push(<LoginScreen appContext={this} />);
+    loginPage.push(<LoginScreen appContext={this} key={3} />);
     this.setState({
       loginPage: loginPage
     });
   }
   render() {
-    return <div className="App">{this.state.loginPage}</div>;
+    return <div key={1} className="App">{this.state.loginPage}</div>;
   }
 }
 
