@@ -19,7 +19,7 @@ class Register extends Component {
     console.log("nextProps", nextProps);
   }
   handleClick(event, role) {
-    var apiBaseUrl = "https://webapp-0021.firebaseio.com";
+    var apiBaseUrl = "https://webapp-0021.firebaseio.com/users/";
     // console.log("values in register handler",role);
     var self = this;
     //To be done:check for empty values before hitting submit
@@ -30,11 +30,11 @@ class Register extends Component {
     ) {
       var payload = {
         username: this.state.username,
-        userid: this.state.email,
+        email: this.state.email,
         password: this.state.password,
       };
       axios
-        .post(apiBaseUrl + "/users/" + payload.username + ".json", payload)
+        .put(apiBaseUrl + payload.username + ".json", payload)
         .then(function(response) {
           console.log(response);
           if (response.data.code === 200) {

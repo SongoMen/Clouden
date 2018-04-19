@@ -17,11 +17,11 @@ class Login extends Component {
   handleClick(event) {
     var apiBaseUrl = "https://webapp-0021.firebaseio.com";
     var payload = {
-      email: this.state.username,
+      username: this.state.username,
       password: this.state.password
     };
     axios
-      .get(apiBaseUrl + "/users" + payload.email + ".json", payload)
+      .get(apiBaseUrl + "/users/" + payload.username + ".json", payload)
       .then(function(response) {
         console.log(response);
         if (response.data.code === 200) {
