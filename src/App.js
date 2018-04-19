@@ -1,6 +1,15 @@
 import React, { Component } from "react";
 
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
+
 import LoginScreen from "./Loginscreen";
+import Register from "./Register.js"
+import Login from "./Login.js"
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +26,16 @@ class App extends Component {
     });
   }
   render() {
-    return <div key={1} className="App">{this.state.loginPage}</div>;
+    return (
+      <Router>
+        <div className="container">
+          <Route exact path="/" component={Login} />
+          <Route exact path="/" component={LoginScreen} />
+          <Route path="/register" component={Register} />
+        </div>
+      </Router>
+    );
+
   }
 }
 

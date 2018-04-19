@@ -3,6 +3,11 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import RaisedButton from "material-ui/RaisedButton";
 import Login from "./Login";
 import Register from "./Register";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 
 
 class Loginscreen extends Component {
@@ -43,17 +48,6 @@ class Loginscreen extends Component {
     }
   }
 
-  componentWillMount() {
-    var loginscreen = [];
-    loginscreen.push(
-      <Login parentContext={this} key={2} appContext={this.props.parentContext} />
-    );
-    var loginmessage = "Not registered yet, Register Now";
-    this.setState({
-      loginscreen: loginscreen,
-      loginmessage: loginmessage
-    });
-  }
   render() {
     return (
       <div className="loginscreen">
@@ -62,12 +56,11 @@ class Loginscreen extends Component {
           {this.state.loginmessage}
           <MuiThemeProvider>
             <div>
-              <RaisedButton
+              <Link to="/register"><RaisedButton
                 label={this.state.buttonLabel}
                 primary={true}
                 style={style}
-                onClick={event => this.handleClick(event)}
-              />
+              /></Link>
             </div>
           </MuiThemeProvider>
         </div>
