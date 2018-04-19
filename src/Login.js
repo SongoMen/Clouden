@@ -21,7 +21,7 @@ class Login extends Component {
       password: this.state.password
     };
     axios
-      .get(apiBaseUrl + "/users.json", payload)
+      .get(apiBaseUrl + "/users" + payload.email + ".json", payload)
       .then(function(response) {
         console.log(response);
         if (response.data.code === 200) {
