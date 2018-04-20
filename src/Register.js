@@ -4,12 +4,21 @@ import AppBar from "material-ui/AppBar";
 import RaisedButton from "material-ui/RaisedButton";
 import TextField from "material-ui/TextField";
 import axios from "axios";
-import Login from "./Login";
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import * as firebase from 'firebase';
+
+  var config = {
+    apiKey: "AIzaSyCYyiiyITT_sSblgRqYpWKPF2-yUli81l8",
+    authDomain: "webapp-0021.firebaseapp.com",
+    databaseURL: "https://webapp-0021.firebaseio.com",
+    projectId: "webapp-0021",
+    storageBucket: "webapp-0021.appspot.com",
+    messagingSenderId: "24837464252"
+  };
+
+  firebase.initializeApp(config);
+
+
 
 class Register extends Component {
   constructor(props) {
@@ -26,7 +35,6 @@ class Register extends Component {
   handleClick(event, role) {
     var apiBaseUrl = "https://webapp-0021.firebaseio.com/users/";
     // console.log("values in register handler",role);
-    var self = this;
     //To be done:check for empty values before hitting submit
     if (
       this.state.username.length > 0 &&
@@ -38,35 +46,31 @@ class Register extends Component {
         email: this.state.email,
         password: this.state.password,
       };
-      axios
-        .put(apiBaseUrl + payload.username + ".json", payload)
-        .then(function(response) {
-          console.log(response);
-          if (response.data.code === 200) {
-            //  console.log("registration successfull");
-            var loginscreen = [];
-            loginscreen.push(
-              <Login
-                parentContext={this}
-                appContext={self.props.appContext}
-                role={role}
-              />
-            );
-            var loginmessage = "Not Registered yet.Go to registration";
-            self.props.parentContext.setState({
-              loginscreen: loginscreen,
-              loginmessage: loginmessage,
-              buttonLabel: "Register",
-              isLogin: true
+    firebase.database()
+      .ref(`/users`)
+      .once("value")
+        .then(function(snapshot) {
+          if(snapshot.hasChild(payload.username)){
+            console.log("lula")
+          } 
+          else{
+            axios
+              .put(apiBaseUrl + payload.username + ".json", payload)
+              .then(function(response) {
+                console.log(response);
+                if (response.data.code === 200) {
+                  console.log("registration successfull");
+                } else {
+                  console.log("some error ocurred", response.data.code);
+                }
+              })
+            .catch(function(error) {
+              console.log(error);
             });
-          } else {
-            console.log("some error ocurred", response.data.code);
           }
-        })
-        .catch(function(error) {
-          console.log(error);
         });
-    } else {
+      }
+      else {
       alert("Input field value is missing");
     }
   }
