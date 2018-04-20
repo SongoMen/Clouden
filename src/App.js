@@ -18,20 +18,14 @@ class App extends Component {
       uploadScreen: []
     };
   }
-  componentWillMount() {
-    var loginPage = [];
-    loginPage.push(<LoginScreen appContext={this} key={3} />);
-    this.setState({
-      loginPage: loginPage
-    });
-  }
+
   render() {
     return (
       <Router>
         <div className="container">
           <Route exact path="/" component={Login} />
           <Route exact path="/" component={LoginScreen} />
-          <Route path="/register" component={Register} />
+          <Route exact path="/register" component={Register} />
         </div>
       </Router>
     );

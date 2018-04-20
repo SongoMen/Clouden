@@ -5,6 +5,11 @@ import RaisedButton from "material-ui/RaisedButton";
 import TextField from "material-ui/TextField";
 import axios from "axios";
 import Login from "./Login";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 
 class Register extends Component {
   constructor(props) {
@@ -100,7 +105,15 @@ class Register extends Component {
               primary={true}
               style={style}
               onClick={event => this.handleClick(event, this.props.role)}
+            />       
+            <br/>
+            <Link to="/">      
+            <RaisedButton
+              label="Login"
+              primary={true}
+              style={style}
             />
+            </Link>
           </div>
         </MuiThemeProvider>
       </div>
