@@ -6,11 +6,12 @@
     "axios": "^0.18.0",
     "firebase": "^4.12.1",
     "material-ui": "^0.20.0",
+    "npm": "^5.8.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-dropzone": "^4.2.9",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1"
+    "react-scripts": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
