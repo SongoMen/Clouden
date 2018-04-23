@@ -33,7 +33,7 @@ class Register extends Component {
     console.log("nextProps", nextProps);
   }
   handleClick(event, role) {
-    var apiBaseUrl = "https://webapp-0021.firebaseio.com/users/";
+    var apiBaseUrl = "https://webapp-0021.firebaseio.com";
     // console.log("values in register handler",role);
     //To be done:check for empty values before hitting submit
     if (
@@ -46,6 +46,11 @@ class Register extends Component {
         email: this.state.email,
         password: this.state.password,
       };
+
+      var email = {
+        email: this.state.email,
+      };
+
     firebase.database()
       .ref(`/users`)
       .once("value")
@@ -54,26 +59,47 @@ class Register extends Component {
             console.log("lula")
           } 
           else{
-            axios
-              .put(apiBaseUrl + payload.username + ".json", payload)
-              .then(function(response) {
-                console.log(response);
-                if (response.data.code === 200) {
-                  console.log("registration successfull");
-                } else {
-                  console.log("some error ocurred", response.data.code);
-                }
-              })
-            .catch(function(error) {
-              console.log(error);
+            firebase.database()
+              .ref('/emails')
+              .once('value')
+                .then(function(snapshot){
+                  if(snapshot.hasChild(payload.email)){
+                    console.log("lula")
+                  }
+                  else{
+                    axios
+                      .put(apiBaseUrl + "/users/" + payload.username + ".json", payload)
+                      .then(function(response) {
+                        console.log(response);
+                        if(response.data.code === 200){
+                          console.log("registration successfull")
+                        }
+                        else{
+                          console.log("some error ocurred", response.data.code);
+                        }
+                      })
+                      .catch(function(error){
+                        console.log(error);
+                      });
+                    axios
+                      .put(apiBaseUrl + "/emails/" + payload.email + ".json", email)
+                      .then(function(response) {
+                        console.log(response);
+                        if (response.data.code === 200) {
+                          console.log("registration successfull");
+                        } else {
+                          console.log("some error ocurred", response.data.code);
+                        }
+                      })
+                    .catch(function(error) {
+                      console.log(error);
+                    });
+                  }
+                });
+              }
             });
-          }
-        });
-      }
-      else {
-      alert("Input field value is missing");
-    }
-  }
+      }}
+  
   render() {
     // console.log("props",this.props);
     return (
