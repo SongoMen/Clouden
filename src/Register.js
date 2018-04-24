@@ -18,6 +18,32 @@ import * as firebase from 'firebase';
 
   firebase.initializeApp(config);
 
+var Messages = {
+  showReply: false,
+    wrongUsername: false,
+    wrongEmail:false
+}
+
+class ReplyForm extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+    showReply: false,
+    };
+  }
+  render(){
+    if(this.wrongUsername === true){
+      return(
+        <div>Username is already taken !</div>
+      )
+    }
+    else if(this.state.wrongEmail === true){
+      return(
+        <div>Email is already registered</div>
+      )
+    }
+  }
+}
 
 
 class Register extends Component {
@@ -54,9 +80,13 @@ class Register extends Component {
     firebase.database()
       .ref(`/users`)
       .once("value")
-        .then(function(snapshot) {
+        .then(snapshot => {
           if(snapshot.hasChild(payload.username)){
             console.log("lula")
+            Messages.setState({ 
+              showReply: true,
+              wrongUsername:true
+            });
           } 
           else{
             firebase.database()
@@ -107,6 +137,7 @@ class Register extends Component {
         <MuiThemeProvider>
           <div>
             <AppBar title="Register" />
+            {this.state.showReply && < ReplyForm / >}
             <TextField
               hintText="Enter your Username"
               floatingLabelText="Username"
