@@ -18,28 +18,30 @@ import * as firebase from 'firebase';
 
   firebase.initializeApp(config);
 
-var Messages = {
-  showReply: false,
-    wrongUsername: false,
-    wrongEmail:false
-}
 
 class ReplyForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
     showReply: false,
+    wrongUsername:false,
+    wrongEmail: false
     };
   }
   render(){
-    if(this.wrongUsername === true){
+    if(this.state.wrongUsername === true){
       return(
         <div>Username is already taken !</div>
       )
     }
-    else if(this.state.wrongEmail === true){
+    if(this.state.wrongEmail === true){
       return(
         <div>Email is already registered</div>
+      )
+    }
+    else {
+      return(
+        <div>Register Succesfull</div>
       )
     }
   }
@@ -52,7 +54,9 @@ class Register extends Component {
     this.state = {
       username: "",
       email: "",
-      password: ""
+      password: "",
+      showReply: false,
+      wrongUsername: true
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -83,7 +87,7 @@ class Register extends Component {
         .then(snapshot => {
           if(snapshot.hasChild(payload.username)){
             console.log("lula")
-            Messages.setState({ 
+            this.setState({ 
               showReply: true,
               wrongUsername:true
             });
