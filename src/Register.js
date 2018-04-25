@@ -19,7 +19,7 @@ import * as firebase from 'firebase';
   firebase.initializeApp(config);
 
 
-class ReplyForm extends React.Component {
+class ReplyForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -29,24 +29,11 @@ class ReplyForm extends React.Component {
     };
   }
   render(){
-    if(this.state.wrongUsername === true){
-      return(
-        <div>Username is already taken !</div>
-      )
-    }
-    if(this.state.wrongEmail === true){
-      return(
-        <div>Email is already registered</div>
-      )
-    }
-    else {
-      return(
-        <div>Register Succesfull</div>
-      )
-    }
-  }
+    return(
+      <div>hello</div>
+    )
 }
-
+}
 
 class Register extends Component {
   constructor(props) {
