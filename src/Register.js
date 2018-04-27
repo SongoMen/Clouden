@@ -27,7 +27,7 @@ class Register extends Component {
       password: "",
       showReply: false,
       wrongUsername: false,
-      wrongEmail:false
+      wrongEmail:false,
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -66,59 +66,76 @@ class Register extends Component {
       };
 
     firebase.database()
+      .ref(`/emails`)
+      .once("value")
+        .then(snapshot => {
+          if(snapshot.hasChild(payload.email)){
+            console.log("zły email")
+            this.setState({ 
+              showReply: true,
+              wrongEmail:true
+            });
+            console.log(this.state.showReply)
+          } 
+          else{
+            console.log("dobre email")
+            this.setState({ 
+              showReply: false,
+              wrongEmail:false
+            });
+          }
+        })
+
+    firebase.database()
       .ref(`/users`)
       .once("value")
         .then(snapshot => {
           if(snapshot.hasChild(payload.username)){
-            console.log("lula")
+            console.log("zła nazwa")
             this.setState({ 
               showReply: true,
               wrongUsername:true
             });
-            console.log(this.state.wrongEmail)
+            console.log(this.state.wrongUsername)
           } 
-          else{
-            firebase.database()
-              .ref('/emails')
-              .once('value')
-                .then(function(snapshot){
-                  if(snapshot.hasChild(payload.email)){
-                    console.log("lula")
-                    console.log(this.state.wrongEmail)
-                  }
-                  else{
-                    axios
-                      .put(apiBaseUrl + "/users/" + payload.username + ".json", payload)
-                      .then(function(response) {
-                        console.log(response);
-                        if(response.data.code === 200){
-                          console.log("registration successfull")
-                        }
-                        else{
-                          console.log("some error ocurred", response.data.code);
-                        }
-                      })
-                      .catch(function(error){
-                        console.log(error);
-                      });
-                    axios
-                      .put(apiBaseUrl + "/emails/" + payload.email + ".json", email)
-                      .then(function(response) {
-                        console.log(response);
-                        if (response.data.code === 200) {
-                          console.log("registration successfull");
-                        } else {
-                          console.log("some error ocurred", response.data.code);
-                        }
-                      })
-                    .catch(function(error) {
-                      console.log(error);
-                    });
-                  }
-                });
-              }
+          else if(this.state.wrongEmail === false){
+            console.log("dobre nazwa")
+            this.setState({ 
+              showReply: false,
+              wrongUsername:false,
             });
+            axios
+            .put(apiBaseUrl + "/users/" + payload.username + ".json", payload)
+              .then(function(response) {
+                console.log(response);
+                if(response.data.code === 200){
+                  console.log("registration successfull")
+                }
+                else{
+                  console.log("some error ocurred", response.data.code);
+                }
+              })
+              .catch(function(error){
+                console.log(error);
+              });
+            axios
+              .put(apiBaseUrl + "/emails/" + payload.email + ".json", email)
+                .then(function(response) {
+                  console.log(response);
+                  if (response.data.code === 200) {
+                    console.log("registration successfull");
+                  } 
+                  else {
+                    console.log("some error ocurred", response.data.code);
+                  }
+                })
+                .catch(function(error) {
+                  console.log(error);
+                });
+          }
+        })
       }}
+            
   
   render() {
     // console.log("props",this.props);
