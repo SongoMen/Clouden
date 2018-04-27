@@ -29,7 +29,9 @@ class Register extends Component {
       wrongUsername: false,
       wrongEmail:false
     };
+    this.handleClick = this.handleClick.bind(this);
   }
+
 
   renderMessage(){
     if(this.state.wrongUsername === true){
