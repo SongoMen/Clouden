@@ -18,23 +18,6 @@ import * as firebase from 'firebase';
 
   firebase.initializeApp(config);
 
-
-class ReplyForm extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-    showReply: false,
-    wrongUsername:false,
-    wrongEmail: false
-    };
-  }
-  render(){
-    return(
-      <div>hello</div>
-    )
-}
-}
-
 class Register extends Component {
   constructor(props) {
     super(props);
@@ -43,12 +26,24 @@ class Register extends Component {
       email: "",
       password: "",
       showReply: false,
-      wrongUsername: true
+      wrongUsername: false,
+      wrongEmail:false
     };
   }
+
+  renderMessage(){
+    if(this.state.wrongUsername === true){
+      return <div>dsadas</div>
+    }
+    if(this.state.wrongEmail === true){
+      return <div>sdaqwsa</div>
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     console.log("nextProps", nextProps);
   }
+
   handleClick(event, role) {
     var apiBaseUrl = "https://webapp-0021.firebaseio.com";
     // console.log("values in register handler",role);
@@ -78,6 +73,7 @@ class Register extends Component {
               showReply: true,
               wrongUsername:true
             });
+            console.log(this.state.wrongEmail)
           } 
           else{
             firebase.database()
@@ -86,6 +82,7 @@ class Register extends Component {
                 .then(function(snapshot){
                   if(snapshot.hasChild(payload.email)){
                     console.log("lula")
+                    console.log(this.state.wrongEmail)
                   }
                   else{
                     axios
@@ -128,7 +125,7 @@ class Register extends Component {
         <MuiThemeProvider>
           <div>
             <AppBar title="Register" />
-            {this.state.showReply && < ReplyForm / >}
+            {this.state.showReply && this.renderMessage()}
             <TextField
               hintText="Enter your Username"
               floatingLabelText="Username"
