@@ -29,7 +29,6 @@ class Register extends Component {
       wrongUsername: false,
       wrongEmail:false,
     };
-    this.handleClick = this.handleClick.bind(this);
   }
 
 
@@ -75,7 +74,6 @@ class Register extends Component {
               showReply: true,
               wrongEmail:true
             });
-            console.log(this.state.showReply)
           } 
           else{
             console.log("dobre email")
@@ -96,13 +94,12 @@ class Register extends Component {
               showReply: true,
               wrongUsername:true
             });
-            console.log(this.state.wrongUsername)
           } 
           else if(this.state.wrongEmail === false){
             console.log("dobre nazwa")
             this.setState({ 
               showReply: false,
-              wrongUsername:false,
+              wrongUsername:false
             });
             axios
             .put(apiBaseUrl + "/users/" + payload.username + ".json", payload)
