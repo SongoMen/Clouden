@@ -33,17 +33,24 @@ class Register extends Component {
 
 
   renderMessage(){
-    if(this.state.wrongUsername === true){
-      return <div>dsadas</div>
+    if(this.state.wrongUsername === true  && this.state.wrongEmail === false){
+      return (
+        <div><h1>Wrong Username</h1></div>
+      )
     }
-    if(this.state.wrongEmail === true){
-      return <div>sdaqwsa</div>
+    else if(this.state.wrongEmail === true  && this.state.wrongUsername === false){
+      return (
+      <div><h1>Wrong Email</h1></div>
+      )
+    }    
+    else if(this.state.wrongEmail === true && this.state.wrongUsername === true){
+      return (
+      <div><h1>Wrong Everythng</h1></div>
+      )
+
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log("nextProps", nextProps);
-  }
 
   handleClick(event, role) {
     var apiBaseUrl = "https://webapp-0021.firebaseio.com";
@@ -83,7 +90,6 @@ class Register extends Component {
             });
           }
         })
-
     firebase.database()
       .ref(`/users`)
       .once("value")
@@ -95,12 +101,7 @@ class Register extends Component {
               wrongUsername:true
             });
           } 
-          else if(this.state.wrongEmail === false){
-            console.log("dobre nazwa")
-            this.setState({ 
-              showReply: false,
-              wrongUsername:false
-            });
+            else if(this.state.wrongEmail === false){
             axios
             .put(apiBaseUrl + "/users/" + payload.username + ".json", payload)
               .then(function(response) {
@@ -122,13 +123,17 @@ class Register extends Component {
                   if (response.data.code === 200) {
                     console.log("registration successfull");
                   } 
-                  else {
-                    console.log("some error ocurred", response.data.code);
-                  }
                 })
                 .catch(function(error) {
                   console.log(error);
                 });
+          }
+                    else{
+            console.log("dobre nazwa")
+            this.setState({ 
+              showReply: false,
+              wrongUsername:false,
+            });
           }
         })
       }}
