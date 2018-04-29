@@ -49,6 +49,13 @@ class Register extends Component {
       )
 
     }
+
+    else if(this.state.wrongEmail === false && this.state.wrongUsername === false){
+      return (
+      <div><h1>Register successfull</h1></div>
+      )
+
+    }
   }
 
 
@@ -90,54 +97,54 @@ class Register extends Component {
             });
           }
         })
-    firebase.database()
-      .ref(`/users`)
-      .once("value")
-        .then(snapshot => {
-          if(snapshot.hasChild(payload.username)){
-            console.log("zła nazwa")
-            this.setState({ 
-              showReply: true,
-              wrongUsername:true
-            });
-          } 
-            else if(this.state.wrongEmail === false){
-            axios
-            .put(apiBaseUrl + "/users/" + payload.username + ".json", payload)
-              .then(function(response) {
-                console.log(response);
-                if(response.data.code === 200){
-                  console.log("registration successfull")
-                }
-                else{
-                  console.log("some error ocurred", response.data.code);
-                }
-              })
-              .catch(function(error){
-                console.log(error);
+      firebase.database()
+        .ref(`/users`)
+        .once("value")
+          .then(snapshot => {
+            if(snapshot.hasChild(payload.username)){
+              console.log("zła nazwa")
+              this.setState({ 
+                showReply: true,
+                wrongUsername:true
               });
-            axios
-              .put(apiBaseUrl + "/emails/" + payload.email + ".json", email)
+            } 
+              else if(this.state.wrongEmail === false){
+              axios
+              .put(apiBaseUrl + "/users/" + payload.username + ".json", payload)
                 .then(function(response) {
                   console.log(response);
-                  if (response.data.code === 200) {
-                    console.log("registration successfull");
-                  } 
+                  if(response.data.code === 200){
+                    console.log("registration successfull")
+                  }
+                  else{
+                    console.log("some error ocurred", response.data.code);
+                  }
                 })
-                .catch(function(error) {
+                .catch(function(error){
                   console.log(error);
                 });
-          }
-                    else{
-            console.log("dobre nazwa")
-            this.setState({ 
-              showReply: false,
-              wrongUsername:false,
-            });
-          }
-        })
-      }}
-            
+              axios
+                .put(apiBaseUrl + "/emails/" + payload.email + ".json", email)
+                  .then(function(response) {
+                    console.log(response);
+                    if (response.data.code === 200) {
+                      console.log("registration successfull");
+                    } 
+                  })
+                  .catch(function(error) {
+                    console.log(error);
+                  });
+            }
+                      else{
+              console.log("dobre nazwa")
+              this.setState({ 
+                showReply: false,
+                wrongUsername:false,
+              });
+            }
+          })
+        }}
+              
   
   render() {
     // console.log("props",this.props);
