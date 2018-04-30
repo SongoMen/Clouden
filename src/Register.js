@@ -158,7 +158,7 @@ class Register extends Component {
                     console.log(error);
                   });
             }
-                      else{
+            else{
               console.log("dobre nazwa")
               this.setState({ 
                 wrongUsername:1,
@@ -169,7 +169,6 @@ class Register extends Component {
               
   
   render() {
-    // console.log("props",this.props);
     return (
       <div>
         <MuiThemeProvider>
