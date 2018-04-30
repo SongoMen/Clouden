@@ -25,44 +25,67 @@ class Register extends Component {
       username: "",
       email: "",
       password: "",
-      showReply: false,
-      wrongUsername: false,
-      wrongEmail:false,
+      wrongUsername: 0,
+      wrongEmail:0,
+      wrongPassword: 0
     };
   }
 
+  //1 - Not used username/email
+  //2 - used username/email
 
-  renderMessage(){
-    if(this.state.wrongUsername === true  && this.state.wrongEmail === false){
+  registerSuccessfull(){
+    if(this.state.wrongEmail === 1 && this.state.wrongUsername === 1){
       return (
-        <div><h1>Wrong Username</h1></div>
+      <div>
+        <p>Register successfull</p>
+      </div>
       )
-    }
-    else if(this.state.wrongEmail === true  && this.state.wrongUsername === false){
-      return (
-      <div><h1>Wrong Email</h1></div>
-      )
-    }    
-    else if(this.state.wrongEmail === true && this.state.wrongUsername === true){
-      return (
-      <div><h1>Wrong Everythng</h1></div>
-      )
-
-    }
-
-    else if(this.state.wrongEmail === false && this.state.wrongUsername === false){
-      return (
-      <div><h1>Register successfull</h1></div>
-      )
-
     }
   }
 
+  wrongEmailMessage(){
+    if(this.state.wrongEmail === 2){
+      return (
+      <div><p>Email is already taken</p></div>
+      )
+    }    
+
+  }
+
+  wrongUsernameMessage(){
+    if(this.state.wrongUsername === 2){
+      return (
+        <div>
+          <p>Username is already taken</p>
+        </div>
+      )
+    }
+  }
+  wrongPasswordMessage(){
+   if(this.state.wrongPassword === 2){
+      return (
+        <div>
+          <p>Password must have at least 6 characters. </p>
+        </div>
+      )
+    } 
+  }
 
   handleClick(event, role) {
     var apiBaseUrl = "https://webapp-0021.firebaseio.com";
     // console.log("values in register handler",role);
     //To be done:check for empty values before hitting submit
+    if(this.state.password.length < 6){
+      this.setState({
+        wrongPassword:2
+      })
+    }
+    else{
+      this.setState({
+        wrongPassword:1
+      })
+    }
     if (
       this.state.username.length > 0 &&
       this.state.email.length > 0 &&
@@ -85,15 +108,13 @@ class Register extends Component {
           if(snapshot.hasChild(payload.email)){
             console.log("zły email")
             this.setState({ 
-              showReply: true,
-              wrongEmail:true
+              wrongEmail:2
             });
           } 
           else{
             console.log("dobre email")
             this.setState({ 
-              showReply: false,
-              wrongEmail:false
+              wrongEmail:1
             });
           }
         })
@@ -104,11 +125,10 @@ class Register extends Component {
             if(snapshot.hasChild(payload.username)){
               console.log("zła nazwa")
               this.setState({ 
-                showReply: true,
-                wrongUsername:true
+                wrongUsername:2
               });
             } 
-              else if(this.state.wrongEmail === false){
+              else if(this.state.wrongEmail === 1 && this.state.wrongPassword === 1){
               axios
               .put(apiBaseUrl + "/users/" + payload.username + ".json", payload)
                 .then(function(response) {
@@ -138,8 +158,7 @@ class Register extends Component {
                       else{
               console.log("dobre nazwa")
               this.setState({ 
-                showReply: false,
-                wrongUsername:false,
+                wrongUsername:1,
               });
             }
           })
@@ -153,7 +172,7 @@ class Register extends Component {
         <MuiThemeProvider>
           <div>
             <AppBar title="Register" />
-            {this.state.showReply && this.renderMessage()}
+            {this.registerSuccessfull()}
             <TextField
               hintText="Enter your Username"
               floatingLabelText="Username"
@@ -162,12 +181,16 @@ class Register extends Component {
               }
             />
             <br />
+            {this.wrongUsernameMessage()}
+            <br/>
             <TextField
               hintText="Enter email"             
               floatingLabelText="Enter email"
               onChange={(event, newValue) => this.setState({ email: newValue })}
             />
             <br />
+            {this.wrongEmailMessage()}
+            <br/>
             <TextField
               type="password"
               hintText="Enter your Password"
@@ -176,6 +199,8 @@ class Register extends Component {
                 this.setState({ password: newValue })
               }
             />
+            <br/>
+            {this.wrongPasswordMessage()}
             <br />
             <RaisedButton
               label="Submit"
