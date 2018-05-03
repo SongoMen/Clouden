@@ -131,9 +131,6 @@ class Register extends Component {
               });
             } 
               else if(this.state.wrongEmail === 1 && this.state.wrongPassword === 1){
-              this.setState({
-                wrongUsername:1
-              })
               axios
               .put(apiBaseUrl + "/users/" + payload.username + ".json", payload)
                 .then(function(response) {
