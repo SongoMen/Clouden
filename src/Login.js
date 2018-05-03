@@ -5,6 +5,12 @@ import RaisedButton from "material-ui/RaisedButton";
 import TextField from "material-ui/TextField";
 import * as firebase from "firebase";
 
+var login = {
+	validUsername:false,
+	validPassword:false,
+	isLogged:false
+}
+
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -19,17 +25,19 @@ class Login extends Component {
       username: this.state.username,
       password: this.state.password
     };
-    
+
 
     firebase.database()
-      .ref(`/users`)
-      .once("value")
+      	.ref(`/users`)
+      	.once("value")
         .then(snapshot => {
           if(snapshot.hasChild(payload.username)){
             console.log("dobry username")
+            login.validUsername = true
         	} 
           else{
             console.log("zły username lub hasło")
+            login.validUsername = false
           }
         })
     firebase.database()
@@ -37,14 +45,18 @@ class Login extends Component {
       	.once("value", function(snapshot){
       		if(snapshot.val() === payload.password){
       			console.log("dobre hasło")
-      			this.setState({ 
-		            isLogged:true
-			    });
+      			login.validPassword = true
       		}
       		else{
      			console.log("złe hasło")
+     			login.validUsername = false
       		}
     	})
+    if(login.validUsername === true &&
+       login.validPassword === true){
+    	login.isLogged = true
+    	console.log("dsadsa")
+    }
   	}
   render() {
     return (
