@@ -35,10 +35,10 @@ class Register extends Component {
   //2 - used username/email
 
   registerSuccessfull(){
-    if(this.state.wrongEmail === 1 && this.state.wrongUsername === 1){
+    if(this.state.wrongEmail === 1 && this.state.wrongUsername === 1 && this.state.wrongPassword === 1){
       return (
       <div className="formBox">
-        <p>Register successfull</p>
+        <p>Register successful. <Link to = "/">Go to login page.</Link></p>
       </div>
       )
     }
