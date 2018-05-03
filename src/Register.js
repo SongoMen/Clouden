@@ -77,8 +77,7 @@ class Register extends Component {
 
   handleClick(event, role) {
     var apiBaseUrl = "https://webapp-0021.firebaseio.com";
-    // console.log("values in register handler",role);
-    //To be done:check for empty values before hitting submit
+
     if(this.state.password.length < 6){
       this.setState({
         wrongPassword:2
@@ -132,6 +131,9 @@ class Register extends Component {
               });
             } 
               else if(this.state.wrongEmail === 1 && this.state.wrongPassword === 1){
+              this.setState({
+                wrongUsername:1
+              })
               axios
               .put(apiBaseUrl + "/users/" + payload.username + ".json", payload)
                 .then(function(response) {
