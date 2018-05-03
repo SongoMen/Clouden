@@ -32,11 +32,9 @@ class Login extends Component {
       	.once("value")
         .then(snapshot => {
           if(snapshot.hasChild(payload.username)){
-            console.log("dobry username")
             login.validUsername = true
         	} 
           else{
-            console.log("zły username lub hasło")
             login.validUsername = false
           }
         })
@@ -44,19 +42,20 @@ class Login extends Component {
     	.ref('/users/' + payload.username + '/password')
       	.once("value", function(snapshot){
       		if(snapshot.val() === payload.password){
-      			console.log("dobre hasło")
       			login.validPassword = true
       		}
-      		else{
-     			console.log("złe hasło")
+      		else if(snapshot.val() !== payload.password){
      			login.validUsername = false
       		}
     	})
-    if(login.validUsername === true &&
-       login.validPassword === true){
+    if(login.validUsername === false &&
+       login.validPassword === false){
     	login.isLogged = true
-    	console.log("dsadsa")
+    	console.log("is Logged " + login.isLogged)
     }
+    console.log("Username " + login.validUsername)	
+    console.log("Password " + login.validPassword)
+
   	}
   render() {
     return (
