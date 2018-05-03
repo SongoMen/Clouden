@@ -3,41 +3,49 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar from "material-ui/AppBar";
 import RaisedButton from "material-ui/RaisedButton";
 import TextField from "material-ui/TextField";
-import axios from "axios";
-
+import * as firebase from "firebase";
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      isLogged:false
     };
   }
   handleClick(event) {
-    var apiBaseUrl = "https://webapp-0021.firebaseio.com";
     var payload = {
       username: this.state.username,
       password: this.state.password
     };
-    axios
-      .get(apiBaseUrl + "/users/" + payload.username + ".json", payload)
-      .then(function(response) {
-        console.log(response);
-        if (response.data.code === 200) {
-          console.log("Login successfull");
-        } else if (response.data.code === 204) {
-          console.log("Username password do not match");
-          alert("username password do not match");
-        } else {
-          console.log("Username does not exists");
-          alert("Username does not exist");
-        }
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  }
+    
+
+    firebase.database()
+      .ref(`/users`)
+      .once("value")
+        .then(snapshot => {
+          if(snapshot.hasChild(payload.username)){
+            console.log("dobry username")
+        	} 
+          else{
+            console.log("zły username lub hasło")
+          }
+        })
+    firebase.database()
+    	.ref('/users/' + payload.username + '/password')
+      	.once("value", function(snapshot){
+      		if(snapshot.val() === payload.password){
+      			console.log("dobre hasło")
+      			this.setState({ 
+		            isLogged:true
+			    });
+      		}
+      		else{
+     			console.log("złe hasło")
+      		}
+    	})
+  	}
   render() {
     return (
       <div>

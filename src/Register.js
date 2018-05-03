@@ -37,7 +37,7 @@ class Register extends Component {
   registerSuccessfull(){
     if(this.state.wrongEmail === 1 && this.state.wrongUsername === 1){
       return (
-      <div class="formBox">
+      <div className="formBox">
         <p>Register successfull</p>
       </div>
       )
@@ -47,7 +47,7 @@ class Register extends Component {
   wrongEmailMessage(){
     if(this.state.wrongEmail === 2){
       return (
-      <div class="formMessage">
+      <div className="formMessage">
         <p>Email is already taken</p>
       </div>
       )
@@ -58,7 +58,7 @@ class Register extends Component {
   wrongUsernameMessage(){
     if(this.state.wrongUsername === 2){
       return (
-        <div class="formMessage">
+        <div className="formMessage">
           <p>Username is already taken</p>
         </div>
       )
@@ -68,7 +68,7 @@ class Register extends Component {
   wrongPasswordMessage(){
    if(this.state.wrongPassword === 2){
       return (
-        <div class="formMessage">
+        <div className="formMessage">
           <p>Password must have at least 6 characters. </p>
         </div>
       )
