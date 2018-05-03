@@ -1,0 +1,37 @@
+@font-face {
+font-family: 'DIN Pro Light';
+font-style: normal;
+font-weight: normal;
+src: local('DIN Pro Light'), url('fonts\DINPro-Light.woff') format('woff');
+}
+
+
+@font-face {
+font-family: 'DIN Pro Medium';
+font-style: normal;
+font-weight: normal;
+src: local('DIN Pro Medium'), url('fonts\DINPro-Medium.woff') format('woff');
+}
+
+
+@font-face {
+font-family: 'DIN Pro';
+font-style: normal;
+font-weight: normal;
+src: local('DIN Pro'), url('fonts\DINPro.woff') format('woff');
+}
+
+@font-face {
+font-family: 'DIN Pro Light Italic';
+font-style: normal;
+font-weight: normal;
+src: local('DIN Pro Light Italic'), url('fonts\DINPro-LightItalic.woff') format('woff');
+}
+
+
+@font-face {
+font-family: 'DIN Pro Medium Italic';
+font-style: normal;
+font-weight: normal;
+src: local('DIN Pro Medium Italic'), url('fonts\DINPro-MediumItalic.woff') format('woff');
+}
