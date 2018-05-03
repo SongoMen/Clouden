@@ -5,11 +5,6 @@ import RaisedButton from "material-ui/RaisedButton";
 import TextField from "material-ui/TextField";
 import * as firebase from "firebase";
 
-var login = {
-	validUsername:false,
-	validPassword:false,
-	isLogged:false
-}
 
 class Login extends Component {
   constructor(props) {
@@ -17,39 +12,43 @@ class Login extends Component {
     this.state = {
       username: "",
       password: "",
-      isLogged:false
     };
   }
   handleClick(event) {
+  	var login = {
+		validUsername:0,
+		validPassword:0,
+		isLogged:false
+	}
+
     var payload = {
       username: this.state.username,
       password: this.state.password
     };
-
 
     firebase.database()
       	.ref(`/users`)
       	.once("value")
         .then(snapshot => {
           if(snapshot.hasChild(payload.username)){
-            login.validUsername = true
+            login.validUsername = 1
         	} 
           else{
-            login.validUsername = false
+            login.validUsername = 2
           }
         })
     firebase.database()
     	.ref('/users/' + payload.username + '/password')
       	.once("value", function(snapshot){
       		if(snapshot.val() === payload.password){
-      			login.validPassword = true
+      			login.validPassword = 1
       		}
       		else if(snapshot.val() !== payload.password){
-     			login.validUsername = false
+     			login.validUsername = 2
       		}
     	})
-    if(login.validUsername === false &&
-       login.validPassword === false){
+    if(login.validUsername === 1 &&
+       login.validPassword === 1){
     	login.isLogged = true
     	console.log("is Logged " + login.isLogged)
     }
