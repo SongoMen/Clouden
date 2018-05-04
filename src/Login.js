@@ -5,6 +5,11 @@ import RaisedButton from "material-ui/RaisedButton";
 import TextField from "material-ui/TextField";
 import * as firebase from "firebase";
 
+  	var login = {
+		validUsername:0,
+		validPassword:0,
+		isLogged:false
+	}
 
 class Login extends Component {
   constructor(props) {
@@ -15,11 +20,6 @@ class Login extends Component {
     };
   }
   handleClick(event) {
-  	var login = {
-		validUsername:0,
-		validPassword:0,
-		isLogged:false
-	}
 
     var payload = {
       username: this.state.username,
@@ -43,7 +43,7 @@ class Login extends Component {
       		if(snapshot.val() === payload.password){
       			login.validPassword = 1
       		}
-      		else if(snapshot.val() !== payload.password){
+      		else {
      			login.validUsername = 2
       		}
     	})
