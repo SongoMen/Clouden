@@ -1,6 +1,7 @@
 body{
 	margin: 0;
 	letter-spacing: 1px;
+	font-family: 'Maven Pro';
 }
 
 .banner{
@@ -21,24 +22,46 @@ li {
 	display: inline;
 	padding-left: 50px;
 	color: white;
-	font-family: 'Maven Pro';
 	font-weight: 500;
 	font-size: 20px;
 }
+
 .login{
 	cursor: pointer;
 	height: 40px;
 	width: 120px;
 	border-radius: 50px;
 	background-color: #ffcc00;
-	text-transform: uppercase;
-	color: white;
-	font-size: 9px;
+	box-shadow:0px 0px 15px 0px rgba(0, 0, 0, 0.25);
+	float: right;
+	margin-top: -5px;
+
 }
 
 .login h1{
+	text-transform: uppercase;
 	text-align: center;
-	vertical-align: text-bottom;
-	padding-top: 10px;
+	color: white;
+	font-size: 12px;
+	padding-top: 2px;
+	font-weight: 900;
+}
+
+.register{
+	cursor: pointer;
+	height: 40px;
+	width: 170px;
+	border-radius: 50px;
+	background-color: white;
+	box-shadow:0px 0px 15px 0px rgba(0, 0, 0, 0.25);
+	float: right;
+	margin-top: -5px;
+}
+.register h1{
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #c2c9db;
+	text-align: center;
+	padding-top: 2px;
 	font-weight: 700;
 }

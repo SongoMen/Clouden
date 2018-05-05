@@ -18,6 +18,11 @@ class Main extends Component {
 							<div className="login">
 								<h1>Login</h1>
 							</div>
+						</li>						
+						<li>
+							<div className="register">
+								<h1>Create account</h1>
+							</div>
 						</li>
 					</ul>
 				</nav>
