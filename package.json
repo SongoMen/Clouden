@@ -21,6 +21,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "css-loader": "^0.28.11",
     "react-router": "^3.2.1"
   }
 }

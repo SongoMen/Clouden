@@ -1,0 +1,44 @@
+body{
+	margin: 0;
+	letter-spacing: 1px;
+}
+
+.banner{
+	background: linear-gradient(135deg, rgba(255,216,59,1) 0%,rgba(255,149,120,1) 100%);
+	width: 100%;
+	float: left;
+	height: 100vh;
+}
+
+ul{
+	list-style-type: none;
+	float: right;
+	padding-top: 30px;
+	padding-right: 70px;
+}
+
+li {
+	display: inline;
+	padding-left: 50px;
+	color: white;
+	font-family: 'Maven Pro';
+	font-weight: 500;
+	font-size: 20px;
+}
+.login{
+	cursor: pointer;
+	height: 40px;
+	width: 120px;
+	border-radius: 50px;
+	background-color: #ffcc00;
+	text-transform: uppercase;
+	color: white;
+	font-size: 9px;
+}
+
+.login h1{
+	text-align: center;
+	vertical-align: text-bottom;
+	padding-top: 10px;
+	font-weight: 700;
+}
