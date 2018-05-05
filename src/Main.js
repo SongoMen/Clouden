@@ -12,9 +12,9 @@ class Main extends Component {
 				<div className="banner">
 					<nav>
 						<ul>
-							<li className="float">Home</li>
-							<li className="float">Pricing</li>
-							<li className="float">Why Us </li>
+							<li className="float"><p>Home</p></li>
+							<li className="float"><p>Pricing</p></li>
+							<li className="float"><p>Why Us</p></li>
 							<Link to = "/login">
 								<li>
 									<div className="login">
@@ -60,7 +60,10 @@ class Main extends Component {
 					</div>
 				</div>
 				<div className="sections">
-					<h1>section</h1>
+					<h1>dsadsa</h1>
+					<div className="bottomBar">
+						ffsafas
+					</div>
 				</div>
 			</div>
 		)
