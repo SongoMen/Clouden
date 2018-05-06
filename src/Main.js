@@ -8,7 +8,7 @@ class Main extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			click:0
+			click:1
 		};
 	}
 	handleScrollToElement(event){
@@ -33,7 +33,7 @@ class Main extends Component {
 							<li className="float"><p>Home</p></li>
 							<li className="float">
 							<p 
-							onClick={this.handleClick}
+							onClick={this.handleScrollToElement}
 							>About Us</p>
 							</li>
 							<li className="float"><p>Features</p></li>
