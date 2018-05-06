@@ -49,7 +49,7 @@ li {
 	color: white;
 	font-size: 12px;
 	padding-top: 2px;
-	font-weight: 900;
+	font-weight: 500;
 }
 
 .register{
@@ -70,7 +70,7 @@ li {
 	color: #c2c9db;
 	text-align: center;
 	padding-top: 2px;
-	font-weight: 700;
+	font-weight: 500;
 }
 .float{
 	float: left;
@@ -113,7 +113,7 @@ li p{
 	color: white;
 	font-size: 16px;
 	padding-top: 3px;
-	font-weight: 900;
+	font-weight: 500;
 }
 
 .register1{
@@ -132,7 +132,7 @@ li p{
 	color: #c2c9db;
 	text-align: center;
 	padding-top: 3px;
-	font-weight: 700;
+	font-weight: 500;
 }
 
 .arrow-circle{
@@ -152,16 +152,50 @@ li p{
 }
 
 /*
-#########################################SECTIONS####################################
+##################################################### SECTIONS ###############################################
 */
 .sections{
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 	background-color: white;
 	bottom: 0;
+	color: #bec2cc;
 	float: left;
 }
 
+.about-line{
+	background-color: #bec2cc;
+	width: 40px;
+	position: absolute;
+	margin-top: 8px;
+	height: 3px;
+	margin-left: 5px;
+	border-radius: 10px;
+}
+
+.sections h2{	
+	font-size: 18px;
+	padding-left: 65px;
+	top: 200px;
+}
+
+
+.text{
+	margin-left: 64vw;
+	margin-top: 350px;
+}
+
+.text h1{
+	color: #ffcc00;
+	margin-top: -10px;
+	font-size: 70px;
+	font-weight: 500;
+}
+
+.description{
+	margin-top: -30px;
+	font-size: 25px;
+}
 /*
 ################################################  Bottom bar #############################################
 */
@@ -169,7 +203,7 @@ li p{
 .bottomBar {
 	width: 100%;
 	height: 100px;
+	bottom: -1000px;
 	position: absolute;
-	bottom: 0;
 	background-color: #ececec;
 }
