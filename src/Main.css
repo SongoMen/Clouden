@@ -18,7 +18,13 @@ body{
 ::-webkit-scrollbar-thumb {
     background: #ffcc00; 
 }
+.route-wrapper {
+  position: relative;
+}
 
+.route-wrapper > div {
+  position: absolute;
+}
 /*
 ################################################  MENU #############################################
 */

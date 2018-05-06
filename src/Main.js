@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import ReactDOM from 'react-dom';
 
-import './App.css';
+import './Main.css';
 
 class Main extends Component {
 	constructor(props){
@@ -10,18 +10,6 @@ class Main extends Component {
 		this.state = {
 			click:1
 		};
-	}
-	handleScrollToElement(event){
-		const tesNode = ReactDOM.findDOMNode("section1")
-		if(this.state.click === 1){
-			window.scrollTo(220, tesNode.offsetTop);
-		}
-	}
-
-	handleClick = () => {
-	  this.setState({
-	    click: 1
-	  });
 	}
 
 	render(){
@@ -32,9 +20,7 @@ class Main extends Component {
 						<ul>
 							<li className="float"><p>Home</p></li>
 							<li className="float">
-							<p 
-							onClick={this.handleScrollToElement}
-							>About Us</p>
+							<p>About Us</p>
 							</li>
 							<li className="float"><p>Features</p></li>
 							<li className="float"><p>Pricing</p></li>
