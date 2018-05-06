@@ -13,10 +13,6 @@ import Main from "./Main.js"
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      loginPage: [],
-      uploadScreen: []
-    };
   }
 
   render() {

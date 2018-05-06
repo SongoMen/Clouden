@@ -1,11 +1,29 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import ReactDOM from 'react-dom';
+
 import './App.css';
 
 class Main extends Component {
 	constructor(props){
-		super();
+		super(props);
+		this.state = {
+			click:0
+		};
 	}
+	handleScrollToElement(event){
+		const tesNode = ReactDOM.findDOMNode("section1")
+		if(this.state.click === 1){
+			window.scrollTo(220, tesNode.offsetTop);
+		}
+	}
+
+	handleClick = () => {
+	  this.setState({
+	    click: 1
+	  });
+	}
+
 	render(){
 		return(
 			<div className="main">
@@ -13,8 +31,13 @@ class Main extends Component {
 					<nav>
 						<ul>
 							<li className="float"><p>Home</p></li>
+							<li className="float">
+							<p 
+							onClick={this.handleClick}
+							>About Us</p>
+							</li>
+							<li className="float"><p>Features</p></li>
 							<li className="float"><p>Pricing</p></li>
-							<li className="float"><p>Why Us</p></li>
 							<Link to = "/login">
 								<li>
 									<div className="login">
@@ -59,9 +82,9 @@ class Main extends Component {
 						</svg>
 					</div>
 				</div>
-				<div className="sections">
+				<div className="section1">
 					<div className="text">
-						<span className="about-line"></span>
+						<span className="section1-line"></span>
 						<h2>ABOUT US</h2>
 						<h1>Who we are?</h1>
 						<p className="description">

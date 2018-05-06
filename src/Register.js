@@ -29,6 +29,7 @@ class Register extends Component {
       wrongEmail:0,
       wrongPassword: 0
     };
+    
   }
 
   //1 - Not used username/email
