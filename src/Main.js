@@ -26,7 +26,7 @@ class Main extends Component {
 							<li className="float"><p>Pricing</p></li>
 							<Link to = "/login">
 								<li>
-									<div className="login">
+									<div className="login2">
 										<h1>Login</h1>
 									</div>
 								</li>

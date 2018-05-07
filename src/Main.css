@@ -1,5 +1,6 @@
 body{
 	margin: 0;
+	background-image: url('./login.jpg');
 	letter-spacing: 1px;
 	font-family: 'Maven Pro';
 }
@@ -51,7 +52,7 @@ li {
 	margin-top: -5px;
 }
 
-.login{
+.login2{
 	cursor: pointer;
 	height: 40px;
 	width: 120px;
@@ -64,7 +65,7 @@ li {
 
 }
 
-.login h1{
+.login2 h1{
 	text-transform: uppercase;
 	text-align: center;
 	color: white;

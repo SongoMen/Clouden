@@ -4,12 +4,15 @@ import AppBar from "material-ui/AppBar";
 import RaisedButton from "material-ui/RaisedButton";
 import TextField from "material-ui/TextField";
 import * as firebase from "firebase";
+import { Link } from 'react-router-dom';
 
-  	var login = {
-		validUsername:0,
-		validPassword:0,
-		isLogged:false
-	}
+import './Login.css'
+
+var login = {
+	validUsername:0,
+	validPassword:0,
+	isLogged:false
+}
 
 class Login extends Component {
   constructor(props) {
@@ -58,10 +61,39 @@ class Login extends Component {
   	}
   render() {
     return (
-      <div>
+      <div className="loginScreen">
+		<nav>
+			<ul>
+				<li className="float">
+					<p>Home</p>
+				</li>
+				<li className="float">
+					<p>About Us</p>
+				</li>
+				<li className="float">
+					<p>Features</p>
+				</li>
+				<li className="float">
+					<p>Pricing</p>
+				</li>
+				<Link to = "/login">
+					<li>
+						<div className="login2">
+							<h1>Login</h1>
+						</div>
+					</li>
+				</Link>	
+				<Link to = "/register">					
+					<li>
+						<div className="register">
+							<h1>Create account</h1>
+						</div>
+					</li>
+				</Link>
+			</ul>
+		</nav>
         <MuiThemeProvider>
           <div>
-            <AppBar title="Login" />
             <TextField
               hintText="Enter your Username"
               floatingLabelText="Username"
