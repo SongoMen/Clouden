@@ -110,7 +110,7 @@ class Login extends Component {
 		    	</div>
 				<input type="text" id="login" className="fadeIn second" name="login" placeholder="Login" onChange={evt => this.updateInputValueUsername(evt)}/>
 				<input type="text" id="password" className="fadeIn third" name="login" placeholder="Password" onChange={evt => this.updateInputValuePassword(evt)}   />
-				<input type="submit" className="fadeIn fourth" value="Log In"/>
+				<input type="submit" className="fadeIn fourth" value="Log In" onClick={event => this.handleClick(event)}/>
 			    <div id="formFooter">
 			      <a className="underlineHover" href="#">Forgot Password?</a>
 			    </div>

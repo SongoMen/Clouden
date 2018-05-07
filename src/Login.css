@@ -88,6 +88,7 @@ input[type=button], input[type=submit], input[type=reset]  {
   padding: 15px 80px;
   text-align: center;
   text-decoration: none;
+  height: 50px;
   display: inline-block;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -143,7 +144,7 @@ input[type=text] {
 
 input[type=text]:focus {
   background-color: #fff;
-  border-bottom: 2px solid #ffcc00;
+  border-bottom: 3px solid #ffcc00;
 }
 
 ::placeholder {
