@@ -1,8 +1,4 @@
 import React, { Component } from "react";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import AppBar from "material-ui/AppBar";
-import RaisedButton from "material-ui/RaisedButton";
-import TextField from "material-ui/TextField";
 import * as firebase from "firebase";
 import { Link } from 'react-router-dom';
 
@@ -59,6 +55,19 @@ class Login extends Component {
     console.log("Password " + login.validPassword)
 
   	}
+ 
+ 	updateInputValueUsername(evt){
+    	this.setState({
+      		username: evt.target.value
+    	});
+	}
+
+ 	updateInputValuePassword(evt){
+    	this.setState({
+      		password: evt.target.value
+    	});
+	}
+
   render() {
     return (
       <div className="loginScreen">
@@ -92,38 +101,23 @@ class Login extends Component {
 				</Link>
 			</ul>
 		</nav>
-        <MuiThemeProvider>
-          <div>
-            <TextField
-              hintText="Enter your Username"
-              floatingLabelText="Username"
-              onChange={(event, newValue) =>
-                this.setState({ username: newValue })
-              }
-            />
-            <br />
-            <TextField
-              type="password"
-              hintText="Enter your Password"
-              floatingLabelText="Password"
-              onChange={(event, newValue) =>
-                this.setState({ password: newValue })
-              }
-            />
-            <br />
-            <RaisedButton
-              label="Submit"
-              primary={true}
-              style={style}
-              onClick={event => this.handleClick(event)}
-            />
-          </div>
-        </MuiThemeProvider>
-      </div>
+		<div className="wrapper fadeInDown">
+		  	<div id="formContent">
+			    <h2 className="active"> Sign In </h2>
+			    <h2 className="inactive underlineHover">Sign Up </h2>
+				<div className="fadeIn first">
+		      		<img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+		    	</div>
+				<input type="text" id="login" className="fadeIn second" name="login" placeholder="Login" onChange={evt => this.updateInputValueUsername(evt)}/>
+				<input type="text" id="password" className="fadeIn third" name="login" placeholder="Password" onChange={evt => this.updateInputValuePassword(evt)}   />
+				<input type="submit" className="fadeIn fourth" value="Log In"/>
+			    <div id="formFooter">
+			      <a className="underlineHover" href="#">Forgot Password?</a>
+			    </div>
+		  	</div>
+		</div>
+    </div>
     );
   }
 }
-const style = {
-  margin: 15
-};
 export default Login;
