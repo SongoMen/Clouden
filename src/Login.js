@@ -92,6 +92,29 @@ class Login extends Component {
 	}
   	}
 
+  	classChangeCircle(){
+  		if(this.state.validUsername !== 0){
+  			return(
+  				'circle-loader load-complete'
+  			)
+  		}
+  		else{
+  			'circle-loader'
+  		}
+  	}
+
+  	classChangeTick(){
+  		if(this.state.validUsername !== 0){
+  			return(
+  				'checkmark draw show'
+  			)
+  		}
+  		else{
+  			'checkmark draw'
+  		}
+  	}
+
+
   	getStyleUsername(){
   		if(this.state.username.length <= 0 &&
       	this.state.clicked !== 0 )
@@ -126,12 +149,12 @@ class Login extends Component {
 
 //SET TIMEOUT ON CHECKMARK, CHANGE CLASS, TURN CLASS
 
-	auth(classDraw = "circle-loader load-complete", checkmark = "checkmark draw show"){
+	auth(){
 
 	  	return(
 		  	<div className="auth">
-		  	<div className={classDraw}>
-			  <div className={checkmark}></div>
+		  	<div className={this.classChangeCircle()}>
+			  <div className={this.classChangeTick()}></div>
 			</div>
 				<h3>Authenticating...</h3>	  		
 		  	</div>
