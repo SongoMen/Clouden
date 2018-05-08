@@ -7,7 +7,7 @@ import './Login.css'
 var login = {
 	validUsername:0,
 	validPassword:0,
-	isLogged:false
+	isLogged:false,
 }
 
 
@@ -17,7 +17,9 @@ class Login extends Component {
     this.state = {
       username: "",
       password: "",
+      clicked:0
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(event) {
@@ -58,7 +60,36 @@ class Login extends Component {
 	    }
 	    console.log("Username " + login.validUsername)	
 	    console.log("Password " + login.validPassword)
+	    console.log("clicked " + login.clicked)
+	   	this.setState({
+			clicked: this.state.clicked + 1
+		})
 	}
+	else{
+		this.setState({
+			clicked: this.state.clicked + 1
+		})
+	}
+  	}
+
+  	getStyleUsername(){
+  		if(this.state.username.length <= 0 &&
+      	this.state.clicked !== 0 )
+	    {
+	    	return {
+	    		border: '2px solid red '
+	    	}
+	    }
+  	}
+
+  	getStylePassword(){
+	    if(this.state.password.length <= 0 &&
+	    this.state.clicked !== 0){
+	    	return {
+	    		border: '2px solid red '
+	    	}
+
+	    }
   	}
  
  	updateInputValueUsername(evt){
@@ -76,6 +107,7 @@ class Login extends Component {
 //SET TIMEOUT ON CHECKMARK, CHANGE CLASS, TURN CLASS
 
 	auth(classDraw = "circle-loader load-complete", checkmark = "checkmark draw show"){
+
 	  	return(
 		  	<div className="auth">
 		  	<div className={classDraw}>
@@ -134,6 +166,7 @@ class Login extends Component {
 					className="fadeIn second" 
 					name="login" 
 					placeholder="Login" 
+					style = {this.getStyleUsername()}
 					onChange={evt => this.updateInputValueUsername(evt)}
 				/>
 				<input 
@@ -141,6 +174,7 @@ class Login extends Component {
 					id="password" 
 					className="fadeIn third" 
 					name="login" 
+					style = {this.getStylePassword()}
 					placeholder="Password" 
 					onChange={evt => this.updateInputValuePassword(evt)}
 				/>
