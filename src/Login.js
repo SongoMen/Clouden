@@ -17,10 +17,15 @@ class Login extends Component {
     this.state = {
       username: "",
       password: "",
-      clicked:0
+      validUsername:0,
+      validPassword:0,
+      clicked:0,
+      isLogged:false
     };
+    this.handleClick.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
+
 
   handleClick(event) {
 
@@ -37,30 +42,45 @@ class Login extends Component {
 	      	.once("value")
 	        .then(snapshot => {
 	          if(snapshot.hasChild(payload.username)){
-	            login.validUsername = 1
+	            this.setState({
+	            	validUsername:1
+	            })
 	        	} 
 	          else{
-	            login.validUsername = 2
-	          }
+	            this.setState({
+	            	validUsername:2
+	            })	          
+	        }
 	        })
 	    firebase.database()
 	    	.ref('/users/' + payload.username + '/password')
 	      	.once("value", function(snapshot){
 	      		if(snapshot.val() === payload.password){
-	      			login.validPassword = 1
+				    () => {
+				    this.setState({
+				        validPassword:1
+				    });
+					}
 	      		}
 	      		else {
-	     			login.validUsername = 2
+				    () => {
+					    this.setState({
+					        validPassword:2
+					    });
+					}
 	      		}
 	    	})
-	    if(login.validUsername === 1 &&
-	       login.validPassword === 1){
-	    	login.isLogged = true
-	    	console.log("is Logged " + login.isLogged)
+	    if(this.state.validUsername === 1 &&
+	       this.state.validPassword === 1){
+	        	this.setState({
+	           		isLogged:true
+	            })
+	    	console.log("is Logged " + this.state.isLogged)
 	    }
-	    console.log("Username " + login.validUsername)	
-	    console.log("Password " + login.validPassword)
-	    console.log("clicked " + login.clicked)
+	    
+	    console.log("Username " + this.state.validUsername)	
+	    console.log("Password " + this.state.validPassword)
+
 	   	this.setState({
 			clicked: this.state.clicked + 1
 		})
@@ -170,7 +190,7 @@ class Login extends Component {
 					onChange={evt => this.updateInputValueUsername(evt)}
 				/>
 				<input 
-					type="text" 
+					type="password" 
 					id="password" 
 					className="fadeIn third" 
 					name="login" 
