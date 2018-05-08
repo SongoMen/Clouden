@@ -11,9 +11,6 @@ import Login from "./Login.js"
 import Main from "./Main.js"
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
