@@ -26,6 +26,37 @@ class Login extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  updateInputValueUsername(evt){
+	this.setState({
+		  username: evt.target.value
+	});
+}
+
+ updateInputValuePassword(evt){
+	this.setState({
+		  password: evt.target.value
+	});
+}
+
+getStyleUsername(){
+	if(this.state.username.length <= 0 &&
+	this.state.clicked !== 0 )
+  {
+	  return {
+		  border: '2px solid red '
+	  }
+  }
+}
+
+getStylePassword(){
+  if(this.state.password.length <= 0 &&
+  this.state.clicked !== 0){
+	  return {
+		  border: '2px solid red '
+	  }
+
+  }
+}
 
   handleClick(event) {
 
@@ -98,8 +129,8 @@ class Login extends Component {
   				'circle-loader load-complete'
   			)
   		}
-  		else{
-  			'circle-loader'
+  		else if(this.state.clicked !== 0 && this.state.validUsername !== 0) {
+  			return 'circle-loader'
   		}
   	}
 
@@ -110,42 +141,22 @@ class Login extends Component {
   			)
   		}
   		else{
-  			'checkmark draw'
+  			return 'checkmark draw'
   		}
   	}
 
-
-  	getStyleUsername(){
-  		if(this.state.username.length <= 0 &&
-      	this.state.clicked !== 0 )
-	    {
-	    	return {
-	    		border: '2px solid red '
-	    	}
-	    }
-  	}
-
-  	getStylePassword(){
-	    if(this.state.password.length <= 0 &&
-	    this.state.clicked !== 0){
-	    	return {
-	    		border: '2px solid red '
-	    	}
-
-	    }
-  	}
- 
- 	updateInputValueUsername(evt){
-    	this.setState({
-      		username: evt.target.value
-    	});
+	classChangeText(){
+		if(this.state.validUsername !== 0){
+			return(
+				'show'
+			)
+		}
+		else{
+			return ''
+		}
 	}
 
- 	updateInputValuePassword(evt){
-    	this.setState({
-      		password: evt.target.value
-    	});
-	}
+
 
 //SET TIMEOUT ON CHECKMARK, CHANGE CLASS, TURN CLASS
 
@@ -153,10 +164,12 @@ class Login extends Component {
 
 	  	return(
 		  	<div className="auth">
-		  	<div className={this.classChangeCircle()}>
-			  <div className={this.classChangeTick()}></div>
-			</div>
-				<h3>Authenticating...</h3>	  		
+			  	<div className = "authContent">
+					<div className={this.classChangeCircle()}>
+						<div className={this.classChangeTick()}></div>
+					</div>
+					<h3 className={this.classChangeText()} class="authText">Authenticating...</h3>	  		
+				</div>
 		  	</div>
 	  	)
   }
@@ -196,13 +209,13 @@ class Login extends Component {
 				</Link>
 			</ul>
 		</nav>
+		{this.auth()}
 		<div className="wrapper fadeInDown">
 		  	<div id="formContent">
 			    <h2 className="active"> Sign In </h2>
 				<div className="fadeIn first">
 		      		<img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
 		    	</div>
-		    	{this.auth()}
 				<input 
 					type="text" 
 					id="login" 

@@ -142,7 +142,7 @@ input[type=text], #password {
   border-radius: 5px 5px 5px 5px;
 }
 
-input[type=text]:focus {
+input[type=text]:focus, #password:focus {
   background-color: #fff;
   border-bottom: 3px solid #ffcc00;
 }
@@ -151,6 +151,14 @@ input[type=text]:focus {
   color: #b7b7b7;
 }
 
+.authText{
+  display: none;
+}
+
+.authText.show{
+  display: block;
+  z-index: 50;
+}
 
 
 /* ANIMATIONS */
@@ -272,6 +280,30 @@ input[type=text]:focus {
 }
 
 /*######################### AUTH ######################*/
+.auth{
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+  position: absolute;
+}
+
+.authContent{
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
+}
 
 .circle-loader {
   margin-bottom: 56px;
@@ -291,6 +323,7 @@ input[type=text]:focus {
   animation: none;
   border-color: #5cb85c;
   transition: border 500ms ease-out;
+  z-index: 50;
 }
 
 .checkmark {
@@ -299,9 +332,11 @@ input[type=text]:focus {
 
 .checkmark.show {
   display: block;
+  z-index: 50;
 }
 
 .checkmark.draw:after {
+  z-index: 50;
   animation-duration: 800ms;
   animation-timing-function: ease;
   animation-name: checkmark;
@@ -311,6 +346,7 @@ input[type=text]:focus {
   opacity: 1;
   height:56px;
   width: 28px;
+  z-index: 50;
   transform-origin: left top;
   border-right: 3px solid #5cb85c;
   border-top: 3px solid #5cb85c;
