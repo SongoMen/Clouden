@@ -85,7 +85,7 @@ class Login extends Component {
 	        })
 	    firebase.database()
 	    	.ref('/users/' + payload.username + '/password')
-	      	.once("value", function check(snapshot){
+	      	.once("value", function(snapshot){
 	      		if(snapshot.val() === payload.password){
 							password.validPassword = 1
 	      		}
