@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as firebase from "firebase";
 import { Link } from 'react-router-dom';
+import {Helmet} from 'react-helmet';
 
 import './Login.css'
 
@@ -91,7 +92,7 @@ getStylePassword(){
 				    this.setState({
 				        validPassword:1
 				    });
-					}
+						}
 	      		}
 	      		else {
 				    () => {
@@ -110,18 +111,18 @@ getStylePassword(){
 	    }
 	    
 	    console.log("Username " + this.state.validUsername)	
-	    console.log("Password " + this.state.validPassword)
-
+			console.log("Password " + this.state.validPassword)
+			
 	   	this.setState({
 			clicked: this.state.clicked + 1
 		})
-	}
-	else{
-		this.setState({
-			clicked: this.state.clicked + 1
-		})
-	}
-  	}
+		}
+		else{
+			this.setState({
+				clicked: this.state.clicked + 1
+			})
+		}
+  }
 
   	classChangeCircle(){
   		if(this.state.validUsername !== 0){
@@ -148,28 +149,40 @@ getStylePassword(){
 	classChangeText(){
 		if(this.state.validUsername !== 0){
 			return(
-				'show'
+				'authText show'
 			)
 		}
 		else{
-			return ''
+			return 'authText'
 		}
 	}
+
+	classChangeBg(){
+		if(this.state.validUsername !== 0){
+			return(
+				'auth-bg show'
+			)
+		}
+		else{
+			return 'auth-bg'
+		}
+	}
+
 
 
 
 //SET TIMEOUT ON CHECKMARK, CHANGE CLASS, TURN CLASS
 
 	auth(){
-
 	  	return(
 		  	<div className="auth">
 			  	<div className = "authContent">
 					<div className={this.classChangeCircle()}>
 						<div className={this.classChangeTick()}></div>
 					</div>
-					<h3 className={this.classChangeText()} class="authText">Authenticating...</h3>	  		
+					<h3 className={this.classChangeText()} >Authenticating...</h3>	  		
 				</div>
+				<div className={this.classChangeBg()}></div>
 		  	</div>
 	  	)
   }
@@ -178,7 +191,10 @@ getStylePassword(){
 
   render() {
     return (
-      <div className="loginScreen">
+		<div className="loginScreen">
+		<Helmet>
+			<title>React App - Login</title>
+		</Helmet>
 		<nav>
 			<ul>
 				<li className="float">

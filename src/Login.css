@@ -150,17 +150,6 @@ input[type=text]:focus, #password:focus {
 ::placeholder {
   color: #b7b7b7;
 }
-
-.authText{
-  display: none;
-}
-
-.authText.show{
-  display: block;
-  z-index: 50;
-}
-
-
 /* ANIMATIONS */
 
 .fadeInDown {
@@ -287,17 +276,17 @@ input[type=text]:focus, #password:focus {
   justify-content: center;
   width: 100%;
   min-height: 100%;
-  padding: 20px;
   position: absolute;
 }
 
 .authContent{
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
-  background: #fff;
+  background: black;
+  z-index:50;
   padding: 30px;
   width: 90%;
-  max-width: 450px;
+  max-width: 550px;
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
@@ -306,6 +295,7 @@ input[type=text]:focus, #password:focus {
 }
 
 .circle-loader {
+  margin-top:30px;
   margin-bottom: 56px;
   border: 2px solid rgba(0, 0, 0, 0.2);
   border-left-color: #ffcc00;
@@ -354,6 +344,45 @@ input[type=text]:focus, #password:focus {
   left: 28px;
   top: 56px;
   position: absolute;
+}
+
+.auth-bg{
+  display: none;
+  animation: fadeBg 2s;
+}
+
+.auth-bg.show{
+  display: block;
+  background-color:black;
+  width:100%;
+  position: absolute;
+  height: 100vh;
+  margin:0;
+  opacity: 0.5;
+  z-index: 1;
+  animation: fadeBg 2s;
+}
+
+.authText{
+  display: none;
+}
+
+.authText.show{
+  text-align: center;
+  color:white;
+  margin-top:0px;
+  font-weight:300; 
+  display: block;
+  z-index: 50;
+}
+
+@keyframes FadeBg{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 0.5
+  }
 }
 
 @keyframes loader-spin {
