@@ -5,13 +5,6 @@ import {Helmet} from 'react-helmet';
 
 import './Login.css'
 
-var login = {
-	validUsername:0,
-	validPassword:0,
-	isLogged:false,
-}
-
-
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -28,9 +21,7 @@ class Login extends Component {
 			authClass:"authContent",
       isLogged:false
     };
-    this.handleClick.bind(this);
 		this.handleClick = this.handleClick.bind(this);
-		
   }
 
   updateInputValueUsername(evt){
@@ -70,6 +61,10 @@ class Login extends Component {
       password: this.state.password
     };
 
+		var password = {
+			validPassword: this.state.validPassword
+		}
+
     if(this.state.username.length > 0 &&
       this.state.password.length > 0)
     {
@@ -90,20 +85,12 @@ class Login extends Component {
 	        })
 	    firebase.database()
 	    	.ref('/users/' + payload.username + '/password')
-	      	.once("value", function(snapshot){
+	      	.once("value", function check(snapshot){
 	      		if(snapshot.val() === payload.password){
-				    () => {
-				    this.setState({
-				        validPassword:1
-				    });
-						}
+							password.validPassword = 1
 	      		}
 	      		else {
-							() => {
-								this.setState({
-										validPassword:2
-								});
-							}
+							password.validPassword = 2
 	      		}
 	    	})
 	    if(this.state.validUsername === 1 &&
@@ -134,7 +121,7 @@ class Login extends Component {
 
 	    setTimeout(function(){
 				console.log("Username " + this.state.validUsername)	
-				console.log("Password " + this.state.validPassword)
+				console.log("Password " + password.validPassword)
 			}.bind(this),2000)
 
 	   	this.setState({
