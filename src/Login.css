@@ -48,6 +48,7 @@ h2 {
   padding: 30px;
   width: 90%;
   max-width: 450px;
+  height: 510px;
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
@@ -280,6 +281,10 @@ input[type=text]:focus, #password:focus {
 }
 
 .authContent{
+  display: none;
+}
+
+.authContent.show{
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
   background: black;
@@ -287,6 +292,8 @@ input[type=text]:focus, #password:focus {
   padding: 30px;
   width: 90%;
   max-width: 550px;
+  height: 220px;
+  display: block;
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
@@ -294,23 +301,27 @@ input[type=text]:focus, #password:focus {
   text-align: center;
 }
 
-.circle-loader {
-  margin-top:30px;
-  margin-bottom: 56px;
+.circle-loader{
+  display: none;
+}
+
+.circle-loader.show {
+  margin:25px auto 25px auto;
   border: 2px solid rgba(0, 0, 0, 0.2);
   border-left-color: #ffcc00;
   animation: loader-spin 1.2s infinite linear;
   position: relative;
   display: inline-block;
-  vertical-align: top;
   border-radius: 50%;
   width: 112px;
   height: 112px;
 }
 
-.load-complete {
+.circle-loader.load-complete {
   -webkit-animation: none;
+  margin:25px auto 25px auto;
   animation: none;
+  display: block;
   border-color: #5cb85c;
   transition: border 500ms ease-out;
   z-index: 50;

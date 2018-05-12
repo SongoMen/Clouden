@@ -20,44 +20,48 @@ class Login extends Component {
       password: "",
       validUsername:0,
       validPassword:0,
-      clicked:0,
+			clicked:0,
+			classCircle:"circle-loader",
+			classTick:"checkmark draw",
+			classText:"authText",
+			classBg:"auth-bg",
+			authClass:"authContent",
       isLogged:false
     };
     this.handleClick.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+		this.handleClick = this.handleClick.bind(this);
+		
   }
 
   updateInputValueUsername(evt){
-	this.setState({
-		  username: evt.target.value
-	});
-}
+		this.setState({
+				username: evt.target.value
+		});
+	}
+ 	updateInputValuePassword(evt){
+		this.setState({
+				password: evt.target.value
+		});
+	}
+	getStyleUsername(){
+		if(this.state.username.length <= 0 &&
+		this.state.clicked !== 0 )
+		{
+			return {
+				border: '2px solid red '
+			}
+		}
+	}
+	getStylePassword(){
+		if(this.state.password.length <= 0 &&
+		this.state.clicked !== 0){
+			return {
+				border: '2px solid red '
+			}
 
- updateInputValuePassword(evt){
-	this.setState({
-		  password: evt.target.value
-	});
-}
+		}
+	}
 
-getStyleUsername(){
-	if(this.state.username.length <= 0 &&
-	this.state.clicked !== 0 )
-  {
-	  return {
-		  border: '2px solid red '
-	  }
-  }
-}
-
-getStylePassword(){
-  if(this.state.password.length <= 0 &&
-  this.state.clicked !== 0){
-	  return {
-		  border: '2px solid red '
-	  }
-
-  }
-}
 
   handleClick(event) {
 
@@ -95,24 +99,44 @@ getStylePassword(){
 						}
 	      		}
 	      		else {
-				    () => {
-					    this.setState({
-					        validPassword:2
-					    });
-					}
+							() => {
+								this.setState({
+										validPassword:2
+								});
+							}
 	      		}
 	    	})
 	    if(this.state.validUsername === 1 &&
 	       this.state.validPassword === 1){
 	        	this.setState({
 	           		isLogged:true
-	            })
+	          })
 	    	console.log("is Logged " + this.state.isLogged)
-	    }
-	    
-	    console.log("Username " + this.state.validUsername)	
-			console.log("Password " + this.state.validPassword)
+			}
 			
+			if(this.state.clicked !== 1){
+				this.setState({
+					classCircle: this.state.classCircle +  " show",
+					classText: this.state.classText + " show",
+					classBg: "auth-bg show",
+					authClass:"authContent show"
+				})
+				setTimeout(function(){
+					this.setState({
+						classTick: "checkmark draw show",
+						classCircle: "circle-loader load-complete show"
+					})
+				}.bind(this), 2000)
+				setTimeout(function(){
+					window.location = 'register';
+				}, 3000)
+			}
+
+	    setTimeout(function(){
+				console.log("Username " + this.state.validUsername)	
+				console.log("Password " + this.state.validPassword)
+			}.bind(this),2000)
+
 	   	this.setState({
 			clicked: this.state.clicked + 1
 		})
@@ -124,65 +148,18 @@ getStylePassword(){
 		}
   }
 
-  	classChangeCircle(){
-  		if(this.state.validUsername !== 0){
-  			return(
-  				'circle-loader load-complete'
-  			)
-  		}
-  		else if(this.state.clicked !== 0 && this.state.validUsername !== 0) {
-  			return 'circle-loader'
-  		}
-  	}
-
-  	classChangeTick(){
-  		if(this.state.validUsername !== 0){
-  			return(
-  				'checkmark draw show'
-  			)
-  		}
-  		else{
-  			return 'checkmark draw'
-  		}
-  	}
-
-	classChangeText(){
-		if(this.state.validUsername !== 0){
-			return(
-				'authText show'
-			)
-		}
-		else{
-			return 'authText'
-		}
-	}
-
-	classChangeBg(){
-		if(this.state.validUsername !== 0){
-			return(
-				'auth-bg show'
-			)
-		}
-		else{
-			return 'auth-bg'
-		}
-	}
-
-
-
-
 //SET TIMEOUT ON CHECKMARK, CHANGE CLASS, TURN CLASS
 
 	auth(){
 	  	return(
 		  	<div className="auth">
-			  	<div className = "authContent">
-					<div className={this.classChangeCircle()}>
-						<div className={this.classChangeTick()}></div>
+			  	<div className = {this.state.authClass}>
+					<div className={this.state.classCircle}>
+						<div className={this.state.classTick}></div>
 					</div>
-					<h3 className={this.classChangeText()} >Authenticating...</h3>	  		
+					<h3 className={this.state.classText} >Authenticating...</h3>	  		
 				</div>
-				<div className={this.classChangeBg()}></div>
+				<div className={this.state.classBg}></div>
 		  	</div>
 	  	)
   }
