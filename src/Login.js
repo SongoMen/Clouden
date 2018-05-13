@@ -5,6 +5,7 @@ import {Helmet} from 'react-helmet';
 
 import './Login.css'
 
+
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -16,6 +17,7 @@ class Login extends Component {
 			clicked:0,
 			classCircle:"circle-loader",
 			classTick:"checkmark draw",
+			classTick2:"checkmark2 draw",
 			classText:"authText",
 			classBg:"auth-bg",
 			authClass:"authContent",
@@ -53,13 +55,24 @@ class Login extends Component {
 		}
 	}
 
-
   handleClick(event) {
 
     var payload = {
       username: this.state.username,
       password: this.state.password
-    };
+		};
+		
+		const style = {
+			borderLeftColor: '#ffcc00'
+		};
+
+		setTimeout(function(){
+			if(this.state.validPassword !== 1 || this.state.validUsername !== 1){
+				const style = {
+					borderColor: '#5cb85c'
+				};
+			}
+		}.bind(this), 3000)
 
 		var password = {
 			validPassword: this.state.validPassword
@@ -100,13 +113,17 @@ class Login extends Component {
 	          })
 	    	console.log("is Logged " + this.state.isLogged)
 			}
-			
-			if(this.state.clicked !== 1){
+
+			setTimeout(function(){
+			this.setState({
+				classBg: "auth-bg show",
+				authClass:"authContent show"
+			})
+			if(this.state.validPassword === 1 && this.state.validUsername === 1){
+				
 				this.setState({
 					classCircle: this.state.classCircle +  " show",
 					classText: this.state.classText + " show",
-					classBg: "auth-bg show",
-					authClass:"authContent show"
 				})
 				setTimeout(function(){
 					this.setState({
@@ -115,10 +132,28 @@ class Login extends Component {
 					})
 				}.bind(this), 2000)
 				setTimeout(function(){
-					window.location = 'register';
+					//window.location = 'register';
 				}, 3000)
 			}
 
+			else if (this.state.validPassword !== 1 || this.state.validUsername !== 1){
+				this.setState({
+					classCircle: this.state.classCircle +  " show",
+					classText: this.state.classText + " show",
+				})
+
+				setTimeout(function(){
+					this.setState({
+						classTick2: "checkmark2 draw show",
+						classCircle: "circle-loader load-complete show"
+					})
+				}.bind(this), 2000)
+				setTimeout(function(){
+					//window.location = 'register';
+				}, 3000)
+			}
+			}.bind(this), 500)
+		
 	    setTimeout(function(){
 				console.log("Username " + this.state.validUsername)	
 				console.log("Password " + password.validPassword)
@@ -141,8 +176,9 @@ class Login extends Component {
 	  	return(
 		  	<div className="auth">
 			  	<div className = {this.state.authClass}>
-					<div className={this.state.classCircle}>
+					<div className={this.state.classCircle} >
 						<div className={this.state.classTick}></div>
+						<div className={this.state.classTick2}></div>
 					</div>
 					<h3 className={this.state.classText} >Authenticating...</h3>	  		
 				</div>

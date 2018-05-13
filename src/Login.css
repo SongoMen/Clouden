@@ -336,14 +336,14 @@ input[type=text]:focus, #password:focus {
   z-index: 50;
 }
 
-.checkmark.draw:after {
+.checkmark.draw.show:after {
   z-index: 50;
   animation-duration: 800ms;
   animation-timing-function: ease;
   animation-name: checkmark;
   transform: scaleX(-1) rotate(135deg);
 }
-.checkmark:after {
+.checkmark.show:after {
   opacity: 1;
   height:56px;
   width: 28px;
@@ -354,6 +354,48 @@ input[type=text]:focus, #password:focus {
   content: '';
   left: 28px;
   top: 56px;
+  position: absolute;
+}
+
+.checkmark2.draw.show:after {
+  z-index: 50;
+  animation-duration: 800ms;
+  animation-timing-function: ease;
+  animation-name: checkmark;
+  transform: scaleX(-1) rotate(-135deg);
+}
+
+.checkmark2.show:after {
+  opacity: 1;
+  height:74px;
+  width: 28px;
+  z-index: 50;
+  transform-origin: left top;
+  border-right: 3px solid red;
+  content: '';
+  left: 60px;
+  top: 101px;
+  position: absolute;
+}
+
+.checkmark2.draw.show::before {
+  z-index: 50;
+  animation-duration: 800ms;
+  animation-timing-function: ease;
+  animation-name: checkmark;
+  transform: scaleX(-1) rotate(135deg);
+}
+
+.checkmark2.show::before {
+  opacity: 1;
+  height:74px;
+  width: 28px;
+  z-index: 50;
+  transform-origin: left top;
+  border-right: 3px solid red;
+  content: '';
+  left: 8px;
+  top: 59px;
   position: absolute;
 }
 
@@ -410,12 +452,12 @@ input[type=text]:focus, #password:focus {
     width: 0;
     opacity: 1;
   }
-  20% {
+  30% {
     height: 0;
     width: 28px;
     opacity: 1;
   }
-  40% {
+  70% {
     height: 56px;
     width: 28px;
     opacity: 1;
