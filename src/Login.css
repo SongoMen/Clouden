@@ -327,6 +327,16 @@ input[type=text]:focus, #password:focus {
   z-index: 50;
 }
 
+.circle-loader.load-complete.red{
+  -webkit-animation: none;
+  margin:25px auto 25px auto;
+  animation: none;
+  display: block;
+  border-color: red;
+  transition: border 500ms ease-out;
+  z-index: 50;
+}
+
 .checkmark {
   display: none;
 }

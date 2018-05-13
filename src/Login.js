@@ -10,23 +10,24 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      password: "",
-      validUsername:0,
-      validPassword:0,
-			clicked:0,
-			classCircle:"circle-loader",
-			classTick:"checkmark draw",
-			classTick2:"checkmark2 draw",
-			classText:"authText",
-			classBg:"auth-bg",
-			authClass:"authContent",
-      isLogged:false
+      	username: "",
+      	password: "",
+      	validUsername:0,
+     	validPassword:0,
+		clicked:0,
+		classCircle:"circle-loader",
+		classTick:"checkmark draw",
+		classTick2:"checkmark2 draw",
+		classText:"authText",
+		classBg:"auth-bg",
+		authClass:"authContent",
+		authText:"Authenticating...",
+      	isLogged:false
     };
-		this.handleClick = this.handleClick.bind(this);
+	this.handleClick = this.handleClick.bind(this);
   }
 
-  updateInputValueUsername(evt){
+ 	updateInputValueUsername(evt){
 		this.setState({
 				username: evt.target.value
 		});
@@ -51,124 +52,95 @@ class Login extends Component {
 			return {
 				border: '2px solid red '
 			}
-
 		}
 	}
 
-  handleClick(event) {
+  	handleClick(event) {
 
-    var payload = {
-      username: this.state.username,
-      password: this.state.password
+		var payload = {
+			username: this.state.username,
+			password: this.state.password
 		};
-		
-		const style = {
-			borderLeftColor: '#ffcc00'
-		};
-
-		setTimeout(function(){
-			if(this.state.validPassword !== 1 || this.state.validUsername !== 1){
-				const style = {
-					borderColor: '#5cb85c'
-				};
-			}
-		}.bind(this), 3000)
-
 		var password = {
 			validPassword: this.state.validPassword
 		}
 
-    if(this.state.username.length > 0 &&
-      this.state.password.length > 0)
-    {
-	    firebase.database()
-	      	.ref(`/users`)
-	      	.once("value")
-	        .then(snapshot => {
-	          if(snapshot.hasChild(payload.username)){
-	            this.setState({
-	            	validUsername:1
-	            })
-	        	} 
-	          else{
-	            this.setState({
-	            	validUsername:2
-	            })	          
-	        }
-	        })
-	    firebase.database()
-	    	.ref('/users/' + payload.username + '/password')
-	      	.once("value", function(snapshot){
-	      		if(snapshot.val() === payload.password){
-							password.validPassword = 1
-	      		}
-	      		else {
-							password.validPassword = 2
-	      		}
-	    	})
-	    if(this.state.validUsername === 1 &&
-	       this.state.validPassword === 1){
-	        	this.setState({
-	           		isLogged:true
-	          })
-	    	console.log("is Logged " + this.state.isLogged)
-			}
-
-			setTimeout(function(){
-			this.setState({
-				classBg: "auth-bg show",
-				authClass:"authContent show"
-			})
-			if(this.state.validPassword === 1 && this.state.validUsername === 1){
+		if(this.state.username.length > 0 && this.state.password.length > 0){
+			firebase.database()
+				.ref(`/users`)
+				.once("value")
+				.then(snapshot => {
+					if(snapshot.hasChild(payload.username)){
+						this.setState({
+							validUsername:1
+						})
+					} 
+					else{
+						this.setState({
+							validUsername:2
+						})	          
+					}
+				})
+			firebase.database()
+				.ref('/users/' + payload.username + '/password')
+				.once("value", function(snapshot){
+					if(snapshot.val() === payload.password){
+						password.validPassword = 1
+					}
+					else {
+						password.validPassword = 2
+					}
+				})
 				
+			setTimeout(function(){
 				this.setState({
-					classCircle: this.state.classCircle +  " show",
-					classText: this.state.classText + " show",
+					classBg: "auth-bg show",
+					authClass:"authContent show",
 				})
-				setTimeout(function(){
+				if(password.validPassword === 1 && this.state.validUsername === 1){
 					this.setState({
-						classTick: "checkmark draw show",
-						classCircle: "circle-loader load-complete show"
+						classCircle: this.state.classCircle +  " show",
+						classText: this.state.classText + " show",
 					})
-				}.bind(this), 2000)
-				setTimeout(function(){
-					//window.location = 'register';
-				}, 3000)
-			}
+					setTimeout(function(){
+						this.setState({
+							classTick: "checkmark draw show",
+							authText:"Login successful.",
+							classCircle: "circle-loader load-complete show"
+						})
+					}.bind(this), 2000)
+					setTimeout(function(){
+						//window.location = 'register';
+					}, 3000)
+				}
 
-			else if (this.state.validPassword !== 1 || this.state.validUsername !== 1){
-				this.setState({
-					classCircle: this.state.classCircle +  " show",
-					classText: this.state.classText + " show",
-				})
-
-				setTimeout(function(){
+				else if (password.validPassword !== 1 || this.state.validUsername !== 1){
 					this.setState({
-						classTick2: "checkmark2 draw show",
-						classCircle: "circle-loader load-complete show"
+						classCircle: this.state.classCircle +  " show",
+						classText: this.state.classText + " show",
 					})
-				}.bind(this), 2000)
-				setTimeout(function(){
-					//window.location = 'register';
-				}, 3000)
-			}
-			}.bind(this), 500)
-		
-	    setTimeout(function(){
+					setTimeout(function(){
+						this.setState({
+							classTick2: "checkmark2 draw show",
+							authText:"Wrong username or password.",
+							classCircle: "circle-loader load-complete show red"
+						})
+					}.bind(this), 2000)
+					setTimeout(function(){
+						//window.location = 'register';
+					}, 3000)
+				}
+			}.bind(this), 1000)
+			
+			setTimeout(function(){
 				console.log("Username " + this.state.validUsername)	
 				console.log("Password " + password.validPassword)
-			}.bind(this),2000)
-
-	   	this.setState({
-			clicked: this.state.clicked + 1
-		})
-		}
-		else{
+			}.bind(this),1000)
+			}
 			this.setState({
 				clicked: this.state.clicked + 1
 			})
 		}
-  }
 
 //SET TIMEOUT ON CHECKMARK, CHANGE CLASS, TURN CLASS
 
@@ -180,12 +152,12 @@ class Login extends Component {
 						<div className={this.state.classTick}></div>
 						<div className={this.state.classTick2}></div>
 					</div>
-					<h3 className={this.state.classText} >Authenticating...</h3>	  		
+					<h3 className={this.state.classText} >{this.state.authText}</h3>	  		
 				</div>
 				<div className={this.state.classBg}></div>
 		  	</div>
 	  	)
-  }
+  	}
 
 
 
