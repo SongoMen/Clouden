@@ -14,14 +14,14 @@ class Login extends Component {
       	password: "",
       	validUsername:0,
      	validPassword:0,
-		clicked:0,
-		classCircle:"circle-loader",
-		classTick:"checkmark draw",
-		classTick2:"checkmark2 draw",
-		classText:"authText",
-		classBg:"auth-bg",
-		authClass:"authContent",
-		authText:"Authenticating...",
+	clicked:0,
+	classCircle:"circle-loader",
+	classTick:"checkmark draw",
+	classTick2:"checkmark2 draw",
+	classText:"authText",
+	classBg:"auth-bg",
+	authClass:"authContent",
+	authText:"Authenticating...",
       	isLogged:false
     };
 	this.handleClick = this.handleClick.bind(this);
@@ -142,8 +142,8 @@ class Login extends Component {
 			})
 		}
 
-//SET TIMEOUT ON CHECKMARK, CHANGE CLASS, TURN CLASS
-
+	//SHOW LOGIN ALERT
+	
 	auth(){
 	  	return(
 		  	<div className="auth">
