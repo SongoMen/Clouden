@@ -10,10 +10,10 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      	username: "",
-      	password: "",
-      	validUsername:0,
-     	validPassword:0,
+    username: "",
+    password: "",
+    validUsername:0,
+    validPassword:0,
 	clicked:0,
 	classCircle:"circle-loader",
 	classTick:"checkmark draw",
@@ -22,7 +22,7 @@ class Login extends Component {
 	classBg:"auth-bg",
 	authClass:"authContent",
 	authText:"Authenticating...",
-      	isLogged:false
+    isLogged:false
     };
 	this.handleClick = this.handleClick.bind(this);
   }
