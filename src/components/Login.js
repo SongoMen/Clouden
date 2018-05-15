@@ -3,7 +3,8 @@ import * as firebase from "firebase";
 import { Link } from 'react-router-dom';
 import {Helmet} from 'react-helmet';
 
-import './Login.css'
+import Panel from '../containers/Panel';
+import './Login.css';
 
 
 class Login extends Component {
@@ -99,19 +100,20 @@ class Login extends Component {
 				})
 				if(password.validPassword === 1 && this.state.validUsername === 1){
 					this.setState({
+						LoggedIn:true,
 						classCircle: this.state.classCircle +  " show",
 						classText: this.state.classText + " show",
 					})
 					setTimeout(function(){
 						this.setState({
 							classTick: "checkmark draw show",
-							authText:"Login successful.",
+							authText:"Welcome "+ this.state.username,
 							classCircle: "circle-loader load-complete show"
 						})
 					}.bind(this), 2000)
 					setTimeout(function(){
-						//window.location = 'register';
-					}, 3000)
+						window.location = 'Panel';
+					}, 3500)
 				}
 
 				else if (password.validPassword !== 1 || this.state.validUsername !== 1){
@@ -127,8 +129,15 @@ class Login extends Component {
 						})
 					}.bind(this), 2000)
 					setTimeout(function(){
-						//window.location = 'register';
-					}, 3000)
+						this.setState({
+							authClass: 'authContent',
+							classCircle:"circle-loader",
+							classTick:"checkmark draw",
+							classTick2:"checkmark2 draw",
+							classBg: 'auth-bg',
+							authText:'Authenticating...'
+						})
+					}.bind(this), 3500)
 				}
 			}.bind(this), 1000)
 			
@@ -164,72 +173,78 @@ class Login extends Component {
   render() {
     return (
 		<div className="loginScreen">
-		<Helmet>
-			<title>React App - Login</title>
-		</Helmet>
-		<nav>
-			<ul>
-				<li className="float">
-					<p>Home</p>
-				</li>
-				<li className="float">
-					<p>About Us</p>
-				</li>
-				<li className="float">
-					<p>Features</p>
-				</li>
-				<li className="float">
-					<p>Pricing</p>
-				</li>
-				<Link to = "/login">
-					<li>
-						<div className="login2">
-							<h1>Login</h1>
-						</div>
+		
+			{this.state.LoggedIn ?
+			(<Panel userId={this.state.username} />) :
+			(<Panel errorMessage={this.state.errorMessage} logUserIn={this.logUserIn} />)
+			}
+
+			<Helmet>
+				<title>React App - Login</title>
+			</Helmet>
+			<nav>
+				<ul>
+					<li className="float">
+						<p>Home</p>
 					</li>
-				</Link>	
-				<Link to = "/register">					
-					<li>
-						<div className="register">
-							<h1>Create account</h1>
-						</div>
+					<li className="float">
+						<p>About Us</p>
 					</li>
-				</Link>
-			</ul>
-		</nav>
-		{this.auth()}
-		<div className="wrapper fadeInDown">
-		  	<div id="formContent">
-			    <h2 className="active"> Sign In </h2>
-				<div className="fadeIn first">
-		      		<img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
-		    	</div>
-				<input 
-					type="text" 
-					id="login" 
-					className="fadeIn second" 
-					name="login" 
-					placeholder="Login" 
-					style = {this.getStyleUsername()}
-					onChange={evt => this.updateInputValueUsername(evt)}
-				/>
-				<input 
-					type="password" 
-					id="password" 
-					className="fadeIn third" 
-					name="login" 
-					style = {this.getStylePassword()}
-					placeholder="Password" 
-					onChange={evt => this.updateInputValuePassword(evt)}
-				/>
-				<input type="submit" className="fadeIn fourth" value="Log In" onClick={event => this.handleClick(event)}/>
-			    <div id="formFooter">
-					<Link to="/register" className="underlineHover">Don't have account ?</Link><br/>
-			      	<Link to="/" className="underlineHover" >Forgot Password?</Link>
-			    </div>
-		  	</div>
-		</div>
-    </div>
+					<li className="float">
+						<p>Features</p>
+					</li>
+					<li className="float">
+						<p>Pricing</p>
+					</li>
+					<Link to = "/login">
+						<li>
+							<div className="login2">
+								<h1>Login</h1>
+							</div>
+						</li>
+					</Link>	
+					<Link to = "/register">					
+						<li>
+							<div className="register">
+								<h1>Create account</h1>
+							</div>
+						</li>
+					</Link>
+				</ul>
+			</nav>
+			{this.auth()}
+			<div className="wrapper fadeInDown">
+				<div id="formContent">
+					<h2 className="active"> Sign In </h2>
+					<div className="fadeIn first">
+						<img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+					</div>
+					<input 
+						type="text" 
+						id="login" 
+						className="fadeIn second" 
+						name="login" 
+						placeholder="Login" 
+						style = {this.getStyleUsername()}
+						onChange={evt => this.updateInputValueUsername(evt)}
+					/>
+					<input 
+						type="password" 
+						id="password" 
+						className="fadeIn third" 
+						name="login" 
+						style = {this.getStylePassword()}
+						placeholder="Password" 
+						onChange={evt => this.updateInputValuePassword(evt)}
+					/>
+					<input type="submit" className="fadeIn fourth" value="Log In" onClick={event => this.handleClick(event)}/>
+					<div id="formFooter">
+						<Link to="/register" className="underlineHover">Don't have account ?</Link><br/>
+						<Link to="/" className="underlineHover" >Forgot Password?</Link>
+					</div>
+				</div>
+			</div>
+    	</div>
     );
   }
 }

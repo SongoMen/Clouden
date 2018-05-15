@@ -7,7 +7,8 @@ import {
 
 import Register from "./Register.js"
 import Login from "./Login.js"
-import Main from "./Main.js"
+import Main from "../containers/Main.js"
+import Panel from "../containers/Panel.js";
 
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
           <Route exact path="/" component={Main} title="lula"/>
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/panel" component={Panel} />
         </div>
       </Router>
     );
