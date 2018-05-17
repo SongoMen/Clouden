@@ -59,12 +59,6 @@ export function signUpUserFailure(error) {
   }
 }
 
-export function resetUser() {
-  return {
-      type: types.RESET_USER
-  }
-}
-
 export function signInUser(formValues) {
   const request = axios.post(`${ROOT_URL}/users/signin`, formValues)
 

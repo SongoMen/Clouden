@@ -39,9 +39,6 @@ const userReducer = function(state = initialState, action) {
       case types.LOGOUT_USER:
           return { ...state, user: null, status: 'logout', error: null, loading: false}
 
-      case types.RESET_USER:
-          return { ...state, user: null, status: null, error: null, loading: false}
-
       default:
           return state
   }
