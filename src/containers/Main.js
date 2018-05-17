@@ -11,7 +11,6 @@ class Main extends Component {
 		};
 	}
 
-
 	render(){
 		return(
 			<div className="main">
@@ -19,7 +18,7 @@ class Main extends Component {
 					<nav>
 						<ul>
 							<li className="float"><p>Home</p></li>
-							<li className="float about" >
+							<li className="float">
 							<p>About Us</p>
 							</li>
 							<li className="float"><p>Features</p></li>
@@ -68,7 +67,7 @@ class Main extends Component {
 						</svg>
 					</div>
 				</div>
-				<div className="section1" id="about">
+				<div className="section1">
 					<div className="text">
 						<span className="section1-line"></span>
 						<h2>ABOUT US</h2>
