@@ -1,3 +1,5 @@
-import todoApp from './reducers/reducers'
-import { createStore } from 'redux'
-const store = createStore(todoApp)
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./components/App";
+
+ReactDOM.render(<App />, document.getElementById("root"));
