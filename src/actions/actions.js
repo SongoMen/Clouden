@@ -1,28 +1,102 @@
-export const ADD_TODO = 'ADD_TODO'
-export const TOGGLE_TODO = 'TOGGLE_TODO'
-export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
+import axios from 'axios';
+import * as types from '../action-types'
 
-/*
- * other constants
- */
+export function meFromToken(tokenFromStorage) {
+  const request = axios({
+      method: 'get',
+      url: `${ROOT_URL}/me/from/token?token=${tokenFromStorage}`,
+      headers: {
+          'Authorization': `Bearer ${tokenFromStorage}`
+      }
+  })
 
-export const VisibilityFilters = {
-  SHOW_ALL: 'SHOW_ALL',
-  SHOW_COMPLETED: 'SHOW_COMPLETED',
-  SHOW_ACTIVE: 'SHOW_ACTIVE'
-}
-/*
- * action creators
- */
-
-export function addTodo(text) {
-  return { type: ADD_TODO, text }
+  return {
+      type: types.ME_FROM_TOKEN,
+      payload: request
+  }
 }
 
-export function toggleTodo(index) {
-  return { type: TOGGLE_TODO, index }
+export function meFromTokenSuccess(currentUser) {
+  return {
+      type: types.ME_FROM_TOKEN_SUCCESS,
+      payload: currentUser
+  }
 }
 
-export function setVisibilityFilter(filter) {
-  return { type: SET_VISIBILITY_FILTER, filter }
+export function meFromTokenFailure(error) {
+  return {
+      type: types.ME_FROM_TOKEN_FAILURE,
+      payload: error
+  }
+}
+
+export function resetToken() {
+  return {
+      type: types.RESET_TOKEN
+  }
+}
+
+export function signUpUser(formValues) {
+  const request = axios.post(`${ROOT_URL}/users/signup`, formValues)
+
+  return {
+      type: types.SIGNUP_USER,
+      payload: request
+  }
+}
+
+export function signUpUserSuccess(user) {
+  return {
+      type: types.SIGNUP_USER_SUCCESS,
+      payload: user
+  }
+}
+
+export function signUpUserFailure(error) {
+  return {
+      type: types.SIGNUP_USER_FAILURE,
+      payload: error
+  }
+}
+
+export function resetUser() {
+  return {
+      type: types.RESET_USER
+  }
+}
+
+export function signInUser(formValues) {
+  const request = axios.post(`${ROOT_URL}/users/signin`, formValues)
+
+  return {
+      type: types.SIGNIN_USER,
+      payload: request
+  }
+}
+
+export function signInUserSuccess(user) {
+  return {
+      type: types.SIGNIN_USER_SUCCESS,
+      payload: user
+  }
+}
+
+export function signInUserFailure(error) {
+  return {
+      type: types.SIGNIN_USER_FAILURE,
+      payload: error
+  }
+}
+
+export function logoutUser() {
+  return {
+      type: types.LOGOUT_USER
+  }
+}
+
+export function updateUserEmail(email) {
+  return {
+      type: types.UPDATE_USER_EMAIL,
+      payload: email
+  }
 }
