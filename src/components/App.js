@@ -21,7 +21,7 @@ class App extends Component {
           <Helmet>
 			      <title>React App</title>
 		      </Helmet>
-          <Route exact path="/" component={Main} title="lula"/>
+          <Route exact path="/" component={Main}/>
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/panel" component={Panel} />
