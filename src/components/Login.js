@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import * as firebase from "firebase";
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import {Helmet} from 'react-helmet';
 
 import Panel from '../containers/Panel';
 import './Login.css';
-
+import { userActions } from '../_actions/userActions';
 
 class Login extends Component {
   constructor(props) {
@@ -24,7 +25,8 @@ class Login extends Component {
 		authClass:"authContent",
 		authText:"Authenticating...",
 		isLogged:false
-    };
+	};
+
 	this.handleClick = this.handleClick.bind(this);
   }
 
