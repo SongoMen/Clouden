@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import {Helmet} from 'react-helmet';
 import {
   BrowserRouter as Router,
-  Route
+  Route,
+  Redirect
 } from 'react-router-dom';
 
 import Register from "./Register.js"
 import { Login } from '../LoginPage/index';
 import Main from "../containers/Main.js"
-import Panel from "../containers/Panel.js";
+import { Panel } from '../Panel/Panel';
 
 
 class App extends Component {

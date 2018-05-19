@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {Helmet} from 'react-helmet';
 
-import Panel from '../containers/Panel';
 import './Login.css';
 import { userActions } from '../_actions/userActions';
 
 class Login extends Component {
   constructor(props) {
-    super(props);
+	super(props);
+	this.props.dispatch(userActions.logout());
     this.state = {
 		username: "",
 		password: "",
@@ -24,22 +24,12 @@ class Login extends Component {
 		classBg:"auth-bg",
 		authClass:"authContent",
 		authText:"Authenticating...",
-		isLogged:false
+		submitted: false
 	};
-
+	this.handleChange = this.handleChange.bind(this);
 	this.handleClick = this.handleClick.bind(this);
   }
 
- 	updateInputValueUsername(evt){
-		this.setState({
-				username: evt.target.value
-		});
-	}
- 	updateInputValuePassword(evt){
-		this.setState({
-				password: evt.target.value
-		});
-	}
 	getStyleUsername(){
 		if(this.state.username.length <= 0 &&
 		this.state.clicked !== 0 )
@@ -58,16 +48,26 @@ class Login extends Component {
 		}
 	}
 
+    handleChange(e) {
+        const { name, value } = e.target;
+        this.setState({ [name]: value });
+    }
+
   	handleClick(event) {
+		event.preventDefault();
+
+        this.setState({ submitted: true });
+        const { username, password } = this.state;
+        const { dispatch } = this.props;
 
 		var payload = {
 			username: this.state.username,
 			password: this.state.password
 		};
-		var password = {
+		var loginPassword = {
 			validPassword: this.state.validPassword
 		}
-
+		dispatch(userActions.login(username, password));
 		if(this.state.username.length > 0 && this.state.password.length > 0){
 			firebase.database()
 				.ref(`/users`)
@@ -88,10 +88,10 @@ class Login extends Component {
 				.ref('/users/' + payload.username + '/password')
 				.once("value", function(snapshot){
 					if(snapshot.val() === payload.password){
-						password.validPassword = 1
+						loginPassword.validPassword = 1
 					}
 					else {
-						password.validPassword = 2
+						loginPassword.validPassword = 2
 					}
 				})
 				
@@ -100,7 +100,8 @@ class Login extends Component {
 					classBg: "auth-bg show",
 					authClass:"authContent show",
 				})
-				if(password.validPassword === 1 && this.state.validUsername === 1){
+				if(loginPassword.validPassword === 1 && this.state.validUsername === 1){
+					//localStorage.setItem('user', this.state.username);
 					this.setState({
 						LoggedIn:true,
 						classCircle: this.state.classCircle +  " show",
@@ -112,13 +113,14 @@ class Login extends Component {
 							authText:"Welcome "+ this.state.username,
 							classCircle: "circle-loader load-complete show"
 						})
+						
 					}.bind(this), 2000)
 					setTimeout(function(){
-						window.location = 'Panel';
+						//window.location = 'Panel';
 					}, 3500)
 				}
 
-				else if (password.validPassword !== 1 || this.state.validUsername !== 1){
+				else if (loginPassword.validPassword !== 1 || this.state.validUsername !== 1){
 					this.setState({
 						classCircle: this.state.classCircle +  " show",
 						classText: this.state.classText + " show",
@@ -145,14 +147,13 @@ class Login extends Component {
 			
 			setTimeout(function(){
 				console.log("Username " + this.state.validUsername)	
-				console.log("Password " + password.validPassword)
+				console.log("Password " + loginPassword.validPassword)
 			}.bind(this),1000)
 			}
 			this.setState({
 				clicked: this.state.clicked + 1
 			})
-		}
-
+	}
 	
 	auth(){
 	  	return(
@@ -169,17 +170,11 @@ class Login extends Component {
 	  	)
   	}
 
-
-
   render() {
+	const { loggingIn } = this.props;
+	const { username, password, submitted } = this.state;
     return (
 		<div className="loginScreen">
-		
-			{this.state.LoggedIn ?
-			(<Panel userId={this.state.username} />) :
-			(<Panel errorMessage={this.state.errorMessage} logUserIn={this.logUserIn} />)
-			}
-
 			<Helmet>
 				<title>React App - Login</title>
 			</Helmet>
@@ -224,19 +219,21 @@ class Login extends Component {
 						type="text" 
 						id="login" 
 						className="fadeIn second" 
-						name="login" 
+						name="username" 
+						value={username}
 						placeholder="Login" 
 						style = {this.getStyleUsername()}
-						onChange={evt => this.updateInputValueUsername(evt)}
+						onChange={this.handleChange}
 					/>
 					<input 
 						type="password" 
 						id="password" 
+						value={password}
 						className="fadeIn third" 
-						name="login" 
+						name="password" 
 						style = {this.getStylePassword()}
 						placeholder="Password" 
-						onChange={evt => this.updateInputValuePassword(evt)}
+						onChange={this.handleChange}
 					/>
 					<input type="submit" className="fadeIn fourth" value="Log In" onClick={event => this.handleClick(event)}/>
 					<div id="formFooter">
