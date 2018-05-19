@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 
 import Register from "./Register.js"
-import Login from "./Login.js"
+import { Login } from '../LoginPage/index';
 import Main from "../containers/Main.js"
 import Panel from "../containers/Panel.js";
 

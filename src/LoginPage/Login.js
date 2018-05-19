@@ -153,7 +153,6 @@ class Login extends Component {
 			})
 		}
 
-	//SHOW LOGIN ALERT
 	
 	auth(){
 	  	return(
@@ -250,4 +249,12 @@ class Login extends Component {
     );
   }
 }
-export default Login;
+function mapStateToProps(state) {
+    const { loggingIn } = state.authentication;
+    return {
+        loggingIn
+    };
+}
+
+const connectedLoginPage = connect(mapStateToProps)(Login);
+export { connectedLoginPage as Login}; 
