@@ -6,10 +6,11 @@ import { userActions } from '../_actions/userActions';
 class Panel extends Component {
 
   render() {
+    const username = localStorage.getItem('user')
     const { user, users } = this.props;
     return (
       <div>
-        Thanks for logging in {user.username}
+        Thanks for logging in {username}
       </div>
     );
   }

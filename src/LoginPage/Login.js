@@ -60,6 +60,10 @@ class Login extends Component {
         const { username, password } = this.state;
         const { dispatch } = this.props;
 
+		let responseJson = {
+			username: this.state.username,
+		};
+
 		var payload = {
 			username: this.state.username,
 			password: this.state.password
@@ -171,8 +175,7 @@ class Login extends Component {
   	}
 
   render() {
-	const { loggingIn } = this.props;
-	const { username, password, submitted } = this.state;
+	const { username, password } = this.state;
     return (
 		<div className="loginScreen">
 			<Helmet>
@@ -248,8 +251,10 @@ class Login extends Component {
 }
 function mapStateToProps(state) {
     const { loggingIn } = state.authentication;
+    const { user } = state;
     return {
-        loggingIn
+        loggingIn,
+        user
     };
 }
 

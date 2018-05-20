@@ -1,5 +1,4 @@
 import { authHeader } from '../helpers/auth-header';
-import * as firebase from 'firebase';
 
 export const userService = {
     logout,

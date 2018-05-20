@@ -2,12 +2,11 @@ import React, { Component } from "react";
 import {Helmet} from 'react-helmet';
 import {
   BrowserRouter as Router,
-  Route,
-  Redirect
+  Route
 } from 'react-router-dom';
 
 import Register from "./Register.js"
-import { Login } from '../LoginPage/index';
+import { Login } from '../LoginPage';
 import Main from "../containers/Main.js"
 import { Panel } from '../Panel/Panel';
 
