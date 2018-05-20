@@ -60,10 +60,6 @@ class Login extends Component {
         const { username, password } = this.state;
         const { dispatch } = this.props;
 
-		let responseJson = {
-			username: this.state.username,
-		};
-
 		var payload = {
 			username: this.state.username,
 			password: this.state.password
@@ -71,7 +67,9 @@ class Login extends Component {
 		var loginPassword = {
 			validPassword: this.state.validPassword
 		}
+
 		if(this.state.username.length > 0 && this.state.password.length > 0){
+			dispatch(userActions.login(username));
 			firebase.database()
 				.ref(`/users`)
 				.once("value")
@@ -110,8 +108,7 @@ class Login extends Component {
 						classText: this.state.classText + " show",
 					})
 					setTimeout(function(){
-						localStorage.setItem('user', this.state.username);
-						dispatch(userActions.login(username));
+						//localStorage.setItem('user', this.state.username);
 						this.setState({
 							classTick: "checkmark draw show",
 							authText:"Welcome "+ this.state.username,
@@ -120,7 +117,7 @@ class Login extends Component {
 						
 					}.bind(this), 2000)
 					setTimeout(function(){
-						window.location = 'Panel';
+						//window.location = 'Panel';
 					}, 3500)
 				}
 
