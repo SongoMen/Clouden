@@ -67,7 +67,6 @@ class Login extends Component {
 		var loginPassword = {
 			validPassword: this.state.validPassword
 		}
-		dispatch(userActions.login(username, password));
 		if(this.state.username.length > 0 && this.state.password.length > 0){
 			firebase.database()
 				.ref(`/users`)
@@ -101,13 +100,14 @@ class Login extends Component {
 					authClass:"authContent show",
 				})
 				if(loginPassword.validPassword === 1 && this.state.validUsername === 1){
-					//localStorage.setItem('user', this.state.username);
 					this.setState({
 						LoggedIn:true,
 						classCircle: this.state.classCircle +  " show",
 						classText: this.state.classText + " show",
 					})
 					setTimeout(function(){
+						localStorage.setItem('user', this.state.username);
+						dispatch(userActions.login(username));
 						this.setState({
 							classTick: "checkmark draw show",
 							authText:"Welcome "+ this.state.username,
@@ -116,7 +116,7 @@ class Login extends Component {
 						
 					}.bind(this), 2000)
 					setTimeout(function(){
-						//window.location = 'Panel';
+						window.location = 'Panel';
 					}, 3500)
 				}
 
