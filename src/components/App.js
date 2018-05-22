@@ -6,9 +6,9 @@ import {
 } from 'react-router-dom';
 
 import Register from "./Register.js"
-import { Login } from '../LoginPage';
+import Login from '../LoginPage/Login';
 import Main from "../containers/Main.js"
-import { Panel } from '../Panel/Panel';
+import Panel from './Panel';
 
 
 class App extends Component {

@@ -1,22 +1,13 @@
 import React, { Component } from "react";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import AppBar from "material-ui/AppBar";
-import RaisedButton from "material-ui/RaisedButton";
-import TextField from "material-ui/TextField";
-import axios from "axios";
+import { auth } from '../helpers/auth'
 import { Link } from 'react-router-dom';
-import * as firebase from 'firebase';
+import RaisedButton from "material-ui/RaisedButton";
 
-  var config = {
-    apiKey: "AIzaSyCYyiiyITT_sSblgRqYpWKPF2-yUli81l8",
-    authDomain: "webapp-0021.firebaseapp.com",
-    databaseURL: "https://webapp-0021.firebaseio.com",
-    projectId: "webapp-0021",
-    storageBucket: "webapp-0021.appspot.com",
-    messagingSenderId: "24837464252"
-  };
-
-  firebase.initializeApp(config);
+  function setErrorMsg(error) {
+    return {
+      registerError: error.message
+    }
+  }
 
 class Register extends Component {
   constructor(props) {
@@ -29,7 +20,7 @@ class Register extends Component {
       wrongEmail:0,
       wrongPassword: 0
     };
-    
+    this.handleClick = this.handleClick.bind(this);
   }
 
   //1 - Not used username/email
@@ -76,131 +67,34 @@ class Register extends Component {
     } 
   }
 
-  handleClick(event, role) {
-    var apiBaseUrl = "https://webapp-0021.firebaseio.com";
-
-    if(this.state.password.length < 6){
-      this.setState({
-        wrongPassword:2
-      })
+  handleClick(e, role) {
+    localStorage.setItem('pw', this.pw.value);
+    localStorage.setItem('user', this.username.value);
+    e.preventDefault()
+    auth(this.email.value, this.pw.value, this.username.value)
+      .catch(e => this.setState(setErrorMsg(e)))
+      setTimeout(() => {
+        localStorage.removeItem('pw');
+        localStorage.removeItem('user');
+    }, 1500);
     }
-    else{
-      this.setState({
-        wrongPassword:1
-      })
-    }
-    if (
-      this.state.username.length > 0 &&
-      this.state.email.length > 0 &&
-      this.state.password.length > 0
-    ) {
-      var payload = {
-        username: this.state.username,
-        email: this.state.email,
-        password: this.state.password,
-      };
-
-      var email = {
-        email: this.state.email,
-      };
-
-    firebase.database()
-      .ref(`/emails`)
-      .once("value")
-        .then(snapshot => {
-          if(snapshot.hasChild(payload.email)){
-            console.log("zły email")
-            this.setState({ 
-              wrongEmail:2
-            });
-          } 
-          else{
-            console.log("dobre email")
-            this.setState({ 
-              wrongEmail:1
-            });
-          }
-        })
-      firebase.database()
-        .ref(`/users`)
-        .once("value")
-          .then(snapshot => {
-            if(snapshot.hasChild(payload.username)){
-              console.log("zła nazwa")
-              this.setState({ 
-                wrongUsername:2
-              });
-            } 
-              else if(this.state.wrongEmail === 1 && this.state.wrongPassword === 1){
-              axios
-              .put(apiBaseUrl + "/users/" + payload.username + ".json", payload)
-                .then(function(response) {
-                  console.log(response);
-                  if(response.data.code === 200){
-                    console.log("registration successfull")
-                  }
-                  else{
-                    console.log("some error ocurred", response.data.code);
-                  }
-                })
-                .catch(function(error){
-                  console.log(error);
-                });
-              axios
-                .put(apiBaseUrl + "/emails/" + payload.email + ".json", email)
-                  .then(function(response) {
-                    console.log(response);
-                    if (response.data.code === 200) {
-                      console.log("registration successfull");
-                    } 
-                  })
-                  .catch(function(error) {
-                    console.log(error);
-                  });
-            }
-            else{
-              console.log("dobre nazwa")
-              this.setState({ 
-                wrongUsername:1,
-              });
-            }
-          })
-        }}
               
   
   render() {
     return (
       <div>
-        <MuiThemeProvider>
           <div>
-            <AppBar title="Register" />
             {this.registerSuccessfull()}
-            <TextField
-              hintText="Enter your Username"
-              floatingLabelText="Username"
-              onChange={(event, newValue) =>
-                this.setState({ username: newValue })
-              }
+            <input placeholder = "username"
+              ref={(username) => this.username = username}
             />
             <br />
             {this.wrongUsernameMessage()}
             <br/>
-            <TextField
-              hintText="Enter email"             
-              floatingLabelText="Enter email"
-              onChange={(event, newValue) => this.setState({ email: newValue })}
-            />
-            <br />
+            <input className="form-control" ref={(email) => this.email = email} placeholder="Email"/>            <br />
             {this.wrongEmailMessage()}
             <br/>
-            <TextField
-              type="password"
-              hintText="Enter your Password"
-              floatingLabelText="Password"
-              onChange={(event, newValue) =>
-                this.setState({ password: newValue })
-              }
-            />
+            <input type="password" className="form-control" placeholder="Password" ref={(pw) => this.pw = pw} />
             <br/>
             {this.wrongPasswordMessage()}
             <br />
@@ -219,7 +113,6 @@ class Register extends Component {
             />
             </Link>
           </div>
-        </MuiThemeProvider>
       </div>
     );
   }
