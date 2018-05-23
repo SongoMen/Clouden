@@ -17,8 +17,6 @@ class Login extends Component {
     this.state = {
 		username: "",
 		password: "",
-		validUsername:0,
-		validPassword:0,
 		clicked:0,
 		classCircle:"circle-loader",
 		classTick:"checkmark draw",
@@ -26,8 +24,7 @@ class Login extends Component {
 		classText:"authText",
 		classBg:"auth-bg",
 		authClass:"authContent",
-		authText:"Authenticating...",
-		submitted: false
+		authText:"Authenticating..."
 	};
 	this.handleChange = this.handleChange.bind(this);
 	this.handleClick = this.handleClick.bind(this);
@@ -58,10 +55,13 @@ class Login extends Component {
 
   	handleClick(e) {
 		e.preventDefault()
-		login(this.email.value, this.pw.value)
+		login(this.email.value, this.password.value)
 		  .catch((error) => {
 			  this.setState(setErrorMsg('Invalid username/password.'))
 			})
+		this.setState({
+			clicked: this.state.clicked + 1
+		})
 	}
 
 	resetPassword = () => {
@@ -91,36 +91,6 @@ class Login extends Component {
 			<Helmet>
 				<title>React App - Login</title>
 			</Helmet>
-			<nav>
-				<ul>
-					<li className="float">
-						<p>Home</p>
-					</li>
-					<li className="float">
-						<p>About Us</p>
-					</li>
-					<li className="float">
-						<p>Features</p>
-					</li>
-					<li className="float">
-						<p>Pricing</p>
-					</li>
-					<Link to = "/login">
-						<li>
-							<div className="login2">
-								<h1>Login</h1>
-							</div>
-						</li>
-					</Link>	
-					<Link to = "/register">					
-						<li>
-							<div className="register">
-								<h1>Create account</h1>
-							</div>
-						</li>
-					</Link>
-				</ul>
-			</nav>
 			{this.auth()}
 			{this.state.loginMessage}
 			<div className="wrapper fadeInDown">

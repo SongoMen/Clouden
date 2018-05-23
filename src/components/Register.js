@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { auth } from '../helpers/auth'
 import { Link } from 'react-router-dom';
-import RaisedButton from "material-ui/RaisedButton";
 
   function setErrorMsg(error) {
     return {
@@ -68,13 +67,13 @@ class Register extends Component {
   }
 
   handleClick(e, role) {
-    localStorage.setItem('pw', this.pw.value);
+    localStorage.setItem('password', this.password.value);
     localStorage.setItem('user', this.username.value);
     e.preventDefault()
-    auth(this.email.value, this.pw.value, this.username.value)
+    auth(this.email.value, this.password.value, this.username.value)
       .catch(e => this.setState(setErrorMsg(e)))
       setTimeout(() => {
-        localStorage.removeItem('pw');
+        localStorage.removeItem('password');
         localStorage.removeItem('user');
     }, 1500);
     }
@@ -94,21 +93,19 @@ class Register extends Component {
             <input className="form-control" ref={(email) => this.email = email} placeholder="Email"/>            <br />
             {this.wrongEmailMessage()}
             <br/>
-            <input type="password" className="form-control" placeholder="Password" ref={(pw) => this.pw = pw} />
+            <input type="password" className="form-control" placeholder="Password" ref={(password) => this.password = password} />
             <br/>
             {this.wrongPasswordMessage()}
             <br />
-            <RaisedButton
-              label="Submit"
-              primary={true}
+            <button
+              value="Submit"
               style={style}
               onClick={event => this.handleClick(event, this.props.role)}
             />       
             <br/>
             <Link to="/">      
-            <RaisedButton
+            <button
               label="Login"
-              primary={true}
               style={style}
             />
             </Link>
