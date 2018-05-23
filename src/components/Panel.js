@@ -8,19 +8,14 @@ class Panel extends Component {
   
   render() {
     var user = firebase.auth().currentUser;
-    var name, email, uid, username;
-    firebase.database().ref('/users/' + user.uid + '/info').once('value').then(function(snapshot) {
-      var username = (snapshot.val() && snapshot.val().username)
+    var username;
+    firebase.database().ref().child('users/' + user.uid + '/info/username')
+    .once('value',function(snapshot) {  
+      var username = JSON.stringify(snapshot.val())
     })
-    
-    if (user != null) {
-      name = user.displayName;
-      email = user.email;
-      uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
-                       // this value to authenticate with your backend server, if
-                       // you have one. Use User.getToken() instead.
-    }
-    console.log(name, email, uid, username)
+    setTimeout(() => {
+      console.log(username,user.displayName)
+    }, 1500);
     return (
       <div>
         <p onClick = {() => {
