@@ -90,7 +90,8 @@ class Register extends Component {
             <br />
             {this.wrongUsernameMessage()}
             <br/>
-            <input className="form-control" ref={(email) => this.email = email} placeholder="Email"/>            <br />
+            <input className="form-control" ref={(email) => this.email = email} placeholder="Email"/>            
+            <br />
             {this.wrongEmailMessage()}
             <br/>
             <input type="password" className="form-control" placeholder="Password" ref={(password) => this.password = password} />

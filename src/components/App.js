@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { Route, BrowserRouter, Link, Redirect, Switch } from 'react-router-dom'
+import { Route, BrowserRouter, Redirect, Switch } from 'react-router-dom'
 import Login from '../LoginPage/Login'
 import Register from './Register'
 import Main from '../containers/Main'
 import Panel from './Panel'
-import { logout, firebaseAuth } from '../helpers/auth'
+import {firebaseAuth } from '../helpers/auth'
 
 function PrivateRoute ({component: Component, authed, ...rest}) {
   return (
@@ -55,34 +55,7 @@ export default class App extends Component {
     return this.state.loading === true ? <h1>Loading</h1> : (
       <BrowserRouter>
         <div>
-          <nav className="navbar navbar-default navbar-static-top">
-            <div className="container">
-              <div className="navbar-header">
-                <Link to="/" className="navbar-brand">React Router + Firebase Auth</Link>
-              </div>
-              <ul className="nav navbar-nav pull-right">
-                <li>
-                  <Link to="/" className="navbar-brand">Main</Link>
-                </li>
-                <li>
-                  <Link to="/Panel" className="navbar-brand">Panel</Link>
-                </li>
-                <li>
-                  {this.state.authed
-                    ? <button
-                        style={{border: 'none', background: 'transparent'}}
-                        onClick={() => {
-                          logout()
-                        }}
-                        className="navbar-brand">Logout</button>
-                    : <span>
-                        <Link to="/login" className="navbar-brand">Login</Link>
-                        <Link to="/register" className="navbar-brand">Register</Link>
-                      </span>}
-                </li>
-              </ul>
-            </div>
-          </nav>
+
           <div className="container">
             <div className="row">
               <Switch>

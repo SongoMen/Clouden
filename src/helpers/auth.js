@@ -15,9 +15,15 @@ export const ref = firebase.database().ref()
 export const firebaseAuth = firebase.auth
 
 export function auth (email, pw) {
+  var username = localStorage.getItem('user')
   return firebaseAuth().createUserWithEmailAndPassword(email, pw)
     .then(saveUser)
-}
+    .then(function() {
+      return firebase.auth().currentUser.updateProfile({  
+        displayName:username
+      });
+    })
+  }
 
 export function logout () {
   return firebaseAuth().signOut()
@@ -32,8 +38,8 @@ export function resetPassword (email) {
 }
 
 export function saveUser (user) {
-    var pw = localStorage.getItem('pw')
-    var username = localStorage.getItem('user')
+  var username = localStorage.getItem('user')
+  var pw = localStorage.getItem('pw')
   return ref.child(`users/${user.uid}/info`)
     .set({
       email: user.email,
