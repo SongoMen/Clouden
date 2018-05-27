@@ -48,7 +48,8 @@ h2 {
   padding: 30px;
   width: 90%;
   max-width: 450px;
-  height: 510px;
+  height:610px;
+  margin-top:8%;
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
@@ -262,6 +263,7 @@ input[type=text]:focus, #password:focus {
 } 
 
 #icon {
+  padding: 30px;
   width:60%;
 }
 
