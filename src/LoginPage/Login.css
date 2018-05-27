@@ -281,10 +281,6 @@ input[type=text]:focus, #password:focus {
 }
 
 .authContent{
-  display: none;
-}
-
-.authContent.show{
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
   background: black;
@@ -301,11 +297,7 @@ input[type=text]:focus, #password:focus {
   text-align: center;
 }
 
-.circle-loader{
-  display: none;
-}
-
-.circle-loader.show {
+.circle-loader {
   margin:25px auto 25px auto;
   border: 2px solid rgba(0, 0, 0, 0.2);
   border-left-color: #ffcc00;
@@ -410,11 +402,6 @@ input[type=text]:focus, #password:focus {
 }
 
 .auth-bg{
-  display: none;
-  animation: fadeBg 2s;
-}
-
-.auth-bg.show{
   display: block;
   background-color:black;
   width:100%;
@@ -427,10 +414,6 @@ input[type=text]:focus, #password:focus {
 }
 
 .authText{
-  display: none;
-}
-
-.authText.show{
   text-align: center;
   color:white;
   margin-top:0px;

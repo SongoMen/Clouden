@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { auth } from '../helpers/auth'
 import { Link } from 'react-router-dom';
 
-  function setErrorMsg(error) {
+import './Register.css';
+
+function setErrorMsg(error) {
     return {
       registerError: error.message
     }
@@ -21,9 +23,6 @@ class Register extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
   }
-
-  //1 - Not used username/email
-  //2 - used username/email
 
   registerSuccessfull(){
     if(this.state.wrongEmail === 1 && this.state.wrongUsername === 1 && this.state.wrongPassword === 1){
@@ -100,14 +99,12 @@ class Register extends Component {
             <br />
             <button
               value="Submit"
-              style={style}
               onClick={event => this.handleClick(event, this.props.role)}
             />       
             <br/>
             <Link to="/">      
             <button
               label="Login"
-              style={style}
             />
             </Link>
           </div>
@@ -115,9 +112,5 @@ class Register extends Component {
     );
   }
 }
-
-const style = {
-  margin: 15
-};
 
 export default Register;

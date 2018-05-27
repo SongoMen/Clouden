@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route, BrowserRouter, Redirect, Switch } from 'react-router-dom'
 import Login from '../LoginPage/Login'
-import Register from './Register'
+import Register from '../RegisterPage/Register'
 import Main from '../containers/Main'
 import Panel from './Panel'
 import {firebaseAuth } from '../helpers/auth'

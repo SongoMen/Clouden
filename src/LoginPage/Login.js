@@ -18,13 +18,13 @@ class Login extends Component {
 		username: "",
 		password: "",
 		clicked:0,
-		classCircle:"circle-loader",
+		classCircle:"",
 		classTick:"checkmark draw",
 		classTick2:"checkmark2 draw",
-		classText:"authText",
-		classBg:"auth-bg",
-		authClass:"authContent",
-		authText:"Authenticating..."
+		classText:"",
+		classBg:"",
+		authClass:"",
+		authText:""
 	};
 	this.handleChange = this.handleChange.bind(this);
 	this.handleClick = this.handleClick.bind(this);
@@ -54,15 +54,27 @@ class Login extends Component {
     }
 
   	handleClick(e) {
-		e.preventDefault()
-		login(this.email.value, this.password.value)
-		  .catch((error) => {
-			  this.setState(setErrorMsg('Invalid username/password.'))
+			this.setState({
+				classCircle:"circle-loader",
+				authClass:"authContent ",
+				classText:"authText ",
+				classBg:"auth-bg ",
+				authText:"Authenticating...",
+				clicked: this.state.clicked + 1
 			})
-		this.setState({
-			clicked: this.state.clicked + 1
-		})
-	}
+			e.preventDefault()
+				login(this.email.value, this.password.value)
+					.catch((error) => {
+						setTimeout(() => {
+							this.setState({
+								classCircle:"circle-loader load-complete red ",
+								classTick2:"checkmark2 draw show",
+								authText:"Wrong username or pasword",
+								clicked: this.state.clicked + 1
+							})
+						}, 1500);
+					})
+			}
 
 	resetPassword = () => {
 		resetPassword(this.email.value)
@@ -118,6 +130,7 @@ class Login extends Component {
 						ref={(password) => this.password = password}
 					/>
 					<input type="submit" className="fadeIn fourth" value="Log In" onClick={event => this.handleClick(event)}/>
+					
 					<div id="formFooter">
 						<Link to="/register" className="underlineHover">Don't have account ?</Link><br/>
 						<Link to="#" className="underlineHover" onClick={this.resetPassword}>Forgot Password?</Link>
