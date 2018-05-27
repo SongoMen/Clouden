@@ -1,0 +1,86 @@
+/*##################### Structure #################### */
+
+.register-wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: flex-start;
+    flex-wrap:wrap;
+    width: 100%;
+    flex:1;
+    min-height: 100%;
+    padding: 20px;
+}
+
+.register-content{
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 30px;
+    width: 65%;
+    max-width: 850px;
+    align-items: stretch;
+    height:510px;
+    margin-top:10%;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.register-content h1{
+    font-weight: 300;
+    letter-spacing: 0;
+}
+
+.register-left{
+	width: 50%;
+    padding: 10px;
+    flex:1
+}
+.register-right{
+    flex:1;
+    width: 50%;
+    float:right;
+}
+
+.register-inputs{
+    padding-top:20px;
+}
+
+input[type=text], input[type=password] {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 75%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.register-inputs input[type=submit]{
+    margin-bottom: 15px;
+}
+
+.register-line{
+    border-left: 1px solid #ffc000;
+    height: 200px;
+    top:30%;
+    left:50%;
+    position: absolute;
+}
+
+
+

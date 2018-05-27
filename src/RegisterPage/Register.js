@@ -80,34 +80,40 @@ class Register extends Component {
   
   render() {
     return (
-      <div>
-          <div>
-            {this.registerSuccessfull()}
-            <input placeholder = "username"
+      <div className="register-wrapper">
+        <div className = "register-content">
+          <h1>Register</h1>
+          <div className = "register-inputs">
+            <div className = "register-right">
+              {this.registerSuccessfull()}
+              <input type="text" 
+              placeholder = "Username"
               ref={(username) => this.username = username}
-            />
-            <br />
-            {this.wrongUsernameMessage()}
-            <br/>
-            <input className="form-control" ref={(email) => this.email = email} placeholder="Email"/>            
-            <br />
-            {this.wrongEmailMessage()}
-            <br/>
-            <input type="password" className="form-control" placeholder="Password" ref={(password) => this.password = password} />
-            <br/>
-            {this.wrongPasswordMessage()}
-            <br />
-            <button
-              value="Submit"
-              onClick={event => this.handleClick(event, this.props.role)}
-            />       
-            <br/>
-            <Link to="/">      
-            <button
-              label="Login"
-            />
-            </Link>
+              />
+              <br />
+              {this.wrongUsernameMessage()}
+              <br/>
+              <input type="text" className="form-control" ref={(email) => this.email = email} placeholder="Email"/>            
+              <br />
+              {this.wrongEmailMessage()}
+              <br/>
+              <input type="password" className="form-control" placeholder="Password" ref={(password) => this.password = password} />
+              <br/>
+              {this.wrongPasswordMessage()}
+              <br />
+              <input
+                value="Submit"
+                type="submit"
+                onClick={event => this.handleClick(event, this.props.role)}
+              />       
+              <br/>
+              <Link to="/login" className="underlineHover">Already have an account ?</Link><br/>
+              <span className ="register-line"></span>
+            </div>
+            <div className = "register-left">
+            </div>
           </div>
+        </div>
       </div>
     );
   }
