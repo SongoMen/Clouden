@@ -1,8 +1,14 @@
 import React, { Component } from "react";
-import { auth } from '../helpers/auth'
+import { auth, loginWithGoogle, firebaseAuth } from '../helpers/auth'
 import { Link } from 'react-router-dom';
+import * as firebase from 'firebase';
 
 import './Register.css';
+
+var provider = new firebase.auth.GoogleAuthProvider();
+
+const firebaseAuthKey = "firebaseAuthInProgress";
+const appTokenKey = "appToken";
 
 function setErrorMsg(error) {
     return {
@@ -65,6 +71,15 @@ class Register extends Component {
     } 
   }
 
+  handleGoogleLogin() {
+    loginWithGoogle()
+        .catch(function (error) {
+            alert(error); // or show toast
+            localStorage.removeItem(firebaseAuthKey);
+        });
+    localStorage.setItem(firebaseAuthKey, "1");
+}
+
   handleClick(e, role) {
     localStorage.setItem('password', this.password.value);
     localStorage.setItem('user', this.username.value);
@@ -83,6 +98,7 @@ class Register extends Component {
       <div className="register-wrapper">
         <div className = "register-content">
           <h1>Register</h1>
+          <h1 onClick={this.handleGoogleLogin}>LOLA</h1>
           <div className = "register-inputs">
             <div className = "register-right">
               {this.registerSuccessfull()}
