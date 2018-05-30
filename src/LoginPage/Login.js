@@ -120,15 +120,15 @@ class Login extends Component {
 				<div className="loginContent">
 					<div className= "infoContent">			
 					</div>
-						<div className="formContent-text fadeIn first" >
-							<div className="login-tabs">
+						<div className="formContent-text" >
+							<div className="login-tabs fadeIn first">
 								<h4 className="active"> Sign In </h4>
 								<span className="login-line"></span>
 								<h4 className="inactive underlineHover"> Sign Up </h4>
 							</div>
 							<div className="fadeIn first">
 							</div>
-							<label>Email</label>
+							<label className= "fadeIn first">Email</label>
 							<br/>
 							<input 
 								type="text" 
@@ -140,7 +140,7 @@ class Login extends Component {
 								ref={(email) => this.email = email}
 							/>
 							<br/>
-							<label>Password</label>
+							<label className="fadeIn first">Password</label>
 							<br/>
 							<input 
 								type="password" 
