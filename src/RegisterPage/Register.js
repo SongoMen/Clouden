@@ -1,14 +1,10 @@
 import React, { Component } from "react";
-import { auth, loginWithGoogle, firebaseAuth } from '../helpers/auth'
+import { auth, loginWithGoogle } from '../helpers/auth'
 import { Link } from 'react-router-dom';
-import * as firebase from 'firebase';
 
 import './Register.css';
 
-var provider = new firebase.auth.GoogleAuthProvider();
-
 const firebaseAuthKey = "firebaseAuthInProgress";
-const appTokenKey = "appToken";
 
 function setErrorMsg(error) {
     return {
@@ -103,6 +99,7 @@ class Register extends Component {
             <div className = "register-right">
               {this.registerSuccessfull()}
               <input type="text" 
+              className="form-control"
               placeholder = "Username"
               ref={(username) => this.username = username}
               />

@@ -17,76 +17,92 @@ a {
   transition: .5s
 }
 
-h2 {
-  text-align: center;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  display:inline-block;
-  margin: 40px 8px 10px 8px; 
-  color: #cccccc;
-}
-
-
 
 /* STRUCTURE */
 
 .wrapper {
-  display: flex;
-  align-items: center;
-  flex-direction: column; 
-  justify-content: center;
   width: 100%;
   min-height: 100%;
   padding: 20px;
 }
 
-#formContent {
+.loginContent {
   -webkit-border-radius: 10px 10px 10px 10px;
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 20px 20px 20px 20px;
   background: #fff;
   padding: 30px;
   width: 90%;
-  max-width: 450px;
-  height:610px;
+  max-width: 950px;
+  height:650px;
   margin-top:8%;
+  margin-left:25%;
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-  text-align: center;
 }
 
-#formFooter {
-  background-color: #f6f6f6;
-  border-top: 1px solid #dce8f1;
-  padding: 15px;
-  text-align: center;
-  -webkit-border-radius: 0 0 10px 10px;
-  border-radius: 0 0 10px 10px;
+.formContent-text{
+  float:right;
+  padding-top:10%;
+  width:60%;
+  height: 100%;
+  border-radius: 0px 20px 20px 0px;
+  padding-left:50px;
+  background: linear-gradient(135deg, rgba(30,65,76,1) 0%, rgba(16,39,46,1) 100%);
+
 }
 
-
+.infoContent{
+  background: linear-gradient(135deg, rgba(255,216,59,1) 0%,rgba(255,149,120,1) 100%);
+  width:40%;
+  border-radius: 20px 0px 0px 20px;
+  opacity: 1;
+  height: 100%;
+  float:left;
+}
 
 /* TABS */
 
-h2.inactive {
-  color: #cccccc;
+h4{
+  display: inline-block;
+  padding:20px;
+  font-size: 22px;
 }
 
-h2.active {
-  color: #0d0d0d;
-  border-bottom: 2px solid #ffcc00;
+.login-tabs{
+  white-space:nowrap;
+}
+
+h4.inactive {
+  color: #cccccc;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+.login-line{
+  width:1px;
+  border-left: 2px solid #ffc000; 
+}
+
+h4.active {
+  color: white;
+  font-weight: 500;
 }
 
 
 
 /* FORM TYPOGRAPHY*/
 
+label{
+  color:white;
+  text-transform: uppercase;
+}
+
 input[type=button], input[type=submit], input[type=reset]  {
-  background-color: #ff9c00;
+  background-color: #ffff;
   border: none;
-  color: white;
+  color: #ff9c00;
   padding: 15px 80px;
   text-align: center;
   text-decoration: none;
@@ -95,11 +111,9 @@ input[type=button], input[type=submit], input[type=reset]  {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 13px;
-  -webkit-box-shadow: 0 10px 30px 0 rgba(255,153,0,0.3);
-  box-shadow: 0 10px 30px 0 rgba(255,153,0,0.3);
   -webkit-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
-  margin: 5px 20px 40px 20px;
+  border-radius: 50px;
+  margin: 45px 10px 40px 0px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
@@ -109,10 +123,8 @@ input[type=button], input[type=submit], input[type=reset]  {
 }
 
 input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
-  background-color: #fff;
-  color: #ff9c00;
-  border: 1px solid #ff9c00;
-  border-radius: 100px;
+  background-color: #ff9c00;
+  color: white;
 }
 
 input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
@@ -123,29 +135,26 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
- input[type=text], #password {
-  background-color: #f6f6f6;
-  border: none;
-  color: #0d0d0d;
+#login{
+  margin-bottom: 50px;
+}
+
+#login, #password {
+  background-color: transparent;
+  color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  border:none;
+  text-align: left;
+  margin-top:10px;
   font-size: 16px;
-  margin: 5px;
-  width: 85%;
-  border: 2px solid #f6f6f6;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
+  width: 70%;
+  border-bottom: 2px solid #f6f6f6;
   transition: all 0.5s ease-in-out;
-  -webkit-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
 }
 
-input[type=text]:focus, #password:focus {
-  background-color: #fff;
+#login:focus, #password:focus {
   border-bottom: 3px solid #ffcc00;
 }
 
@@ -250,7 +259,7 @@ input[type=text]:focus, #password:focus {
 }
 
 .underlineHover:hover {
-  color: #0d0d0d;
+  color: white;
 }
 
 .underlineHover:hover:after{
@@ -262,10 +271,6 @@ input[type=text]:focus, #password:focus {
     outline: none;
 } 
 
-#icon {
-  padding: 20px;
-  width:50%;
-}
 
 * {
   box-sizing: border-box;
