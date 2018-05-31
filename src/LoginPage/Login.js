@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {Helmet} from 'react-helmet';
 
 import './Login.css';
-import { login, resetPassword } from '../helpers/auth'
+import { login, resetPassword, auth } from '../helpers/auth'
 
 function setErrorMsg(error) {
 	return {
@@ -17,13 +17,17 @@ class Login extends Component {
 		username: "",
 		password: "",
 		clicked:0,
+		showRegister:false,
+		showLogin:true,
 		classCircle:"",
 		classTick:"checkmark draw",
 		classTick2:"checkmark2 draw",
 		classText:"",
 		classBg:"",
 		authClass:"",
-		authText:""
+		authText:"",
+		Classtab:"active",
+		Classtab2:"inactive"
 	};
 	this.handleChange = this.handleChange.bind(this);
 	this.handleClick = this.handleClick.bind(this);
@@ -66,10 +70,38 @@ class Login extends Component {
 								authText:""
 							})
 						}, 3500);
-					})
+				})
+		}
+
+		handleClickRegisterUser(e) {
+			localStorage.setItem('password', this.password.value);
+			localStorage.setItem('user', this.username.value);
+			e.preventDefault()
+			auth(this.email.value, this.password.value, this.username.value)
+				.catch(e => this.setState(setErrorMsg(e)))
+				setTimeout(() => {
+					localStorage.removeItem('password');
+					localStorage.removeItem('user');
+			}, 1500);
 			}
 
-	resetPassword = () => {
+		handleClickRegister(e){
+			this.setState({
+				showLogin:false,
+				Classtab:"inactive",
+				Classtab2:"active"
+			})
+		}
+
+		handleClickLogin(e){
+			this.setState({
+				showLogin:true,
+				Classtab:"active",
+				Classtab2:"inactive"
+			})
+		}
+		
+		resetPassword = () => {
 		resetPassword(this.email.value)
 		  .then(() => this.setState(setErrorMsg(`Password reset email sent to ${this.email.value}.`)))
 		  .catch((error) => this.setState(setErrorMsg(`Email address not found.`)))
@@ -91,6 +123,7 @@ class Login extends Component {
   	}
 
   render() {
+		const showLogin = this.state.showLogin;
     return (
 		<div className="loginScreen">
 			<Helmet>
@@ -104,36 +137,90 @@ class Login extends Component {
 					</div>
 						<div className="formContent-text" >
 							<div className="login-tabs fadeIn first">
-								<h4 className="active"> Sign In </h4>
+								<h4 
+								className={this.state.Classtab} onClick={e => this.handleClickLogin(e)}> Sign In </h4>
 								<span className="login-line"></span>
-								<h4 className="inactive underlineHover"> Sign Up </h4>
+								<h4 
+								className={this.state.Classtab2}
+								onClick={e => this.handleClickRegister(e)}> Sign Up </h4>
 							</div>
-							<div className="fadeIn first">
+							{showLogin ? (
+							<div className="loginScreen">
+								<div className="fadeIn first">
+								</div>
+								<label className= "fadeIn first">Email</label>
+								<br/>
+								<input 
+									type="text" 
+									id="login" 
+									className="fadeIn first" 
+									name="Email" 
+									placeholder="Type your email here" 
+									ref={(email) => this.email = email}
+								/>
+								<br/>
+								<label className="fadeIn second">Password</label>
+								<br/>
+								<input 
+									type="password" 
+									id="password" 
+									className="fadeIn second" 
+									name="password" 
+									placeholder="Type password here" 
+									ref={(password) => this.password = password}
+								/>
+								<br/>
+								<input 
+									type="submit" 
+									className="fadeIn second" 
+									value="Sign In" 
+									onClick={event => this.handleClick(event)}
+								/>
 							</div>
-							<label className= "fadeIn first">Email</label>
-							<br/>
-							<input 
-								type="text" 
-								id="login" 
-								className="fadeIn second" 
-								name="Email" 
-								placeholder="Type your email here" 
-								ref={(email) => this.email = email}
-							/>
-							<span className="underline"></span>
-							<br/>
-							<label className="fadeIn first">Password</label>
-							<br/>
-							<input 
-								type="password" 
-								id="password" 
-								className="fadeIn third" 
-								name="password" 
-								placeholder="Type password here" 
-								ref={(password) => this.password = password}
-							/>
-							<br/>
-							<input type="submit" className="fadeIn fourth" value="Sign In" onClick={event => this.handleClick(event)}/>
+							) : (
+								<div className="registerScreen">
+								<div className="fadeIn first">
+								</div>
+								<label className= "fadeIn first">Username</label>
+								<br/>
+								<input 
+									type="text" 
+									id="login" 
+									className="fadeIn first" 
+									name="Email" 
+									placeholder="Type your username here" 
+									ref={(username) => this.username = username}
+								/>
+								<br/>
+								<label className="fadeIn second">Email</label>
+								<br/>
+								<input 
+									type="text" 
+									id="login" 
+									className="fadeIn second" 
+									name="Email" 
+									placeholder="Type your email here" 
+									ref={(email) => this.email = email}
+								/>
+								<br/>
+								<label>Password</label>
+								<br/>
+								<input 
+									type="password" 
+									id="password" 
+									name="password" 
+									placeholder="Type strong password here" 
+									ref={(password) => this.password = password}
+								/>
+								<br/>
+								<input 
+									type="submit" 
+									value="Sign Up" 
+									onClick={event => this.handleClickRegisterUser(event, this.props.role)}
+								/>
+							</div>
+							)
+						}
 						</div>
 				</div>
 			</div>
