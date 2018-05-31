@@ -172,7 +172,7 @@ class Login extends Component {
 								<br/>
 								<input 
 									type="submit" 
-									className="fadeIn first" 
+									className="fadeIn" 
 									value="Sign In" 
 									onClick={event => this.handleClick(event)}
 								/>
