@@ -29,23 +29,6 @@ class Login extends Component {
 	this.handleClick = this.handleClick.bind(this);
   }
   state = { loginMessage: null }
-	getStyleUsername(){
-		if(this.state.username.length <= 0 &&
-		this.state.clicked !== 0 )
-		{
-			return {
-				border: '2px solid red '
-			}
-		}
-	}
-	getStylePassword(){
-		if(this.state.password.length <= 0 &&
-		this.state.clicked !== 0){
-			return {
-				border: '2px solid red '
-			}
-		}
-	}
 
     handleChange(e) {
         const { name, value } = e.target;
@@ -135,7 +118,6 @@ class Login extends Component {
 								className="fadeIn second" 
 								name="Email" 
 								placeholder="Type your email here" 
-								style = {this.getStyleUsername()}
 								ref={(email) => this.email = email}
 							/>
 							<span className="underline"></span>
@@ -147,7 +129,6 @@ class Login extends Component {
 								id="password" 
 								className="fadeIn third" 
 								name="password" 
-								style = {this.getStylePassword()}
 								placeholder="Type password here" 
 								ref={(password) => this.password = password}
 							/>
