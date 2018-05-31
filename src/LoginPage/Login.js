@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
 import {Helmet} from 'react-helmet';
 
 import './Login.css';
@@ -139,6 +138,7 @@ class Login extends Component {
 								style = {this.getStyleUsername()}
 								ref={(email) => this.email = email}
 							/>
+							<span className="underline"></span>
 							<br/>
 							<label className="fadeIn first">Password</label>
 							<br/>
@@ -152,7 +152,7 @@ class Login extends Component {
 								ref={(password) => this.password = password}
 							/>
 							<br/>
-							<input type="submit" className="fadeIn fourth" value="Log In" onClick={event => this.handleClick(event)}/>
+							<input type="submit" className="fadeIn fourth" value="Sign In" onClick={event => this.handleClick(event)}/>
 						</div>
 				</div>
 			</div>
