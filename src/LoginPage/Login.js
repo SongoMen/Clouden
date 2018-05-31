@@ -27,7 +27,7 @@ class Login extends Component {
 		authClass:"",
 		authText:"",
 		Classtab:"active",
-		Classtab2:"inactive"
+		Classtab2:"inactive underlineHover"
 	};
 	this.handleChange = this.handleChange.bind(this);
 	this.handleClick = this.handleClick.bind(this);
@@ -88,7 +88,7 @@ class Login extends Component {
 		handleClickRegister(e){
 			this.setState({
 				showLogin:false,
-				Classtab:"inactive",
+				Classtab:"inactive underlineHover",
 				Classtab2:"active"
 			})
 		}
@@ -97,7 +97,7 @@ class Login extends Component {
 			this.setState({
 				showLogin:true,
 				Classtab:"active",
-				Classtab2:"inactive"
+				Classtab2:"inactive underlineHover"
 			})
 		}
 		
@@ -172,10 +172,11 @@ class Login extends Component {
 								<br/>
 								<input 
 									type="submit" 
-									className="fadeIn second" 
+									className="fadeIn first" 
 									value="Sign In" 
 									onClick={event => this.handleClick(event)}
 								/>
+								<a href="forgotPassword"><p className="forgot-password underlineHover">Forgot password ?</p></a>
 							</div>
 							) : (
 								<div className="registerScreen">

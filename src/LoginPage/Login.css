@@ -17,6 +17,17 @@ a {
   transition: .5s
 }
 
+h4{
+  display: inline-block;
+  padding-right:10px;
+  margin-bottom: 50px;
+  font-size: 22px;
+}
+
+p{
+  color:white;
+}
+
 
 /* STRUCTURE */
 
@@ -63,13 +74,6 @@ a {
 }
 
 /* TABS */
-
-h4{
-  display: inline-block;
-  padding-right:10px;
-  margin-bottom: 50px;
-  font-size: 22px;
-}
 
 .login-tabs{
   white-space:nowrap;
@@ -120,7 +124,7 @@ input[type=submit] {
   font-size: 15px;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 50px;
-  margin: 45px 10px 40px 0px;
+  margin: 45px 10px 5px 0px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
@@ -163,6 +167,11 @@ input[type=submit]:active  {
 
 #login:focus, #password:focus {
   border-bottom: 1px solid #ffcc00;
+}
+
+.forgot-password{
+  margin-left:20px;
+  cursor: pointer;
 }
 
 ::placeholder {
