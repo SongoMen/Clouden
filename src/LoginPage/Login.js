@@ -86,18 +86,26 @@ class Login extends Component {
 			}
 
 		handleClickRegister(e){
+			this.email.value = "";
+			this.password.value = "";
 			this.setState({
 				showLogin:false,
 				Classtab:"inactive underlineHover",
-				Classtab2:"active"
+				Classtab2:"active",
+				username:"",
+				password:"",
+				email:""
 			})
 		}
 
 		handleClickLogin(e){
+			this.email.value = "";
+			this.password.value ="";
+			this.username.value="";
 			this.setState({
 				showLogin:true,
 				Classtab:"active",
-				Classtab2:"inactive underlineHover"
+				Classtab2:"inactive underlineHover",
 			})
 		}
 		
