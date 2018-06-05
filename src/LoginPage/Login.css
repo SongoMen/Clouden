@@ -2,12 +2,13 @@
 /* BASIC */
 
 html {
-  background-color: #56baed;
+  background-color:#ffc000;
   font-family: 'Maven Pro'
 }
 
 body {
-  height: 100vh;
+  height: 100%;
+  width:100%;
 }
 
 a {
@@ -28,6 +29,18 @@ p{
   color:white;
 }
 
+label{
+  color:white;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+input{
+  font-family: 'Maven Pro'
+}
+
+
 
 /* STRUCTURE */
 
@@ -42,12 +55,13 @@ p{
   border-radius: 20px 20px 20px 20px;
   background: #fff;
   padding: 30px;
-  width: 90%;
-  max-width: 950px;
-  height:650px;
-  margin-top:8%;
-  margin-left:25%;
-  position: relative;
+  width: 70%;
+  max-width: 850px;
+  height:600px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
@@ -99,17 +113,6 @@ h4.active {
 
 
 /* FORM TYPOGRAPHY*/
-
-label{
-  color:white;
-  font-weight: 500;
-  text-transform: uppercase;
-}
-
-input{
-  font-family: 'Maven Pro'
-}
-
 input[type=submit] {
   background-color: #ffff;
   border: none;
@@ -149,13 +152,13 @@ input[type=submit]:active  {
 }
 
 #login{
-  margin-bottom: 40px;
+  margin-bottom: 35px;
 }
 
 #login, #password {
   background-color: transparent;
   color: white;
-  padding: 10px 0px 10px 0px;
+  padding: 5px 0px 10px 0px;
   text-decoration: none;
   border:none;
   margin-top:5px;
@@ -189,29 +192,13 @@ input[type=submit]:active  {
   animation-fill-mode: both;
 }
 
-@-webkit-keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
-}
-
 @keyframes fadeInDown {
   0% {
     opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
   }
   100% {
     opacity: 1;
-    -webkit-transform: none;
-    transform: none;
+
   }
 }
 
