@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {Helmet} from 'react-helmet';
 
 import './Login.css';
-import { login, resetPassword, auth } from '../helpers/auth'
+import { login, auth } from '../helpers/auth'
 
 function setErrorMsg(error) {
 	return {
@@ -34,12 +34,12 @@ class Login extends Component {
   }
   state = { loginMessage: null }
 
-    handleChange(e) {
-        const { name, value } = e.target;
-        this.setState({ [name]: value });
-    }
+		handleChange(e) {
+			const { name, value } = e.target;
+			this.setState({ [name]: value });
+		}
 
-  	handleClick(e) {
+  		handleClick(e) {
 			this.setState({
 				classCircle:"circle-loader",
 				authClass:"authContent ",
@@ -49,27 +49,27 @@ class Login extends Component {
 				clicked: this.state.clicked + 1
 			})
 			e.preventDefault()
-				login(this.email.value, this.password.value)
-					.catch((error) => {
-						setTimeout(() => {
-							this.setState({
-								classCircle:"circle-loader load-complete red ",
-								classTick2:"checkmark2 draw show",
-								authText:"Wrong username or pasword",
-								clicked: this.state.clicked + 1
-							})
-						}, 2000);
-						setTimeout(() => {
-							this.setState({
-								classCircle:"",
-								classTick:"",
-								classTick2:"",
-								classText:"",
-								classBg:"",
-								authClass:"",
-								authText:""
-							})
-						}, 3500);
+			login(this.email.value, this.password.value)
+				.catch((error) => {
+					setTimeout(() => {
+						this.setState({
+							classCircle:"circle-loader load-complete red ",
+							classTick2:"checkmark2 draw show",
+							authText:"Wrong username or pasword",
+							clicked: this.state.clicked + 1
+						})
+					}, 2000);
+					setTimeout(() => {
+						this.setState({
+							classCircle:"",
+							classTick:"",
+							classTick2:"",
+							classText:"",
+							classBg:"",
+							authClass:"",
+							authText:""
+						})
+					}, 3500);
 				})
 		}
 
@@ -83,8 +83,8 @@ class Login extends Component {
 					localStorage.removeItem('password');
 					localStorage.removeItem('user');
 			}, 1500);
-			}
-
+		}
+	
 		handleClickRegister(e){
 			this.setState({
 				showLogin:false,
@@ -100,27 +100,21 @@ class Login extends Component {
 				Classtab2:"inactive underlineHover"
 			})
 		}
-		
-		resetPassword = () => {
-		resetPassword(this.email.value)
-		  .then(() => this.setState(setErrorMsg(`Password reset email sent to ${this.email.value}.`)))
-		  .catch((error) => this.setState(setErrorMsg(`Email address not found.`)))
-	}
 
-	auth(){
-	  	return(
-		  	<div className="auth">
-			  	<div className = {this.state.authClass}>
-					<div className={this.state.classCircle} >
-						<div className={this.state.classTick}></div>
-						<div className={this.state.classTick2}></div>
+		auth(){
+			return(
+				<div className="auth">
+					<div className = {this.state.authClass}>
+						<div className={this.state.classCircle} >
+							<div className={this.state.classTick}></div>
+							<div className={this.state.classTick2}></div>
+						</div>
+						<h3 className={this.state.classText} >{this.state.authText}</h3>	  		
 					</div>
-					<h3 className={this.state.classText} >{this.state.authText}</h3>	  		
+					<div className={this.state.classBg}></div>
 				</div>
-				<div className={this.state.classBg}></div>
-		  	</div>
-	  	)
-  	}
+			)
+		}
 
   render() {
 		const showLogin = this.state.showLogin;
