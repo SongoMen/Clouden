@@ -1,28 +1,60 @@
-p{
-    color:black
-}
-h3{
-    color:black
+
+.user, .panel-title{
+    margin:0;
+    letter-spacing: 0;
 }
 
 .Panel{
     overflow-x: hidden;
     overflow-y: hidden;
-    background-color: rgb(226, 226, 226);
+    color:black
 }
 .panel-bar{
     top:0;
-    width:100vw;
+    width:90%;
     float:right;
     background-color:white;
-    height: 50px;
+    height: 8vh;
     box-shadow: 20px 0px 21px 0px rgba(0, 0, 0, 0.418);
     border-left: none;
 }
 
 .panel-leftbar{
-    width:10vw;
+    width:10%;
+    float: left;
+    color:white;
     height: 100vh;
     box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.329);
-    background-color:white;
+    background-color:rgb(36, 36, 36);
+}
+
+.panel-title{
+    padding:10px 15px;
+    font-weight: 500;
+}
+
+.panel-sections{
+    float:left;
+    width:90%;
+    height: 92vh;
+    background-color: rgb(226, 226, 226);
+}
+
+.panel-sections__disk{
+    width:40%;
+    float:left;
+    height: 40%;
+    background-color:#ffc000;
+}
+
+.panel-sections__disk h1{
+    padding-top:18%;
+    padding-left:15px;
+}
+
+.panel-sections__account{
+    width:40%;
+    float:left;
+    height: 40%;
+    background-color:#ce9a00;
 }
