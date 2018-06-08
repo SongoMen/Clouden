@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {logout} from '../../helpers/auth'
 
-import './Dashboard.css'
+import './Dashboard.scss'
 import PanelBars from '../PanelBars.js' 
 
 export default class Dashboard extends Component{

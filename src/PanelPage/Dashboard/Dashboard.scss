@@ -1,0 +1,15 @@
+$primary-color:#fecb00;
+
+$gradien1:linear-gradient(to right, #ff9578 1%,#ffd83b 100%);
+
+.panel-sections{
+    width:100%;
+    height: 100%;
+}
+
+.panel-sections__disk h1{
+    width:40%;
+    height: 30%;
+    background-color: $primary-color;
+    color:$primary-color;
+}

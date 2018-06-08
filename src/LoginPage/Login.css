@@ -2,7 +2,7 @@
 /* BASIC */
 
 html {
-  background-color:#ffc000;
+  background-color:#fecb00;
   font-family: 'Maven Pro'
 }
 
@@ -13,7 +13,7 @@ body {
 }
 
 a {
-  color: #ffc000;
+  color: #fecb00;
   text-decoration: none;
   font-weight: 400;
   transition: .5s
@@ -103,7 +103,7 @@ h4.inactive {
 .login-line{
   padding-right:10px;
   width:1px;
-  border-left: 2px solid #ffc000; 
+  border-left: 2px solid #fecb00; 
 }
 
 h4.active {
