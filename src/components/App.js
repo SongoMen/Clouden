@@ -3,7 +3,7 @@ import { Route, BrowserRouter, Redirect, Switch } from 'react-router-dom'
 import Login from '../LoginPage/Login'
 import Register from '../RegisterPage/Register'
 import Main from '../containers/Main'
-import Panel from '../PanelPage/Panel'
+import Dashboard from '../PanelPage/Dashboard/Dashboard'
 import forgotPassword from './forgotPassword'
 import {firebaseAuth } from '../helpers/auth'
 
@@ -61,7 +61,7 @@ export default class App extends Component {
                 <Route path='/forgotPassword' exact component={forgotPassword} />
                 <PublicRoute authed={this.state.authed} path='/login' component={Login} />
                 <PublicRoute authed={this.state.authed} path='/register' component={Register} />
-                <PrivateRoute authed={this.state.authed} path='/Panel' component={Panel} />
+                <PrivateRoute authed={this.state.authed} path='/Dashboard' component={Dashboard} />
                 <Route render={() => <h3>No Match</h3>} />
               </Switch>
           </div>
