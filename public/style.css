@@ -1,37 +1,27 @@
 @font-face {
-font-family: 'DIN Pro Light';
-font-style: normal;
-font-weight: normal;
-src: local('DIN Pro Light'), url('fonts\DINPro-Light.woff') format('woff');
-}
-
-
-@font-face {
-font-family: 'DIN Pro Medium';
-font-style: normal;
-font-weight: normal;
-src: local('DIN Pro Medium'), url('fonts\DINPro-Medium.woff') format('woff');
-}
-
-
-@font-face {
-font-family: 'DIN Pro';
-font-style: normal;
-font-weight: normal;
-src: local('DIN Pro'), url('fonts\DINPro.woff') format('woff');
+    font-family: 'Geomanist2';
+    src: url("fonts/Geomanist-Medium.eot");
+    src: url("fonts/Geomanist-Medium.woff") format("woff"),url("fonts/Geomanist-Medium.ttf") format("truetype"),url("fonts/Geomanist-Medium.svg") format("svg");
+    font-weight: 600;
+    font-style: normal;
 }
 
 @font-face {
-font-family: 'DIN Pro Light Italic';
-font-style: normal;
-font-weight: normal;
-src: local('DIN Pro Light Italic'), url('fonts\DINPro-LightItalic.woff') format('woff');
+    font-family: 'Geomanist1';
+    src: url("fonts/Geomanist-book.eot");
+    src: url("fonts/Geomanist-book.woff") format("woff"),url("fonts/Geomanist-book.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
 }
 
-
 @font-face {
-font-family: 'DIN Pro Medium Italic';
-font-style: normal;
-font-weight: normal;
-src: local('DIN Pro Medium Italic'), url('fonts\DINPro-MediumItalic.woff') format('woff');
+    font-family: 'Geomanist3';
+    src: url("fonts/geomanist-regular.eot");
+    src: url("fonts/Geomanist-regular.woff") format("woff"),url("fonts/Geomanist-regular.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+html{
+    font-family: Geomanist3
 }

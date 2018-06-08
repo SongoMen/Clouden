@@ -1,17 +1,5 @@
 
 /* BASIC */
-
-html {
-  background-color:#fecb00;
-  font-family: 'Maven Pro'
-}
-
-body {
-  height: 100%;
-  width:100%;
-  font-family: 'Maven Pro'
-}
-
 a {
   color: #fecb00;
   text-decoration: none;
@@ -36,12 +24,6 @@ label{
   font-weight: 500;
   text-transform: uppercase;
 }
-
-input{
-  font-family: 'Maven Pro'
-}
-
-
 
 /* STRUCTURE */
 

@@ -30,3 +30,37 @@
     height: 92vh;
     background-color: #f4f4f4;
 }
+
+.panel-menu{
+    margin: 5px auto;
+    max-width: 800px;
+}
+
+.panel-active, .panel-inactive{
+    cursor: pointer
+}
+
+.panel-inactive{
+    opacity: 0.6;
+    transition: all .5s;
+}
+
+.panel-inactive:hover{
+    opacity:1;
+}
+
+.endMenu{
+    padding-right:20px;
+}
+
+.panel-menu li{
+    padding-left:40px;
+    font-family: Geomanist1;
+}
+
+li img {
+    top:5px;
+    width:2.5%;
+    cursor: pointer;
+    position: relative;
+}
