@@ -53,9 +53,12 @@ class Panel extends Component {
         <div className="panel-bar">
           <nav>
             <ul className="panel-menu">
-              <li className="panel-active">Dashboard</li>
+              <div className="panel-activeTab">
+                <li className="panel-active">Dashboard</li>
+                <span className="panel-active__span"></span>
+              </div>
               <li className="panel-inactive">Cloud Drive</li>
-              <li className="panel-inactive endMenu">Profile</li>
+              <li className="panel-inactive">Profile</li>
               <li><img src={notification} alt="notification" className="notification-icon"
               onClick={this.showNotificationTab}/></li>
               <li><img src={settings} alt="settings" className="settings-icon"/></li>

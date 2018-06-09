@@ -51,17 +51,28 @@
     cursor: pointer
 }
 
+
+.panel-activeTab{
+    display: inline-block;
+}
+
+.panel-active__span{
+    width:50px;
+    height: 4px;
+    border-radius: 50px;
+    background-color:#fff000;
+    display: block;
+    margin-left:60px;
+    margin-top:5px;
+}
 .panel-inactive{
+    width:50px;
     opacity: 0.6;
     transition: all .5s;
 }
 
 .panel-inactive:hover{
     opacity:1;
-}
-
-.endMenu{
-    padding-right:20px;
 }
 
 .panel-menu li{
@@ -71,9 +82,15 @@
 
 li img {
     top:5px;
+    opacity: 0.6;
     width:2.5%;
     cursor: pointer;
     position: relative;
+}
+
+li img:hover{
+    opacity: 1;
+    transition: all .5s ease-in-out;
 }
 
 /*######################################################### TOP BAR TABS #########################################################*/
@@ -89,7 +106,7 @@ li img {
     float:right;
     border-radius: 10px;
     position: absolute;
-    right: 30px;
+    right: 100px;
     background-color:white;
     box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     animation: showTab .5s ease-in-out;
