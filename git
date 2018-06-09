@@ -1,0 +1,666 @@
+[33mcommit e982cfb64ddf48dc8a06b3212a703343616fe6a0[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Sat Jun 9 15:10:36 2018 +0200
+
+    testing
+
+[33mcommit 492c68783379d15c4c799b2bd3713a92ab60fd55[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Sat Jun 9 01:29:29 2018 +0200
+
+    panel bar design
+
+[33mcommit 6cddae768db7c71ac3bec3c709e25acb758d1071[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Sat Jun 9 00:06:47 2018 +0200
+
+    fixed scss files
+
+[33mcommit 3f9597936ce7f8ed471a7c728a36354889fe0d45[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Fri Jun 8 23:38:01 2018 +0200
+
+    revert
+
+[33mcommit 047a0533a6f29ad1cc5c98dc5bfc9d031e8b0108[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Fri Jun 8 23:34:39 2018 +0200
+
+    Revert "modules"
+    
+    This reverts commit 1364a1842e2e6bccec72cc8db3fc33b8d9afb20b.
+
+[33mcommit 1364a1842e2e6bccec72cc8db3fc33b8d9afb20b[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Fri Jun 8 23:09:36 2018 +0200
+
+    modules
+
+[33mcommit 5c352510bd90484f32cbe8fc37bbda1f321e697e[m
+Author: SongoMen <pat.kozlowski2000@onet.pl>
+Date:   Fri Jun 8 21:12:12 2018 +0200
+
+    added modules
+
+[33mcommit 72522c561794323e4f348fc55980abb4d4bef44a[m
+Author: SongoMen <pat.kozlowski2000@onet.pl>
+Date:   Fri Jun 8 20:43:50 2018 +0200
+
+    added scss files
+
+[33mcommit fbc7da7fe378d92b5b46fada34a8d308cfa95b76[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Wed Jun 6 00:15:06 2018 +0200
+
+    panel update
+
+[33mcommit 4d265475f495d4d6f138a0a53ad5d522016c5851[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Tue Jun 5 23:36:13 2018 +0200
+
+    panel design update
+
+[33mcommit 24bac81b9ede00ad8c6cbee064fd85c54a2cf0b4[m
+Merge: 86b9216 92c3249
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Tue Jun 5 21:23:47 2018 +0200
+
+    Merge branch 'master' of https://github.com/SongoMen/my-app2
+
+[33mcommit 86b921601dcf4d602b7d7a25bd294553e9aabe79[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Tue Jun 5 21:23:45 2018 +0200
+
+    Panel works started
+
+[33mcommit 92c32491eb35f18440dc3780929c03e799955688[m
+Author: SongoMen <pat.kozlowski2000@onet.pl>
+Date:   Sat Jun 2 02:50:23 2018 +0200
+
+    small tabs fixes
+
+[33mcommit 369672827125d2cf97b982dca77dcd832d523e7a[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu May 31 23:58:57 2018 +0200
+
+    forgot password page done
+
+[33mcommit 75a4dad4e0e1415a6edb054bcb4069e591a70a03[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu May 31 22:54:17 2018 +0200
+
+    password forgot page
+
+[33mcommit 989068a06e3923e638a854a2906b87bd225c5a3f[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu May 31 22:12:32 2018 +0200
+
+    login added register tab. todo: google and twitter login
+
+[33mcommit 39dc785bda571a119ca125382b19df3dbcde137d[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu May 31 17:30:40 2018 +0200
+
+    small login fix
+
+[33mcommit 77a7d8c1debc243aef45d878efdf57e528d19439[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu May 31 17:19:23 2018 +0200
+
+    login redesign continue
+
+[33mcommit b4d8d3ffafd1d8111598b78ae7e95f24aaf5d115[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu May 31 01:19:21 2018 +0200
+
+    login redesign v2
+
+[33mcommit 6e2780f707bf5d188c7c52a0a7c5b02edab73655[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu May 31 01:16:09 2018 +0200
+
+    login redesign
+
+[33mcommit ba1747131a2b483e828fd5401fa27092a81ad13b[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Tue May 29 23:38:42 2018 +0200
+
+    working login through google sign in
+
+[33mcommit 3972ff6f7266f5109517329a3fa4eabad0a18371[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Mon May 28 00:35:04 2018 +0200
+
+    started register design
+
+[33mcommit a4eb79963fc0cddd6fd8e5550cab91146d8d8eb3[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Sun May 27 15:50:59 2018 +0200
+
+    login redesign
+
+[33mcommit 0ee656e9a649759e0b8c8dc7abd8efdd491ee68e[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Sun May 27 15:20:36 2018 +0200
+
+    login animation
+
+[33mcommit 1280e62a9ccd514533757f5eaeadcff03e79679a[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Sat May 26 14:53:05 2018 +0200
+
+    works get displayname, todo register ui
+
+[33mcommit b6fa24060e747408e80615d3ea043bc854bbc967[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu May 24 00:27:13 2018 +0200
+
+    add displayname to register
+
+[33mcommit 91711aa54170977f739f2495b6f44fb31c30b3fa[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Wed May 23 23:49:14 2018 +0200
+
+    todo display logged username info
+
+[33mcommit ff2724fe32b45210ce082705d2359804e1f4ac09[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Wed May 23 01:24:47 2018 +0200
+
+    login and register configurated to firebase
+
+[33mcommit b5fdc12e9d6d869b368088c36b6d3b0fbf8fa21f[m
+Author: SongoMen <pat.kozlowski2000@onet.pl>
+Date:   Sun May 20 16:11:08 2018 +0200
+
+    actions
+
+[33mcommit 55e80d723210ef46d1f937701736e96f577dd19e[m
+Author: SongoMen <pat.kozlowski2000@onet.pl>
+Date:   Sun May 20 03:22:00 2018 +0200
+
+    s
+
+[33mcommit 4c923b76e938c29cc78d9fb274a1c4807799be85[m
+Author: SongoMen <pat.kozlowski2000@onet.pl>
+Date:   Sun May 20 02:48:49 2018 +0200
+
+    redux almost done
+
+[33mcommit 5146d8ff86f737e33de7ad665796c6edf77a2675[m
+Author: SongoMen <pat.kozlowski2000@onet.pl>
+Date:   Sat May 19 22:25:27 2018 +0200
+
+    redux
+
+[33mcommit e83d338b69ddb2f94d3f96daa3b59797c20c2465[m
+Author: SongoMen <pat.kozlowski2000@onet.pl>
+Date:   Sat May 19 18:54:10 2018 +0200
+
+    redux continue
+
+[33mcommit 7d9f369a385e4a05d69f8c456ba21cbdd3deaa44[m
+Author: SongoMen <pat.kozlowski2000@onet.pl>
+Date:   Sat May 19 18:29:06 2018 +0200
+
+    redux learning
+
+[33mcommit 55f408fb234d7aa9a5872860ad7b69808bd5676b[m
+Author: SongoMen <pat.kozlowski2000@onet.pl>
+Date:   Sat May 19 00:22:59 2018 +0200
+
+    module react helmet
+
+[33mcommit 09e778dd021983cef58a1b51cd3c51d300f1e239[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu May 17 23:40:49 2018 +0200
+
+    whats going on
+
+[33mcommit a541392dcc6526248a7046c8809c19c8c2585ca8[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu May 17 20:40:43 2018 +0200
+
+    redux start
+
+[33mcommit b3ffaeb2414299a433f50828952e8db80e62b5fe[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu May 17 17:53:41 2018 +0200
+
+    v3
+
+[33mcommit 86bfae349cfc066bb3cbcdd3fd0e43c425e41388[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu May 17 17:16:44 2018 +0200
+
+    Revert "redux implementation part 1"
+    
+    This reverts commit dbb1b4903a806e10b2136bc5c4480ca2d5f7191f.
+
+[33mcommit 09830386e4e3da1c32121030576e1e0d6292e5ff[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Wed May 16 23:29:06 2018 +0200
+
+    learning redux part 2
+
+[33mcommit dbb1b4903a806e10b2136bc5c4480ca2d5f7191f[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Wed May 16 23:07:51 2018 +0200
+
+    redux implementation part 1
+
+[33mcommit 75817952ccce8061eb886d39bd08483e007f9910[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Tue May 15 22:53:34 2018 +0200
+
+    components organization
+
+[33mcommit 1065615d836e46637953de16cb05e54cec462db5[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Mon May 14 19:43:57 2018 +0200
+
+    sad
+
+[33mcommit 804c67ad2d8776278df76aad44c97c9979677bf0[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Mon May 14 19:43:34 2018 +0200
+
+    dsad
+
+[33mcommit 73a27a983b8bd1523dd80b5da14e69c231359bb5[m
+Author: SongoMen <34171300+SongoMen@users.noreply.github.com>
+Date:   Mon May 14 14:07:30 2018 +0200
+
+    code look
+
+[33mcommit abcd541fa438ad145637f6cc59a0f8c78c0f1167[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Sun May 13 15:16:11 2018 +0200
+
+    animations fixed
+
+[33mcommit cf6fea042d33bc5e6ee33305ad37f95a47e8ab3d[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Sun May 13 03:26:12 2018 +0200
+
+    invalid login animation
+
+[33mcommit 8048e928145fb0cdcfb219d2112b4d8fc9dc33c4[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Sun May 13 00:43:36 2018 +0200
+
+    v1
+
+[33mcommit db6c31eee15d701e64b1adfa719259c27ac74346[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Sun May 13 00:42:13 2018 +0200
+
+    login works
+
+[33mcommit f340c9bb8f7c60e173ecf2d373b1f17b232af4f1[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Sun May 13 00:24:05 2018 +0200
+
+    animation after login fixed
+
+[33mcommit f5ba48951c5a27f7ef820bde00d8dfab590f9121[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Sat May 12 22:12:49 2018 +0200
+
+    change title depends on page, login animation
+
+[33mcommit 4bf9814ee3bb27de0f18c8798131a04252fd1ba6[m
+Author: SongoMen <pat.kozlowski2000@onet.pl>
+Date:   Sat May 12 02:27:32 2018 +0200
+
+    bugs fix
+
+[33mcommit 422ed38d29d95b8f17b0dd77cf15ab0c35bf03c3[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Fri May 11 19:58:03 2018 +0200
+
+    login
+
+[33mcommit 200e3cb299e6fc4dd2dc2c6854c0c6a8226c4a60[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Tue May 8 23:14:31 2018 +0200
+
+    change classname
+
+[33mcommit 3797be924d3933287890ed5f4f551f42ba83a1f2[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Tue May 8 20:52:41 2018 +0200
+
+    todo fix setstate on password
+
+[33mcommit de436be6fc089fad738808c64a4b6729f9b04ade[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Tue May 8 19:01:12 2018 +0200
+
+    .
+
+[33mcommit 42208dd2755d8644f1716d88f3035f25c7e90cf6[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Tue May 8 18:44:10 2018 +0200
+
+    red box if length < 0
+
+[33mcommit 714438289137898c8c36fecd8a10d3468cd2bf40[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Tue May 8 15:30:44 2018 +0200
+
+    todo login animation
+
+[33mcommit 8507e76ca908089a9a41eb18f686068df07ebca2[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Mon May 7 21:37:12 2018 +0200
+
+    handleclick and frontend login fixed
+
+[33mcommit 275b1577df3afe863f1a202959431e3a4ee4f72d[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Mon May 7 17:36:08 2018 +0200
+
+    login page
+
+[33mcommit 9514f0dd506015bdd72baed5e0ad2c11b357e8db[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Mon May 7 02:04:25 2018 +0200
+
+    start login page
+
+[33mcommit be8a07fe976139f5a643bc19415394062b03ad3c[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Sun May 6 21:58:10 2018 +0200
+
+    code clean
+
+[33mcommit 72423dc23be7e523cd61896f597cc43590703b88[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Sun May 6 18:02:03 2018 +0200
+
+    v2
+
+[33mcommit ad42d5c40311f36b6526809bc7829575e8562b37[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Sun May 6 17:58:14 2018 +0200
+
+    change look of scrollbar, scroll item
+
+[33mcommit 701cb648203b8f7eb19047960bc16deda27016a6[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Sun May 6 16:30:30 2018 +0200
+
+    landing page update sections
+
+[33mcommit ba88d3d063d54a331f778ce70d5e4224ae8051d6[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Sun May 6 01:26:08 2018 +0200
+
+    section start
+
+[33mcommit 9e1059c3d9da77f135003bb95e0aed33a6cf0172[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Sun May 6 01:13:06 2018 +0200
+
+    to do landing page sections
+
+[33mcommit 8d3ed9613945a82236ca6aab1fffe94580b69754[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Sat May 5 18:53:55 2018 +0200
+
+    landing page update
+
+[33mcommit 050fa3eb9fb2444e5e8037e142227d59fe1f8984[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Sat May 5 18:09:52 2018 +0200
+
+    landing page build
+
+[33mcommit f8d17cdba75a111b8e311f32bdf3053bf6c47085[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Sat May 5 00:18:03 2018 +0200
+
+    progress working on login
+
+[33mcommit 21c34d0adea1e4f966076cb47232cca409d41def[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu May 3 22:42:59 2018 +0200
+
+    todo check if logged
+
+[33mcommit 9153ac124ff0f0d9d83d7afed88e3639ab7167f3[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu May 3 21:37:52 2018 +0200
+
+    useless console log
+
+[33mcommit 5d768d378b071b62d39ae504a33dbe1ef3a3af7f[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu May 3 21:06:29 2018 +0200
+
+    regsiter bug done
+
+[33mcommit edfcebb09eb9be5fa8a40a62fbc8a7026c3ddb67[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu May 3 18:33:37 2018 +0200
+
+    v
+
+[33mcommit fa26572726d744d5d7be8690ca8bfcd5888a5432[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu May 3 18:33:03 2018 +0200
+
+    todo check if logged repair register
+
+[33mcommit 681582cedd64467914a158d91d1833e8ea9e1dfe[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu May 3 18:24:01 2018 +0200
+
+    login bugs gone
+
+[33mcommit a11eea7ee0786c10b29ef44a01ad85e6702a4879[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu May 3 18:11:52 2018 +0200
+
+    login works
+
+[33mcommit c3ecedd9331a19a5a1546b54289093f11cb78479[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu May 3 16:12:50 2018 +0200
+
+    fonts
+
+[33mcommit d26e9837443eb2df5305a1154ea47d2d74ed116b[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Tue May 1 00:59:36 2018 +0200
+
+    s
+
+[33mcommit 9a037824271b78250fd3b4f83b758369e2f65fda[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Tue May 1 00:59:14 2018 +0200
+
+    added classes
+
+[33mcommit 9a4c332e6d59569d9a1b56bedbcea28c0d4e72b2[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Tue May 1 00:56:11 2018 +0200
+
+    working validations
+    
+    to do email validation
+
+[33mcommit 4cb080b95ea6ac67b7bf52c4d3e946e28f9df5e1[m
+Author: SongoMen <pat.kozlowski2000@onet.pl>
+Date:   Sun Apr 29 04:13:00 2018 +0200
+
+    register
+
+[33mcommit 20eb0926ca858ad08d1e0a8c36f20bb766ad11f1[m
+Author: SongoMen <pat.kozlowski2000@onet.pl>
+Date:   Sun Apr 29 04:04:15 2018 +0200
+
+    to do message while wrong email
+
+[33mcommit cc425baa13a4c8ee74f978bcd645c238655c561a[m
+Author: SongoMen <pat.kozlowski2000@onet.pl>
+Date:   Sat Apr 28 15:40:27 2018 +0200
+
+    logs
+
+[33mcommit 0e0534730005fd98361eeaddaba90d314fecc5e3[m
+Author: SongoMen <pat.kozlowski2000@onet.pl>
+Date:   Sat Apr 28 00:11:00 2018 +0200
+
+    to do warning message
+
+[33mcommit 96235bfd17b980484d5e4ef90c4840a0ea64e09e[m
+Author: SongoMen <pat.kozlowski2000@onet.pl>
+Date:   Fri Apr 27 22:30:39 2018 +0200
+
+    bind
+
+[33mcommit e529bead65361aa2163cc77228c8cf78bf45cc16[m
+Author: SongoMen <pat.kozlowski2000@onet.pl>
+Date:   Fri Apr 27 19:20:00 2018 +0200
+
+    wrong username message
+
+[33mcommit f16593c476cf452bd209da9f5c23850cf0992ff9[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Wed Apr 25 22:57:08 2018 +0200
+
+    v
+
+[33mcommit 356f3ec552b456e27f9a4c8b20674471346a0cae[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Wed Apr 25 21:25:07 2018 +0200
+
+    vvv
+
+[33mcommit 935a53a6dc5b98b8e69cf1f54b426f60277f9bea[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Wed Apr 25 01:00:08 2018 +0200
+
+    alerts
+
+[33mcommit 7118f85a28c9726b9875d33553b85cbc66be4627[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Mon Apr 23 23:30:04 2018 +0200
+
+    checks if there is the same email and username in database
+
+[33mcommit fac4913d76640c7911aad0e0ff1a1b2be25de423[m
+Author: SongoMen <pat.kozlowski2000@onet.pl>
+Date:   Sat Apr 21 01:54:34 2018 +0200
+
+    register checking database
+
+[33mcommit 5e107fee3d2f816c7d26944520063c685fe773d2[m
+Author: SongoMen <pat.kozlowski2000@onet.pl>
+Date:   Fri Apr 20 21:22:33 2018 +0200
+
+    firebase update
+
+[33mcommit 21a0377af8408f8f4ca743bd6228a4aaaf664384[m
+Author: SongoMen <pat.kozlowski2000@onet.pl>
+Date:   Fri Apr 20 21:02:37 2018 +0200
+
+    route v1
+
+[33mcommit e371c5e072be631ceca629a74fa74bd924667e3f[m
+Author: SongoMen <pat.kozlowski2000@onet.pl>
+Date:   Fri Apr 20 20:53:46 2018 +0200
+
+    npm
+
+[33mcommit 18acf8cdedd994f316a1f1f326977fa0aa92c715[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu Apr 19 23:21:13 2018 +0200
+
+    router react
+
+[33mcommit 3dbe3f40b5e46e2339bb6e857da3830f8973d043[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu Apr 19 22:27:20 2018 +0200
+
+    error fixed
+
+[33mcommit 26736d0cbed60f94c1164db23cbce84eed6a986e[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu Apr 19 22:21:07 2018 +0200
+
+    database connection
+
+[33mcommit 91ad925c0526a127c98c7c768bda13eec3764828[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu Apr 19 20:18:37 2018 +0200
+
+    firebase v idk
+
+[33mcommit d722f4a115ae3ee5c8905de05d3aae63c006d594[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Wed Apr 18 00:55:41 2018 +0200
+
+    register works, login to-do
+
+[33mcommit bee8289826f6a92889b49821a7a60216ab41d8b0[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Mon Apr 16 22:44:46 2018 +0200
+
+    firebase connect v2
+
+[33mcommit c57c7780774226a0dd3b16653403ee2e80a01bb6[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Mon Apr 16 22:37:32 2018 +0200
+
+    connect database v1
+
+[33mcommit b84311e93479dc7f15b39b1925f80386b5dcfc9d[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Mon Apr 16 22:13:23 2018 +0200
+
+    firebase connect and login screen
+
+[33mcommit 24cd17547b2803ef07eff5bf5d853c7c9610e4c9[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Wed Apr 11 00:34:19 2018 +0200
+
+    react dropzone
+
+[33mcommit f4126d3c675d5256cbf4413108a2fa33177cde18[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Wed Apr 11 00:24:02 2018 +0200
+
+    file upload
+
+[33mcommit e769c4f4bd5d1cba76d1c877bcf39fa2131e7bd8[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Tue Apr 3 01:33:59 2018 +0200
+
+    training
+
+[33mcommit 17d7e6869d9d3d759422d3cab921b65e3d107e38[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Thu Mar 29 17:32:24 2018 +0200
+
+    start
+
+[33mcommit a64c6cf693054b3912bc8643ff3ba6abeeb44a22[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Tue Mar 27 00:40:34 2018 +0200
+
+    v2
+
+[33mcommit 5b54b68f5b692a3f7f76f93568734afc1221c5c0[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Tue Mar 27 00:36:27 2018 +0200
+
+    change
+
+[33mcommit 4963cfec80fbf326f991a9a2916bcfee5574b878[m
+Author: SongoMen <songomengaming@gmail.com>
+Date:   Mon Mar 26 23:43:22 2018 +0200
+
+    react

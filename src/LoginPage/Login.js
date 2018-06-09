@@ -125,7 +125,7 @@ class Login extends Component {
 		}
 
   render() {
-		const showLogin = this.state.showLogin;
+	const showLogin = this.state.showLogin;
     return (
 		<div className="loginScreen">
 			<Helmet>

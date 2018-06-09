@@ -92,6 +92,8 @@ li {
 	font-weight: 500;
 }
 .float{
+	letter-spacing: 1px;
+	font-family: Geomanist1;
 	float: left;
 }
 

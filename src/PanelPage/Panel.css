@@ -1,3 +1,14 @@
+/*######################################################### KEYFRAMES ###########################################################*/
+@keyframes showTab{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity: 100%
+    }
+}
+
+/*######################################################### TOP BAR #########################################################*/
 
 .user, .panel-title{
     margin:0;
@@ -32,7 +43,7 @@
 }
 
 .panel-menu{
-    margin: 5px auto;
+    margin: 5px -30px;
     max-width: 800px;
 }
 
@@ -54,7 +65,7 @@
 }
 
 .panel-menu li{
-    padding-left:40px;
+    padding-left:35px;
     font-family: Geomanist1;
 }
 
@@ -63,4 +74,23 @@ li img {
     width:2.5%;
     cursor: pointer;
     position: relative;
+}
+
+/*######################################################### TOP BAR TABS #########################################################*/
+
+.downArrow-icon{
+    margin-left:-20px;
+}
+
+.profileMenu-wrapper{
+    width:150px;
+    top:80px;
+    height: 200px;
+    float:right;
+    border-radius: 10px;
+    position: absolute;
+    right: 30px;
+    background-color:white;
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    animation: showTab .5s ease-in-out;
 }
