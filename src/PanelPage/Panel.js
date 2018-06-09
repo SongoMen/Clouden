@@ -24,6 +24,7 @@ class Panel extends Component {
               <li><img src={notification} alt="notification" className="notification-icon"/></li>
               <li><img src={settings} alt="settings" className="settings-icon"/></li>
               <li>{user}</li>
+              <li></li>
             </ul>
           </nav>
         </div>
