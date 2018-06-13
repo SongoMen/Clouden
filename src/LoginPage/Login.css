@@ -1,5 +1,9 @@
 
 /* BASIC */
+*{
+  letter-spacing: 1px;
+}
+
 a {
   color: #fecb00;
   text-decoration: none;

@@ -58,7 +58,7 @@ class Panel extends Component {
                 <span className="panel-active__span"></span>
               </div>
               <li className="panel-inactive">Cloud Drive</li>
-              <li className="panel-inactive">Profile</li>
+              <li className="panel-inactive endMenu">Profile</li>
               <li><img src={notification} alt="notification" className="notification-icon"
               onClick={this.showNotificationTab}/></li>
               <li><img src={settings} alt="settings" className="settings-icon"/></li>

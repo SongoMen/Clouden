@@ -12,7 +12,7 @@ export default class Dashboard extends Component{
                 <Panel content = {[                
                     <div className="panel-sections" key={1}>
                         <div className="panel-sections__disk">
-                            <h1>2.3/5 GB</h1>
+                            <h1>Space Usage</h1>
                         </div>
                         <div className="panel-sections__account">
                             <h1>2.3/5 GB</h1>
