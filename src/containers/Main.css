@@ -14,7 +14,7 @@ body{
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #ffcc00; 
+    background: #ff9000; 
 }
 .route-wrapper {
   position: relative;
