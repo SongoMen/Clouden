@@ -74,8 +74,6 @@ class Login extends Component {
 		}
 
 		handleClickRegisterUser(e) {
-			e.preventDefault()
-			if(this.password.value > 0 && this.username.value > 0){
 				localStorage.setItem('password', this.password.value);
 				localStorage.setItem('user', this.username.value);
 				auth(this.email.value, this.password.value, this.username.value)
@@ -84,12 +82,7 @@ class Login extends Component {
 						localStorage.removeItem('password');
 						localStorage.removeItem('user');
 				}, 1500);
-			}
-			else{
-				this.setState({
-					loginMessage: "You need to complete all inputs"
-				})
-			}
+		
 		}
 	
 		handleClickRegister(e){

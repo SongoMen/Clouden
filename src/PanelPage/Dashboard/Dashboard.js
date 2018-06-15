@@ -25,39 +25,47 @@ export default class Dashboard extends Component{
       console.error(error);
     }
     handleUploadSuccess = (filename) => {
-        var newMetadata = {
-            cacheControl: 'public,max-age=3000',
-            contentType: 'image/jpeg'
-        }
         console.log(filename.size)
         this.setState({avatar: filename, progress: 100, isUploading: false});
         var user = firebase.auth().currentUser.displayName;
-          
+        var uid = firebase.auth().currentUser.uid
+
         firebase.storage().ref(user).child(filename).getDownloadURL().then(url => this.setState({avatarURL: url}));
-        firebase.storage().ref(user).child(filename).getMetadata().then(function(metadata) {
-            var bytes = metadata.size
-            if      (bytes>=1073741824){
-                bytes=(bytes/1073741824).toFixed(2)+' GB';
-            }
-            else if (bytes>=1048576){
-                bytes=(bytes/1048576).toFixed(2)+' MB';
-            }
-            else if (bytes>=1024){
-                bytes=(bytes/1024).toFixed(2)+' KB';
-            }
-            else if (bytes>1){
-                bytes=bytes+' bytes';
-            }
-            else if (bytes==1){
-                bytes=bytes+' byte';
-            }
-            else{
-                bytes='0 byte';
-            }
-            console.log(bytes)
-          }).catch(function(error) {
-            console.log("xd")
-          });
+
+        firebase.storage().ref(user).child(filename).getMetadata()
+            .then(function(metadata,user) {
+                var bytes = metadata.size
+        
+                if (bytes>=1073741824){
+                    bytes=(bytes/1073741824).toFixed(2)+' GB';
+                }
+                else if (bytes>=1048576){
+                    bytes=(bytes/1048576).toFixed(2)+' MB';
+                }
+                else if (bytes>=1024){
+                    bytes=(bytes/1024).toFixed(2)+' KB';
+                }
+                else if (bytes>1){
+                    bytes=bytes+' bytes';
+                }
+                else if (bytes===1){
+                    bytes=bytes+' byte';
+                }
+                else{
+                    bytes='0 byte';
+                }
+                console.log(bytes)
+
+                firebase.database().ref().child(`users/${uid}/info`)
+                    .update ({
+                        spaceInBytes:metadata.size,
+                        spaceTotal:bytes
+                    })
+                    .then(() => user)
+            })
+            .catch(function(error) {
+                console.log(error)
+        });
           
     };
 
