@@ -6,8 +6,6 @@ import FileUploader from 'react-firebase-file-uploader';
 import './Dashboard.css'
 import Panel from '../Panel.js'
 
-var storageRef = firebase.storage().ref();
-
 export default class Dashboard extends Component{
 
     constructor(){
@@ -27,12 +25,49 @@ export default class Dashboard extends Component{
       console.error(error);
     }
     handleUploadSuccess = (filename) => {
-      this.setState({avatar: filename, progress: 100, isUploading: false});
-      var user = firebase.auth().currentUser.displayName;
-      firebase.storage().ref(user).child(filename).getDownloadURL().then(url => this.setState({avatarURL: url}));
+        var newMetadata = {
+            cacheControl: 'public,max-age=3000',
+            contentType: 'image/jpeg'
+        }
+        console.log(filename.size)
+        this.setState({avatar: filename, progress: 100, isUploading: false});
+        var user = firebase.auth().currentUser.displayName;
+          
+        firebase.storage().ref(user).child(filename).getDownloadURL().then(url => this.setState({avatarURL: url}));
+        firebase.storage().ref(user).child(filename).getMetadata().then(function(metadata) {
+            var bytes = metadata.size
+            if      (bytes>=1073741824){
+                bytes=(bytes/1073741824).toFixed(2)+' GB';
+            }
+            else if (bytes>=1048576){
+                bytes=(bytes/1048576).toFixed(2)+' MB';
+            }
+            else if (bytes>=1024){
+                bytes=(bytes/1024).toFixed(2)+' KB';
+            }
+            else if (bytes>1){
+                bytes=bytes+' bytes';
+            }
+            else if (bytes==1){
+                bytes=bytes+' byte';
+            }
+            else{
+                bytes='0 byte';
+            }
+            console.log(bytes)
+          }).catch(function(error) {
+            console.log("xd")
+          });
+          
     };
 
     render(){
+        var metadata = {
+            customMetadata: {
+              'location': 'Yosemite, CA, USA',
+              'activity': 'Hiking'
+            }
+          }
         var user = firebase.auth().currentUser.displayName;
         return(
             <div className="Panel-dashboard">
@@ -44,12 +79,13 @@ export default class Dashboard extends Component{
                                 <p>Progress: {this.state.progress}</p>
                             }
                             {this.state.avatarURL &&
-                                <img src={this.state.avatarURL} />
+                                <img src={this.state.avatarURL} alt="xdxd"/>
                             }
                         <FileUploader
+                            id="fileupload"
                             accept="image/*"
                             name="avatar"
-                            randomizeFilename
+                            metadata={metadata}
                             storageRef={firebase.storage().ref(user)}
                             onUploadStart={this.handleUploadStart}
                             onUploadError={this.handleUploadError}
