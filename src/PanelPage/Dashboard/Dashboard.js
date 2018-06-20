@@ -2,12 +2,19 @@ import React, { Component } from "react";
 import {logout} from '../../helpers/auth';
 import * as firebase from 'firebase';
 import FileUploader from 'react-firebase-file-uploader';
+import { PieChart, Pie, Cell } from 'recharts';
 
 import './Dashboard.css'
 import Panel from '../Panel.js'
 
-
 var dbref = firebase.database();
+const data = [
+    {name: 'Group A', value: 400},
+    {name: 'Group B', value: 300},
+  ];
+  
+const COLORS = ['#0c0b10', '#ffc84a'];
+  
 
 export default class Dashboard extends Component{
 
@@ -108,6 +115,7 @@ export default class Dashboard extends Component{
                 <Panel content = {[                
                     <div className="panel-sections" key={1}>
                         <div className="panel-sections__disk">
+                        
                             <h1>Space Usage</h1>
                             {this.state.isUploading &&
                                 <p>Progress: {this.state.progress}</p>
@@ -127,6 +135,23 @@ export default class Dashboard extends Component{
                                 onUploadSuccess={this.handleUploadSuccess}
                                 onProgress={this.handleProgress}
                             />
+                            <PieChart width={800} height={400} onMouseEnter={this.onPieEnter}>
+                                <Pie
+                                data={data}
+                                cx={120}
+                                cy={200}
+                                innerRadius={56}
+                                outerRadius={80}
+                                fill="#8884d8"
+                                stroke=""
+                                paddingAngle={10}
+                                dataKey="value"
+                                >
+                                {
+                                    data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>)
+                                }
+                                </Pie>
+                            </PieChart>
                         </div>
                         <div className="panel-sections__account">
                             <h1>2.3/5 GB</h1>
