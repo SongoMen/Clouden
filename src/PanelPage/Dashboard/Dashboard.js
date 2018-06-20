@@ -11,10 +11,12 @@ export default class Dashboard extends Component{
     constructor(){
         super();
         this.state = {
+            totalSize:"",
             isUploading: false,
             avatar: '',
             avatarURL: ''
         }
+        this.handleUploadSuccess = this.handleUploadSuccess.bind(this);
     }
 
     handleChangeUsername = (event) => this.setState({username: event.target.value});
@@ -25,44 +27,53 @@ export default class Dashboard extends Component{
       console.error(error);
     }
     handleUploadSuccess = (filename) => {
-        console.log(filename.size)
-        this.setState({avatar: filename, progress: 100, isUploading: false});
         var user = firebase.auth().currentUser.displayName;
         var uid = firebase.auth().currentUser.uid
-
+        var dbref = firebase.database();
+        this.setState({avatar: filename, progress: 100, isUploading: false});
+        
         firebase.storage().ref(user).child(filename).getDownloadURL().then(url => this.setState({avatarURL: url}));
 
         firebase.storage().ref(user).child(filename).getMetadata()
             .then(function(metadata,user) {
-                var bytes = metadata.size
-        
-                if (bytes>=1073741824){
-                    bytes=(bytes/1073741824).toFixed(2)+' GB';
-                }
-                else if (bytes>=1048576){
-                    bytes=(bytes/1048576).toFixed(2)+' MB';
-                }
-                else if (bytes>=1024){
-                    bytes=(bytes/1024).toFixed(2)+' KB';
-                }
-                else if (bytes>1){
-                    bytes=bytes+' bytes';
-                }
-                else if (bytes===1){
-                    bytes=bytes+' byte';
-                }
-                else{
-                    bytes='0 byte';
-                }
-                console.log(bytes)
 
-                firebase.database().ref().child(`users/${uid}/info`)
-                    .update ({
-                        spaceInBytes:metadata.size,
-                        spaceTotal:bytes
+                dbref.ref(`users/${uid}/info/spaceInBytes`)
+                .once('value', function(snapshot) {
+                    this.setState({
+                        spaceInBytes:snapshot.val() + metadata.size
                     })
-                    .then(() => user)
-            })
+                    dbref.ref().child(`users/${uid}/info`)
+                        .update ({
+                            spaceInBytes: snapshot.val() + metadata.size,
+                        })
+                        var bytes = this.state.spaceInBytes
+                
+                        if (bytes>=1073741824){
+                            bytes=(bytes/1073741824).toFixed(2)+' GB';
+                        }
+                        else if (bytes>=1048576){
+                            bytes=(bytes/1048576).toFixed(2)+' MB';
+                        }
+                        else if (bytes>=1024){
+                            bytes=(bytes/1024).toFixed(2)+' KB';
+                        }
+                        else if (bytes>1){
+                            bytes=bytes+' bytes';
+                        }
+                        else if (bytes===1){
+                            bytes=bytes+' byte';
+                        }
+                        else{
+                            bytes='0 byte';
+                        }
+                        console.log(bytes)
+                        console.log(this.state.spaceInBytes)
+
+                        this.setState({
+                            totalSize:bytes
+                        })
+                    }.bind(this));
+            }.bind(this))
             .catch(function(error) {
                 console.log(error)
         });
@@ -89,17 +100,18 @@ export default class Dashboard extends Component{
                             {this.state.avatarURL &&
                                 <img src={this.state.avatarURL} alt="xdxd"/>
                             }
-                        <FileUploader
-                            id="fileupload"
-                            accept="image/*"
-                            name="avatar"
-                            metadata={metadata}
-                            storageRef={firebase.storage().ref(user)}
-                            onUploadStart={this.handleUploadStart}
-                            onUploadError={this.handleUploadError}
-                            onUploadSuccess={this.handleUploadSuccess}
-                            onProgress={this.handleProgress}
-                        />
+                            {this.state.totalSize}
+                            <FileUploader
+                                id="fileupload"
+                                accept="image/*"
+                                name="avatar"
+                                metadata={metadata}
+                                storageRef={firebase.storage().ref(user)}
+                                onUploadStart={this.handleUploadStart}
+                                onUploadError={this.handleUploadError}
+                                onUploadSuccess={this.handleUploadSuccess}
+                                onProgress={this.handleProgress}
+                            />
                         </div>
                         <div className="panel-sections__account">
                             <h1>2.3/5 GB</h1>
