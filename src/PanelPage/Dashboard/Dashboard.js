@@ -6,6 +6,9 @@ import FileUploader from 'react-firebase-file-uploader';
 import './Dashboard.css'
 import Panel from '../Panel.js'
 
+
+var dbref = firebase.database();
+
 export default class Dashboard extends Component{
 
     constructor(){
@@ -29,14 +32,13 @@ export default class Dashboard extends Component{
     handleUploadSuccess = (filename) => {
         var user = firebase.auth().currentUser.displayName;
         var uid = firebase.auth().currentUser.uid
-        var dbref = firebase.database();
+
         this.setState({avatar: filename, progress: 100, isUploading: false});
         
         firebase.storage().ref(user).child(filename).getDownloadURL().then(url => this.setState({avatarURL: url}));
 
         firebase.storage().ref(user).child(filename).getMetadata()
-            .then(function(metadata,user) {
-
+            .then(function(metadata) {
                 dbref.ref(`users/${uid}/info/spaceInBytes`)
                 .once('value', function(snapshot) {
                     this.setState({
@@ -46,38 +48,51 @@ export default class Dashboard extends Component{
                         .update ({
                             spaceInBytes: snapshot.val() + metadata.size,
                         })
-                        var bytes = this.state.spaceInBytes
-                
-                        if (bytes>=1073741824){
-                            bytes=(bytes/1073741824).toFixed(2)+' GB';
-                        }
-                        else if (bytes>=1048576){
-                            bytes=(bytes/1048576).toFixed(2)+' MB';
-                        }
-                        else if (bytes>=1024){
-                            bytes=(bytes/1024).toFixed(2)+' KB';
-                        }
-                        else if (bytes>1){
-                            bytes=bytes+' bytes';
-                        }
-                        else if (bytes===1){
-                            bytes=bytes+' byte';
-                        }
-                        else{
-                            bytes='0 byte';
-                        }
-                        console.log(bytes)
-                        console.log(this.state.spaceInBytes)
-
-                        this.setState({
-                            totalSize:bytes
-                        })
-                    }.bind(this));
+                    console.log(this.state.spaceInBytes)
+                }.bind(this));
             }.bind(this))
+
             .catch(function(error) {
                 console.log(error)
-        });
-          
+            });      
+    };
+
+    componentDidUpdate(prevState) {
+        var uid = firebase.auth().currentUser.uid
+        if (this.state.spaceInBytes !== prevState.spaceInBytes) {
+            console.log("xdxd")
+        }
+    }
+
+    componentDidMount = () => {
+        var uid = firebase.auth().currentUser.uid
+        dbref.ref(`users/${uid}/info/spaceInBytes`)
+        .once('value', function(snapshot) {
+            var bytes = snapshot.val()
+                    
+            if (bytes>=1073741824){
+                bytes=(bytes/1073741824).toFixed(1)+' GB';
+            }
+            else if (bytes>=1048576){
+                bytes=(bytes/1048576).toFixed(1)+' MB';
+            }
+            else if (bytes>=1024){
+                bytes=(bytes/1024).toFixed(1)+' KB';
+            }
+            else if (bytes>1){
+                bytes=bytes+' bytes';
+            }
+            else if (bytes===1){
+                bytes=bytes+' byte';
+            }
+            else{
+                bytes='0 byte';
+            }
+
+            this.setState({
+                totalSize:bytes
+            });
+        }.bind(this))
     };
 
     render(){

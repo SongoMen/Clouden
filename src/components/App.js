@@ -5,7 +5,7 @@ import Register from '../RegisterPage/Register'
 import Main from '../containers/Main'
 import Dashboard from '../PanelPage/Dashboard/Dashboard'
 import forgotPassword from './forgotPassword'
-import {firebaseAuth } from '../helpers/auth'
+import {firebaseAuth} from '../helpers/auth'
 
 function PrivateRoute ({component: Component, authed, ...rest}) {
   return (
