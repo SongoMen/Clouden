@@ -8,12 +8,8 @@ import './Dashboard.css'
 import Panel from '../Panel.js'
 
 var dbref = firebase.database();
-const data = [
-    {name: 'Group A', value: 400},
-    {name: 'Group B', value: 300},
-  ];
   
-const COLORS = ['#0c0b10', '#ffc84a'];
+const COLORS = ['#2a2832', '#ffc84a'];
   
 
 export default class Dashboard extends Component{
@@ -23,6 +19,7 @@ export default class Dashboard extends Component{
         this.state = {
             totalSize:"",
             isUploading: false,
+            spaceInBytes:"",
             avatar: '',
             avatarURL: ''
         }
@@ -48,20 +45,25 @@ export default class Dashboard extends Component{
             .then(function(metadata) {
                 dbref.ref(`users/${uid}/info/spaceInBytes`)
                 .once('value', function(snapshot) {
-                    this.setState({
-                        spaceInBytes:snapshot.val() + metadata.size
-                    })
+                    setTimeout(() => {
+                        this.setState({
+                            spaceInBytes:snapshot.val() + metadata.size
+                        })
+                    }, 1000);
                     dbref.ref().child(`users/${uid}/info`)
                         .update ({
                             spaceInBytes: snapshot.val() + metadata.size,
                         })
-                    console.log(this.state.spaceInBytes)
                 }.bind(this));
             }.bind(this))
 
             .catch(function(error) {
                 console.log(error)
             });      
+            dbref.ref(`users/${uid}/info/disk`)
+                .update({
+                    filename:filename
+                })
     };
 
     componentDidUpdate(prevState) {
@@ -103,12 +105,16 @@ export default class Dashboard extends Component{
     };
 
     render(){
+        const data = [
+            {name: 'Free Space', value: 5000000000 - this.state.spaceInBytes},
+            {name: 'Used Space', value: this.state.spaceInBytes},
+        ];
         var metadata = {
             customMetadata: {
               'location': 'Yosemite, CA, USA',
               'activity': 'Hiking'
             }
-          }
+        }
         var user = firebase.auth().currentUser.displayName;
         return(
             <div className="Panel-dashboard">
@@ -135,16 +141,16 @@ export default class Dashboard extends Component{
                                 onUploadSuccess={this.handleUploadSuccess}
                                 onProgress={this.handleProgress}
                             />
-                            <PieChart width={800} height={400} onMouseEnter={this.onPieEnter}>
+                            <PieChart width={600} height={600} onMouseEnter={this.onPieEnter}>
                                 <Pie
                                 data={data}
                                 cx={120}
                                 cy={200}
-                                innerRadius={56}
-                                outerRadius={80}
+                                innerRadius={85}
+                                outerRadius={120}
                                 fill="#8884d8"
                                 stroke=""
-                                paddingAngle={10}
+                                paddingAngle={0}
                                 dataKey="value"
                                 >
                                 {
@@ -153,8 +159,8 @@ export default class Dashboard extends Component{
                                 </Pie>
                             </PieChart>
                         </div>
-                        <div className="panel-sections__account">
-                            <h1>2.3/5 GB</h1>
+                        <div className="panel-sections__files">
+                            <h1>Lastest uploaded files</h1>
                             <p onClick = {() => {
                                 logout()
                             }}>Logout</p>

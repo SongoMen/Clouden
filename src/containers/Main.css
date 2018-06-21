@@ -1,5 +1,6 @@
 body{
 	margin: 0;
+	font-family:Montserrat Alternates;
 }
 
 ::-webkit-scrollbar {
@@ -93,7 +94,6 @@ li {
 }
 .float{
 	letter-spacing: 1px;
-	font-family: Montserrat;
 	float: left;
 }
 
