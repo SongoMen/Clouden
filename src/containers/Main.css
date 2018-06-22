@@ -1,6 +1,7 @@
 body{
 	margin: 0;
-	font-family:Montserrat Alternates;
+	overflow-x: hidden;
+	font-family:Montserrat;
 }
 
 ::-webkit-scrollbar {
@@ -10,12 +11,12 @@ body{
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: #1a1e55; 
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #ff9000; 
+    background: #ff2020; 
 }
 .route-wrapper {
   position: relative;
@@ -28,11 +29,21 @@ body{
 ################################################  MENU #############################################
 */
 
-.banner{
-	background: linear-gradient(135deg, rgba(255,216,59,1) 0%,rgba(255,149,120,1) 100%);
+
+
+.main{
+	background-image: url(../images/bg.png);
 	width: 100%;
 	float: left;
 	height: 100vh;
+}
+
+.banner{
+	padding-left:60px;
+	padding-right: 60px;
+	width: 100%;
+	height: 100vh;
+	float:left;
 }
 
 ul{
@@ -43,57 +54,59 @@ ul{
 
 li {
 	display: inline;
-	padding-left: 50px;
+	text-transform: uppercase;
+	padding-left: 44px;
 	color: white;
-	font-weight: 500;
-	font-size: 20px;
-	margin-top: -5px;
+	font-weight: 700;
+	font-size: 18px;
 }
 
 .login2{
 	cursor: pointer;
 	height: 40px;
-	width: 120px;
-	border-radius: 50px;
-	background-color: #ffcc00;
+	width: 110px;
+	border-radius: 5px;
+	border: solid #ff2020 2px;
 	box-shadow:0px 0px 15px 0px rgba(0, 0, 0, 0.25);
 	float: left;
-	margin-left: 45px;
-	margin-top: 5px;
-
+	transition: all .4s ease-in-out;
+	margin-left: 75px;
+	margin-top: 10px;
+	color:#ff2020;
 }
 
 .login2 h1{
 	text-transform: uppercase;
 	text-align: center;
-	color: white;
 	font-size: 12px;
-	padding-top: 2px;
 	font-weight: 500;
+}
+
+.login2:hover{
+	background-color: #ff2020;
+	color:white;
 }
 
 .register{
 	cursor: pointer;
 	height: 40px;
 	width: 170px;
-	margin-left: 10px;
-	border-radius: 50px;
-	margin-right: -40px;
-	background-color: white;
+	margin-left: 20px;
+	border-radius: 5px;
+	background-color: #ff2020;
 	box-shadow:0px 0px 15px 0px rgba(0, 0, 0, 0.25);
 	float: left;
-	margin-top: 5px;
+	margin-top: 10px;
 }
 .register h1{
 	font-size: 12px;
 	text-transform: uppercase;
-	color: #c2c9db;
+	color: white;
 	text-align: center;
 	padding-top: 2px;
 	font-weight: 500;
 }
 .float{
-	letter-spacing: 1px;
 	float: left;
 }
 
@@ -111,13 +124,23 @@ li p{
 }
 
 .heading h1{
-	font-size: 65px;
-	font-weight: 500;
+	font-size: 100px;
+	font-weight: 300;
 }
 
 .heading p{
-	font-size: 20px;
+	font-weight: 200;
+	font-size: 30px;
 }
+
+.heading-uderline{
+	height: 4px;
+	position: absolute;
+	width:200px;
+	background-color:#ff2020;
+	margin-top: -30px;
+}
+
 .login1{
 	cursor: pointer;
 	height: 50px;

@@ -17,16 +17,16 @@ class Main extends Component {
 				<div className="banner">
 					<nav>
 						<ul>
-							<li className="float"><p>Home</p></li>
+							<li className="float"><p>Features</p></li>
 							<li className="float">
 							<p>About Us</p>
 							</li>
-							<li className="float"><p>Features</p></li>
+							<li className="float"><p>Why us</p></li>
 							<li className="float"><p>Pricing</p></li>
 							<Link to = "/login">
 								<li>
 									<div className="login2">
-										<h1>Login</h1>
+										<h1>SIGN IN</h1>
 									</div>
 								</li>
 							</Link>	
@@ -40,8 +40,9 @@ class Main extends Component {
 						</ul>
 					</nav>
 					<div className = "heading">
-						<h1>Stay safe.<br/>Feel better.</h1>
-						<p>Use ... to upload your most valuable files to<br/>cloud storage and feel safe about your privacy<br/>and data security.</p>
+						<h1>Meet Clouden</h1>
+						<span className="heading-uderline"></span>
+						<p>Cloud built for the future with <br/>comfortable dashboard and best security.</p>
 						<Link to = "/login">
 						<div className="login1">
 							<h1>Login</h1>
