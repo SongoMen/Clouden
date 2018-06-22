@@ -143,10 +143,10 @@ li p{
 
 .login1{
 	cursor: pointer;
-	height: 50px;
-	width: 180px;
-	border-radius: 50px;
-	background-color: #ffcc00;
+	height: 55px;
+	width: 280px;
+	border-radius: 5px;
+	background-color:#ff2020;
 	box-shadow:0px 0px 15px 0px rgba(0, 0, 0, 0.25);
 	float: left;
 
@@ -157,27 +157,34 @@ li p{
 	text-align: center;
 	color: white;
 	font-size: 16px;
-	padding-top: 3px;
+	padding-top: 8px;
 	font-weight: 500;
 }
 
 .register1{
-	margin-left: 20px;
+	margin-left: 40px;
 	cursor: pointer;
-	height: 50px;
-	width: 270px;
-	border-radius: 50px;
-	background-color: white;
+	height: 55px;
+	width: 300px;
+	border-radius: 5px;
+	color:#ff2020;
+	border:solid #ff2020 2px;
 	box-shadow:0px 0px 15px 0px rgba(0, 0, 0, 0.25);
 	float: left;
+	transition: all .4s ease-in-out;
 }
+
 .register1 h1{
 	font-size: 16px;
 	text-transform: uppercase;
-	color: #c2c9db;
 	text-align: center;
-	padding-top: 3px;
+	padding-top: 5px;
 	font-weight: 500;
+}
+
+.register1:hover{
+	background-color:#ff2020;
+	color:white;
 }
 
 .arrow-circle{
