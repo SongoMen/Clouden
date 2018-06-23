@@ -1,15 +1,28 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import {firebaseAuth} from '../helpers/auth'
 
 import './Main.css';
 
 class Main extends Component {
-	constructor(props){
-		super(props);
-		this.state = {
-			click:1
-		};
+
+	state = {
+		authed: false,
 	}
+
+	componentDidMount () {
+		this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
+		  if (user) {
+			this.setState({
+			  authed: true,
+			})
+		  } else {
+			this.setState({
+			  authed: false,
+			})
+		  }
+		})
+	  }
 
 	render(){
 		return(
@@ -23,13 +36,22 @@ class Main extends Component {
 							</li>
 							<li className="float"><a>Why us</a></li>
 							<li className="float"><a>Pricing</a></li>
+							{this.state.authed === true ?
+							<Link to = "/login">
+								<li>
+									<div className="login2" style={{width:'150px'}}>
+										<h1>MY ACCOUNT</h1>
+									</div>
+								</li>
+							</Link>	 : (
 							<Link to = "/login">
 								<li>
 									<div className="login2">
 										<h1>SIGN IN</h1>
 									</div>
 								</li>
-							</Link>	
+							</Link>
+							)}	
 							<Link to = "/register">					
 								<li>
 									<div className="register">

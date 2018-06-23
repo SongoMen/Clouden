@@ -30,7 +30,7 @@
 
 .panel-sections{
     width:100%;
-    height: 92vh;
+    height: 90vh;
     display: flex;
     color:#ff2020;
     background-color: #0c0b10;
@@ -42,6 +42,16 @@
 
 .panel-menu a{
     display: block;
+}
+
+.panel-active__span{
+    width:60px;
+    height: 4px;
+    border-radius: 50px;
+    background-color:#ff2020;
+    display: block;
+    margin-left:80px;
+    margin-top:8px;
 }
 
 .panel-icon, .panel-icon1{
