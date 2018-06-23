@@ -34,31 +34,70 @@ body{
 .main{
 	background-image: url(../images/bg.png);
 	width: 100%;
-	float: left;
 	height: 100vh;
 }
 
 .banner{
-	padding-left:60px;
-	padding-right: 60px;
+	padding-left:30px;
+	padding-right: 30px;
 	width: 100%;
+	flex-direction:row;
+	display: flex;
 	height: 100vh;
-	float:left;
+}
+
+nav{
+	display: flex;
+	width:100%;
+	height: 300px;
+	align-items:left;
+	order:2;
+	flex:1;
 }
 
 ul{
 	list-style-type: none;
-	float: right;
-	padding-top: 30px;
+	margin-top:50px;
+	
 }
 
 li {
+	transform:translate(100px);
+	top:20px;
 	display: inline;
 	text-transform: uppercase;
 	padding-left: 44px;
 	color: white;
 	font-weight: 700;
 	font-size: 18px;
+}
+
+li a{
+	cursor: pointer;
+}
+
+nav a{
+	position: relative;
+	display: inline-block;
+}
+
+nav li a:before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 3px;
+	background: #16151b;
+	top: 47%;
+	animation: out 0.2s cubic-bezier(1, 0, 0.58, 0.97) 1 both;
+}
+  
+nav li a:hover:before {
+	animation: in 0.2s cubic-bezier(1, 0, 0.58, 0.97) 1 both;
+}
+
+.login2, .register{
+	animation: show 0.1s 1.4s ease 1 both;
+	display: inline-block;
 }
 
 .login2{
@@ -68,10 +107,9 @@ li {
 	border-radius: 5px;
 	border: solid #ff2020 2px;
 	box-shadow:0px 0px 15px 0px rgba(0, 0, 0, 0.25);
-	float: left;
 	transition: all .4s ease-in-out;
-	margin-left: 75px;
-	margin-top: 10px;
+	margin-left: 15px;
+	margin-right: -20px;
 	color:#ff2020;
 }
 
@@ -91,36 +129,86 @@ li {
 	cursor: pointer;
 	height: 40px;
 	width: 170px;
-	margin-left: 20px;
 	border-radius: 5px;
 	background-color: #ff2020;
 	box-shadow:0px 0px 15px 0px rgba(0, 0, 0, 0.25);
-	float: left;
 	margin-top: 10px;
 }
+
 .register h1{
 	font-size: 12px;
 	text-transform: uppercase;
 	color: white;
 	text-align: center;
-	padding-top: 2px;
+	padding-top:3px;
 	font-weight: 500;
 }
+  
 .float{
-	float: left;
+	margin-top:50px;
 }
 
-li p{
-	cursor: pointer;
+@keyframes in {
+	0% {
+	  width: 0;
+	  left: 0;
+	  right: auto;
+	}
+	100% {
+	  left: 0;
+	  right: auto;
+	  width: 100%;
+	}
 }
-
+@keyframes out {
+	0% {
+	  width: 100%;
+	  left: auto;
+	  right: 0;
+	}
+	100% {
+	  width: 0;
+	  left: auto;
+	  right: 0;
+	}
+}
+@keyframes show {
+	0% {
+	  opacity: 0;
+	  transform: translateY(-10px);
+	}
+	100% {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+}
+nav li a:nth-child(1) {
+	animation: show 0.2s 1.1s ease 1 both;
+}
+nav li a:nth-child(2) {
+	animation: show 0.2s 1.2s ease 1 both;
+}
+nav li a:nth-child(3) {
+	animation: show 0.2s 1.3s ease 1 both;
+}
+nav li a:nth-child(4) {
+	animation: show 0.2s 1.4s ease 1 both;
+}
+nav li a:nth-child(5) {
+	animation: show 0.2s 1.5s ease 1 both;
+}
 /*
 ################################################  Heading text #############################################
 */
 
 .heading {
-	margin: 25vh 100px;
 	color: white;
+	margin-left: 50px;
+	display: flex;  
+	align-items: left;
+	flex-wrap: nowrap;
+	justify-content: center;
+	flex-direction: column;
 }
 
 .heading h1{
@@ -148,7 +236,6 @@ li p{
 	border-radius: 5px;
 	background-color:#ff2020;
 	box-shadow:0px 0px 15px 0px rgba(0, 0, 0, 0.25);
-	float: left;
 
 }
 
@@ -170,7 +257,6 @@ li p{
 	color:#ff2020;
 	border:solid #ff2020 2px;
 	box-shadow:0px 0px 15px 0px rgba(0, 0, 0, 0.25);
-	float: left;
 	transition: all .4s ease-in-out;
 }
 
@@ -189,12 +275,13 @@ li p{
 
 .arrow-circle{
 	width: 64px;
+	order:3;
 	border-radius: 100px;
 	background-color: white;
 	box-shadow:0px 0px 15px 0px rgba(0, 0, 0, 0.25);
 	height: 64px;
-	margin: 320px auto 0px auto;
 	cursor: pointer;
+	align-self: flex-end;
 }
 
 .arrow-circle svg{
@@ -213,7 +300,6 @@ li p{
 	background-color: white;
 	bottom: 0;
 	color: #bec2cc;
-	float: left;
 }
 
 .section1-line{
