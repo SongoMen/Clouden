@@ -26,34 +26,17 @@ body{
   position: absolute;
 }
 
+.register h1, .login2 h1{
+	font-weight: 700;
+}
+
+.register1 h1, .login1 h1{
+	font-weight: 500 !important;
+}
+
 /*################################################ ANIMATIONS ###############################################
 */
 
-
-@keyframes in {
-	0% {
-	  width: 0;
-	  left: 0;
-	  right: auto;
-	}
-	100% {
-	  left: 0;
-	  right: auto;
-	  width: 100%;
-	}
-}
-@keyframes out {
-	0% {
-	  width: 100%;
-	  left: auto;
-	  right: 0;
-	}
-	100% {
-	  width: 0;
-	  left: auto;
-	  right: 0;
-	}
-}
 @keyframes show {
 	0% {
 	  opacity: 0;
@@ -83,14 +66,16 @@ body{
 
 
 .main{
+	background-position-y: -130px;
+	background-repeat: no-repeat;
 	background-image: url(../images/bg.png);
 	width: 100%;
-	height: 100vh;
+	height: 120vh;
 }
 
 .banner{
-	padding-left:80px;
-	padding-right: 80px;
+	padding-left:100px;
+	padding-right: 100px;
 	width: 100%;
 	flex-direction:row;
 	display: flex;
@@ -130,21 +115,17 @@ nav li a{
 nav a{
 	position: relative;
 	display: inline-block;
+	background: linear-gradient(to bottom, transparent 60%, #ff2020 0) center center/0% 75% no-repeat;
+	z-index: 1;
 }
 
-
-nav li a:before {
-	content: '';
-	position: absolute;
-	width: 100%;
-	height: 3px;
-	background: #16151b;
-	top: 47%;
-	animation: out 0.2s cubic-bezier(1, 0, 0.58, 0.97) 1 both;
-}
   
-nav li a:hover:before {
-	animation: in 0.2s cubic-bezier(1, 0, 0.58, 0.97) 1 both;
+nav li a:hover {
+	background-size: 100% 100%;
+}
+
+.nav li a:active{
+	background-size: 80% 100%;
 }
 
 .login2, .register{
@@ -169,7 +150,6 @@ nav li a:hover:before {
 	text-transform: uppercase;
 	text-align: center;
 	font-size: 12px;
-	font-weight: 500;
 }
 
 .login2:hover{
@@ -193,7 +173,6 @@ nav li a:hover:before {
 	color: white;
 	text-align: center;
 	padding-top:3px;
-	font-weight: 500;
 }
   
 .float{
@@ -257,7 +236,6 @@ nav li a:hover:before {
 	color: white;
 	font-size: 16px;
 	padding-top: 8px;
-	font-weight: 500;
 }
 
 .register1{
@@ -277,7 +255,6 @@ nav li a:hover:before {
 	text-transform: uppercase;
 	text-align: center;
 	padding-top: 5px;
-	font-weight: 500;
 }
 
 .register1:hover{
