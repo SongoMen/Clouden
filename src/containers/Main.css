@@ -188,6 +188,7 @@ nav li a:hover {
 	display: flex;  
 	justify-content: center;
 	flex-direction: column;
+	margin-bottom: 150px;
 	animation: showHeading 0.4s .4s ease 1 both;
 }
 
