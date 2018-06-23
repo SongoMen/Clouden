@@ -51,7 +51,7 @@ class Panel extends Component {
     return (
       <div className="Panel">
         <div className="panel-bar">
-          <nav>
+          <nav className="panel-bar__nav">
             <ul className="panel-menu">
               <div className="panel-activeTab">
                 <li className="panel-active">Dashboard</li>
@@ -59,9 +59,9 @@ class Panel extends Component {
               </div>
               <li className="panel-inactive">Cloud Drive</li>
               <li className="panel-inactive endMenu">Profile</li>
-              <li><img src={notification} alt="notification" className="notification-icon"
+              <li className="panel-icon1"><img src={notification} alt="notification" className="notification-icon"
               onClick={this.showNotificationTab}/></li>
-              <li><img src={settings} alt="settings" className="settings-icon"/></li>
+              <li className="panel-icon"><img src={settings} alt="settings" className="settings-icon"/></li>
               <li>{user}</li>
               <li><img src={downArrow} alt="downArrow" className="downArrow-icon" 
               onClick={this.showProfileTab}/></li>
