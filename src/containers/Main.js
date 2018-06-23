@@ -43,16 +43,18 @@ class Main extends Component {
 						<h1>Meet Clouden</h1>
 						<span className="heading-uderline"></span>
 						<p>Cloud built for the future with <br/>comfortable dashboard and best security.</p>
-						<Link to = "/login">
-						<div className="login1">
-							<h1>explore the features</h1>
+						<div className="heading-buttons">
+							<Link to = "/login">
+							<div className="login1">
+								<h1>explore the features</h1>
+							</div>
+							</Link>
+							<Link to = "/register">
+							<div className="register1">
+								<h1>click here to register</h1>
+							</div>
+							</Link>
 						</div>
-						</Link>
-						<Link to = "/register">
-						<div className="register1">
-							<h1>click here to register</h1>
-						</div>
-						</Link>
 					</div>
 				</div>
 				<div className="section1">

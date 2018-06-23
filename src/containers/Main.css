@@ -25,6 +25,57 @@ body{
 .route-wrapper > div {
   position: absolute;
 }
+
+/*################################################ ANIMATIONS ###############################################
+*/
+
+
+@keyframes in {
+	0% {
+	  width: 0;
+	  left: 0;
+	  right: auto;
+	}
+	100% {
+	  left: 0;
+	  right: auto;
+	  width: 100%;
+	}
+}
+@keyframes out {
+	0% {
+	  width: 100%;
+	  left: auto;
+	  right: 0;
+	}
+	100% {
+	  width: 0;
+	  left: auto;
+	  right: 0;
+	}
+}
+@keyframes show {
+	0% {
+	  opacity: 0;
+	  transform: translateY(-10px);
+	}
+	100% {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+}
+
+@keyframes showHeading {
+	0% {
+	  opacity: 0;
+	  transform: translateX(-100px);
+	}
+	100% {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+}
+
 /*
 ################################################  MENU #############################################
 */
@@ -38,8 +89,8 @@ body{
 }
 
 .banner{
-	padding-left:30px;
-	padding-right: 30px;
+	padding-left:80px;
+	padding-right: 80px;
 	width: 100%;
 	flex-direction:row;
 	display: flex;
@@ -49,20 +100,19 @@ body{
 nav{
 	display: flex;
 	width:100%;
-	height: 300px;
-	align-items:left;
+	height: 150px;
 	order:2;
 	flex:1;
 }
 
 ul{
+	margin-left: auto;
 	list-style-type: none;
 	margin-top:50px;
 	
 }
 
 li {
-	transform:translate(100px);
 	top:20px;
 	display: inline;
 	text-transform: uppercase;
@@ -72,14 +122,16 @@ li {
 	font-size: 18px;
 }
 
-li a{
+nav li a{
 	cursor: pointer;
+	animation: show 0.2s .7s ease 1 both;
 }
 
 nav a{
 	position: relative;
 	display: inline-block;
 }
+
 
 nav li a:before {
 	content: '';
@@ -96,7 +148,7 @@ nav li a:hover:before {
 }
 
 .login2, .register{
-	animation: show 0.1s 1.4s ease 1 both;
+	animation: show 0.4s 1s ease 1 both;
 	display: inline-block;
 }
 
@@ -148,67 +200,16 @@ nav li a:hover:before {
 	margin-top:50px;
 }
 
-@keyframes in {
-	0% {
-	  width: 0;
-	  left: 0;
-	  right: auto;
-	}
-	100% {
-	  left: 0;
-	  right: auto;
-	  width: 100%;
-	}
-}
-@keyframes out {
-	0% {
-	  width: 100%;
-	  left: auto;
-	  right: 0;
-	}
-	100% {
-	  width: 0;
-	  left: auto;
-	  right: 0;
-	}
-}
-@keyframes show {
-	0% {
-	  opacity: 0;
-	  transform: translateY(-10px);
-	}
-	100% {
-	  opacity: 1;
-	  transform: translateY(0);
-	}
-}
-nav li a:nth-child(1) {
-	animation: show 0.2s 1.1s ease 1 both;
-}
-nav li a:nth-child(2) {
-	animation: show 0.2s 1.2s ease 1 both;
-}
-nav li a:nth-child(3) {
-	animation: show 0.2s 1.3s ease 1 both;
-}
-nav li a:nth-child(4) {
-	animation: show 0.2s 1.4s ease 1 both;
-}
-nav li a:nth-child(5) {
-	animation: show 0.2s 1.5s ease 1 both;
-}
 /*
 ################################################  Heading text #############################################
 */
 
 .heading {
 	color: white;
-	margin-left: 50px;
 	display: flex;  
-	align-items: left;
-	flex-wrap: nowrap;
 	justify-content: center;
 	flex-direction: column;
+	animation: showHeading 0.4s .4s ease 1 both;
 }
 
 .heading h1{
@@ -218,6 +219,8 @@ nav li a:nth-child(5) {
 
 .heading p{
 	font-weight: 200;
+	margin-bottom:40px;
+	margin-top:-20px;
 	font-size: 30px;
 }
 
@@ -226,7 +229,16 @@ nav li a:nth-child(5) {
 	position: absolute;
 	width:200px;
 	background-color:#ff2020;
-	margin-top: -30px;
+	margin-top: 0px;
+}	
+
+.heading-buttons{
+	display: flex;
+	display: inline-block;
+}
+
+.login1, .register1{
+	display: inline-block;
 }
 
 .login1{
