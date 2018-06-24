@@ -5,6 +5,8 @@ import './Panel.css';
 import settings from '../images/settings.png';
 import notification from '../images/notification-bell.png';
 import downArrow from '../images/down-arrow.png'
+import monitor from '../images/monitor.png'
+
 
 class Panel extends Component {
 
@@ -14,6 +16,7 @@ class Panel extends Component {
       profileTab:false,
       notificationTab:false
     }
+
     this.showProfileTab = this.showProfileTab.bind(this);
     this.showNotificationTab = this.showNotificationTab.bind(this);
   }
@@ -50,34 +53,32 @@ class Panel extends Component {
     var user = firebase.auth().currentUser.displayName;
     return (
       <div className="Panel">
-        <div className="panel-bar">
-          <nav className="panel-bar__nav">
-            <ul className="panel-menu">
-              <div className="panel-activeTab">
-                <li className="panel-active">Dashboard</li>
-                <span className="panel-active__span"></span>
+        <aside></aside>
+        <nav className="panel-bar__nav">
+          <ul className="panel-menu">
+            <div className="panel-activeTab">
+              <li className="panel-active">Dashboard</li>
+              <span className="panel-active__span"></span>
+            </div>
+            <li className="panel-inactive">Cloud Drive</li>
+            <li className="panel-inactive endMenu">Profile</li>
+            <li className="panel-icon1"><img src={notification} alt="notification" className="notification-icon"
+            onClick={this.showNotificationTab}/></li>
+            <li className="panel-icon"><img src={settings} alt="settings" className="settings-icon"/></li>
+            <li>{user}</li>
+            <li><img src={downArrow} alt="downArrow" className="downArrow-icon" 
+            onClick={this.showProfileTab}/></li>
+          </ul>
+          {showProfileTab ? (
+              <div className="profileMenu-wrapper">
               </div>
-              <li className="panel-inactive">Cloud Drive</li>
-              <li className="panel-inactive endMenu">Profile</li>
-              <li className="panel-icon1"><img src={notification} alt="notification" className="notification-icon"
-              onClick={this.showNotificationTab}/></li>
-              <li className="panel-icon"><img src={settings} alt="settings" className="settings-icon"/></li>
-              <li>{user}</li>
-              <li><img src={downArrow} alt="downArrow" className="downArrow-icon" 
-              onClick={this.showProfileTab}/></li>
-            </ul>
-            {showProfileTab ? (
-                <div className="profileMenu-wrapper">
-                </div>
-            ) : (
-              <div></div>
-            )}
+          ) : (
+            <div></div>
+          )}
           </nav>
-        </div>
         {this.props.content}
       </div>
     );
   }
 }
-
 export default Panel;

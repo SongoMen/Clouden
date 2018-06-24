@@ -117,7 +117,6 @@ export default class Dashboard extends Component{
         }
         var user = firebase.auth().currentUser.displayName;
         return(
-            <div className="Panel-dashboard">
                 <Panel content = {[                
                     <div className="panel-sections" key={1}>
                         <div className="panel-sections__disk">
@@ -167,7 +166,6 @@ export default class Dashboard extends Component{
                         </div>
                     </div>
                 ]}/>
-            </div>  
         )
     }
 

@@ -8,32 +8,45 @@
     }
 }
 
+/*######################################################## LEFT BAR #################################################################*/
+
+aside{
+    height: 90vh;
+    width:6vw;
+    order:2;
+    background-color:#262733;
+}
+
 /*######################################################### TOP BAR #########################################################*/
 
-.panel-bar{
-    top:0;
+.Panel{
     display: flex;
-    width:100%;
-    background-color:#100f15;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-end;
+}
+.panel-bar__nav{
+    top:0;
+    width:100vw;
+    order:1;
+    background-color:#262733;
     height: 10vh;
     box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.418);
     border-left: none;
 }
 
-.panel-bar__nav{
-    display: flex;
-    justify-content: center;
-    align-content: flex-end;
-    flex:1;
-    margin-top:-10px;
+.pane-bar__subtitle{
+    color:#8d8d8d;
+    font-size: 18px;
+    font-weight: light;
 }
 
 .panel-sections{
-    width:100%;
+    width:94vw;
+    order:3;
     height: 90vh;
-    display: flex;
     color:#ff2020;
-    background-color: #0c0b10;
+    background-color: #353642;
 }
 
 .panel-menu{
