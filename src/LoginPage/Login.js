@@ -69,7 +69,7 @@ class Login extends Component {
 							authClass:"",
 							authText:""
 						})
-					}, 3500);
+					}, 3800);
 				})
 		}
 
