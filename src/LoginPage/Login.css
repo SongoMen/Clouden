@@ -90,7 +90,7 @@ h4.inactive {
   border-left: 2px solid #ff2020; 
 }
 
-h4.active {
+h4.loginactive {
   color: white;
   font-weight: 500;
 }

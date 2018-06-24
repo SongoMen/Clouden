@@ -26,7 +26,7 @@ class Login extends Component {
 		classBg:"",
 		authClass:"",
 		authText:"",
-		Classtab:"active",
+		Classtab:"loginactive",
 		Classtab2:"inactive underlineHover"
 	};
 	this.handleChange = this.handleChange.bind(this);
@@ -91,7 +91,7 @@ class Login extends Component {
 			this.setState({
 				showLogin:false,
 				Classtab:"inactive underlineHover",
-				Classtab2:"active",
+				Classtab2:"loginactive",
 				username:"",
 				password:"",
 				email:""
@@ -101,10 +101,9 @@ class Login extends Component {
 		handleClickLogin(e){
 			this.email.value = "";
 			this.password.value ="";
-			this.username.value="";
 			this.setState({
 				showLogin:true,
-				Classtab:"active",
+				Classtab:"loginactive",
 				Classtab2:"inactive underlineHover",
 			})
 		}
