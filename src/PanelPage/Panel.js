@@ -53,15 +53,8 @@ class Panel extends Component {
     var user = firebase.auth().currentUser.displayName;
     return (
       <div className="Panel">
-        <aside></aside>
         <nav className="panel-bar__nav">
           <ul className="panel-menu">
-            <div className="panel-activeTab">
-              <li className="panel-active">Dashboard</li>
-              <span className="panel-active__span"></span>
-            </div>
-            <li className="panel-inactive">Cloud Drive</li>
-            <li className="panel-inactive endMenu">Profile</li>
             <li className="panel-icon1"><img src={notification} alt="notification" className="notification-icon"
             onClick={this.showNotificationTab}/></li>
             <li className="panel-icon"><img src={settings} alt="settings" className="settings-icon"/></li>
@@ -76,7 +69,14 @@ class Panel extends Component {
             <div></div>
           )}
           </nav>
+          <div className="test">
+          <aside>
+            <img src={monitor}></img>
+            <span className="monitor active"></span>
+
+          </aside>
         {this.props.content}
+        </div>
       </div>
     );
   }
