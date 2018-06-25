@@ -15,7 +15,11 @@ body{
 }
 
 .active{
-    background: #ff2020;
+    background: linear-gradient(to bottom, #ff2020 1%,#ff4a26 99%);
+}
+
+.activeTab{
+    fill:url(#lgrad);
 }
 
 /*######################################################### KEYFRAMES ###########################################################*/
@@ -41,22 +45,30 @@ aside{
     box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.281);
 }
 
-aside img{
+aside svg{
+    height: 40px;
+    margin-bottom: 30px;
+    width:40px;
     margin-top:50px;
+    fill:#8d8d8d;
+}
+
+aside svg:hover{
+    fill:url(#lgrad);
+    cursor: pointer;
 }
 
 .monitor{
     position: absolute;
     width:5px;
-    filter: saturate(100%);
     height: 7%;
-    margin-left:2.85%;
-    margin-top:2%;
+    margin-left:52px;
+    margin-top:40px;
 }
 
 /*######################################################### TOP BAR #########################################################*/
 
-.test{
+.asideMenu{
     display: flex;
     flex-flow: row wrap;
 }

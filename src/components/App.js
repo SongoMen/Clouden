@@ -62,6 +62,7 @@ export default class App extends Component {
                 <PublicRoute authed={this.state.authed} path='/login' component={Login} />
                 <PublicRoute authed={this.state.authed} path='/register' component={Register} />
                 <PrivateRoute authed={this.state.authed} path='/Dashboard' component={Dashboard} />
+                <PrivateRoute authed={this.state.authed} path='/Cloud' component={Dashboard} />
                 <Route render={() => <h3>No Match</h3>} />
               </Switch>
           </div>
