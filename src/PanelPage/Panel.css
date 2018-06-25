@@ -66,6 +66,23 @@ aside svg:hover{
     margin-top:40px;
 }
 
+.cloud{
+    position: absolute;
+    width:5px;
+    height: 7%;
+    margin-left:52px;
+    margin-top:160px;
+}
+
+.user{
+    position: absolute;
+    width:5px;
+    height: 7%;
+    margin-left:52px;
+    margin-top:160px;
+}
+
+
 /*######################################################### TOP BAR #########################################################*/
 
 .asideMenu{
