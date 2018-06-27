@@ -9,7 +9,7 @@ import Panel from '../Panel.js'
 
 var dbref = firebase.database();
   
-const COLORS = ['#2a2832', '#ffc84a'];
+const COLORS = ['#353642', '#ffc84a'];
   
 
 export default class Dashboard extends Component{
@@ -118,8 +118,8 @@ export default class Dashboard extends Component{
         var user = firebase.auth().currentUser.displayName;
         return(
                 <Panel content = {[                
-                    <div className="panel-sections" key={1}>
-                        <div className="panel-sections__disk">
+                    <div className="sections" key={1}>
+                        <div className="sections__disk">
                         
                             <h1>Space Usage</h1>
                             {this.state.isUploading &&
@@ -140,14 +140,13 @@ export default class Dashboard extends Component{
                                 onUploadSuccess={this.handleUploadSuccess}
                                 onProgress={this.handleProgress}
                             />
-                            <PieChart width={600} height={600} onMouseEnter={this.onPieEnter}>
+                            <PieChart width={350} height={350} onMouseEnter={this.onPieEnter}>
                                 <Pie
                                 data={data}
                                 cx={120}
                                 cy={200}
                                 innerRadius={85}
                                 outerRadius={120}
-                                fill="#8884d8"
                                 stroke=""
                                 paddingAngle={0}
                                 dataKey="value"
@@ -158,7 +157,7 @@ export default class Dashboard extends Component{
                                 </Pie>
                             </PieChart>
                         </div>
-                        <div className="panel-sections__files">
+                        <div className="sections__files">
                             <h1>Lastest uploaded files</h1>
                             <p onClick = {() => {
                                 logout()

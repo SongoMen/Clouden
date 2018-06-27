@@ -4,21 +4,15 @@ body{
     background-color:#353642;
 }
 
-.grey{
-    color:#8d8d8d;
-    font-size: 18px;
-    font-weight: light;
-}
-
-.panel-menu li{
+.nav__menu li{
     text-transform: none;
 }
 
-.active{
+.section__span--active{
     background: linear-gradient(to bottom, #ff2020 1%,#ff4a26 99%);
 }
 
-.activeTab{
+.section__icon--active{
     fill:url(#lgrad);
 }
 
@@ -42,7 +36,7 @@ aside{
     display: flex;
     align-items: center;
     flex-direction: column;
-    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.281);
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.171);
 }
 
 aside svg{
@@ -58,7 +52,7 @@ aside svg:hover{
     cursor: pointer;
 }
 
-.monitor{
+.section__monitorSpan{
     position: absolute;
     width:5px;
     height: 7%;
@@ -66,7 +60,7 @@ aside svg:hover{
     margin-top:40px;
 }
 
-.cloud{
+.section__cloudSpan{
     position: absolute;
     width:5px;
     height: 7%;
@@ -74,7 +68,7 @@ aside svg:hover{
     margin-top:160px;
 }
 
-.user{
+.section__userSpan{
     position: absolute;
     width:5px;
     height: 7%;
@@ -90,7 +84,7 @@ aside svg:hover{
     flex-flow: row wrap;
 }
 
-.panel-bar__nav{
+.nav__bar{
     top:0;
     width:100vw;
     position: relative;
@@ -98,10 +92,10 @@ aside svg:hover{
     background-color:#262733;
     height: 95px;
     z-index: 2;
-    box-shadow: 120px 10px 30px 0px rgba(0, 0, 0, 0.281);
+    box-shadow: 120px 10px 30px 0px rgba(0, 0, 0, 0.178);
 }
 
-.panel-sections{
+.sections{
     flex:1;
     height: 90vh;
     z-index: 0;
@@ -109,36 +103,26 @@ aside svg:hover{
     background-color: #353642;
 }
 
-.panel-menu{
+.nav__menu{
     display: flex;
     margin-top:35px;
 }
 
-.panel-menu a{
+.nav__menu a{
     text-transform: none;
     display: block;
 }
 
-.panel-active__span{
-    width:60px;
-    height: 4px;
-    border-radius: 50px;
-    background-color:#ff2020;
-    display: block;
-    margin-left:80px;
-    margin-top:8px;
-}
-
-.panel-icon, .panel-icon1{
+.nav__icon, .nav__icon1{
     margin-right: -40px;
 }
 
-.panel-icon1{
+.nav__icon1{
     padding-left:60px;
     margin-top:-3px;
 }
 
-.panel-icon{
+.nav__icon{
     margin-top:-3px;
     padding-left:40px;
 }
@@ -158,11 +142,11 @@ li img:hover{
 
 /*######################################################### TOP BAR TABS #########################################################*/
 
-.downArrow-icon{
+.nav__icon2{
     margin-left:-20px;
 }
 
-.profileMenu-wrapper{
+.nav__wrapper{
     width:150px;
     top:80px;
     height: 200px;
