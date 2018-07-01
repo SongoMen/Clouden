@@ -87,7 +87,7 @@ h4.inactive {
 .login-line{
   padding-right:10px;
   width:1px;
-  border-left: 2px solid #ff2020; 
+  border-left: 2px solid #dc323c; 
 }
 
 h4.loginactive {
@@ -101,7 +101,7 @@ h4.loginactive {
 input[type=submit] {
   background-color: #ffff;
   border: none;
-  color: #ff2020;
+  color: #dc323c;
   padding: 10px 50px;
   text-align: center;
   text-decoration: none;
@@ -122,7 +122,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover  {
-  background-color: #ff2020;
+  background-color: #dc323c;
   color: white;
   cursor: pointer;
 }
@@ -153,7 +153,7 @@ input[type=submit]:active  {
 }
 
 #login:focus, #password:focus {
-  border-bottom: 1px solid #ff2020;
+  border-bottom: 1px solid #dc323c;
 }
 
 .forgot-password{
@@ -241,7 +241,7 @@ input[type=submit]:active  {
   bottom: -10px;
   width: 0;
   height: 2px;
-  background-color: #ff2020;
+  background-color: #dc323c;
   content: "";
   transition: width 0.2s;
 }
@@ -295,7 +295,7 @@ input[type=submit]:active  {
 .circle-loader {
   margin:25px auto 25px auto;
   border: 2px solid rgba(0, 0, 0, 0.2);
-  border-left-color: #ff2020;
+  border-left-color: #dc323c;
   animation: loader-spin 1.2s infinite linear;
   position: relative;
   display: inline-block;

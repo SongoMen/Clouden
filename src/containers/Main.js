@@ -78,6 +78,8 @@ class Main extends Component {
 							</Link>
 						</div>
 					</div>
+					<div className="banner-image"></div>
+					<div className="banner-cover"></div>
 				</div>
 				<div className="section1">
 					<div className="text">

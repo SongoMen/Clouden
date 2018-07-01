@@ -1,15 +1,11 @@
 /*######################################################### BASICS ##############################################################*/
 
-body{
-    background-color:#353642;
-}
-
 .nav__menu li{
     text-transform: none;
 }
 
 .section__span--active{
-    background: linear-gradient(to bottom, #ff2020 1%,#ff4a26 99%);
+    background: linear-gradient(to bottom, #dc323c 1%,#ff4a26 99%);
 }
 
 .section__icon--active{
@@ -30,7 +26,7 @@ body{
 
 aside{
     height: 90vh;
-    width:110px;
+    width:90px;
     background-color:#262733;
     z-index: 1;
     display: flex;
@@ -56,7 +52,7 @@ aside svg:hover{
     position: absolute;
     width:5px;
     height: 7%;
-    margin-left:52px;
+    margin-left:42px;
     margin-top:40px;
 }
 
@@ -64,7 +60,7 @@ aside svg:hover{
     position: absolute;
     width:5px;
     height: 7%;
-    margin-left:52px;
+    margin-left:42px;
     margin-top:160px;
 }
 
@@ -72,14 +68,14 @@ aside svg:hover{
     position: absolute;
     width:5px;
     height: 7%;
-    margin-left:52px;
+    margin-left:42px;
     margin-top:160px;
 }
 
 
 /*######################################################### TOP BAR #########################################################*/
 
-.asideMenu{
+.content{
     display: flex;
     flex-flow: row wrap;
 }
@@ -99,7 +95,7 @@ aside svg:hover{
     flex:1;
     height: 90vh;
     z-index: 0;
-    color:#ff2020;
+    color:#dc323c;
     background-color: #353642;
 }
 

@@ -1,5 +1,4 @@
 body{
-    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
     background: linear-gradient(45deg, #111850 0%,#2e4a7b 100%);
 }
 .center{

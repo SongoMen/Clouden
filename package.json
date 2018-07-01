@@ -6,6 +6,7 @@
     "axios": "^0.18.0",
     "firebase": "^4.13.1",
     "firebase-tools": "^3.18.4",
+    "jquery": "^3.3.1",
     "material-ui": "^0.20.0",
     "npm": "^5.8.0",
     "react": "^16.2.0",

@@ -3,6 +3,7 @@ import {logout} from '../../helpers/auth';
 import * as firebase from 'firebase';
 import FileUploader from 'react-firebase-file-uploader';
 import { PieChart, Pie, Cell } from 'recharts';
+import $ from 'jquery'; 
 
 import './Dashboard.css'
 import Panel from '../Panel.js'
@@ -33,7 +34,7 @@ export default class Dashboard extends Component{
       this.setState({isUploading: false});
       console.error(error);
     }
-    handleUploadSuccess = (filename) => {
+    handleUploadSuccess = (filename,snapshot) => {
         var user = firebase.auth().currentUser.displayName;
         var uid = firebase.auth().currentUser.uid
 
@@ -59,17 +60,18 @@ export default class Dashboard extends Component{
 
             .catch(function(error) {
                 console.log(error)
-            });      
-            dbref.ref(`users/${uid}/info/disk`)
-                .update({
-                    filename:filename
-                })
+            });
+        var filenameText = filename.replace(/\.[^/.]+$/, "");      
+        dbref.ref(`users/${uid}/info/disk`)
+            .update({
+                [filenameText]:filename
+            })
     };
 
     componentDidUpdate(prevState) {
         var uid = firebase.auth().currentUser.uid
         if (this.state.spaceInBytes !== prevState.spaceInBytes) {
-            console.log("xdxd")
+            
         }
     }
 
@@ -102,6 +104,16 @@ export default class Dashboard extends Component{
                 totalSize:bytes
             });
         }.bind(this))
+        firebase.database().ref(`/users/${uid}/info/disk`).on("value", function(snapshot) {
+            snapshot.forEach(function(childSnapshot) {
+                var key = childSnapshot.key;
+                var content = "";
+
+                content += '<li>' + key + '</li>';
+            $('#xdxd').append(content);
+                console.log(key)
+            });
+        });
     };
 
     render(){
@@ -119,6 +131,7 @@ export default class Dashboard extends Component{
         return(
                 <Panel content = {[                
                     <div className="sections" key={1}>
+                    <ul id="xdxd"></ul>
                         <div className="sections__disk">
                         
                             <h1>Space Usage</h1>
