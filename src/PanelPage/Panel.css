@@ -25,8 +25,8 @@
 /*######################################################## LEFT BAR #################################################################*/
 
 aside{
-    height: 90vh;
-    width:90px;
+    height: 88vh;
+    width:5%;
     background-color:#262733;
     z-index: 1;
     display: flex;
@@ -48,27 +48,22 @@ aside svg:hover{
     cursor: pointer;
 }
 
-.section__monitorSpan{
+.section__cloudSpan, .section__monitorSpan, .section__userSpan{
     position: absolute;
     width:5px;
     height: 7%;
-    margin-left:42px;
+    margin-left:36px;
+}
+
+.section__monitorSpan{
     margin-top:40px;
 }
 
 .section__cloudSpan{
-    position: absolute;
-    width:5px;
-    height: 7%;
-    margin-left:42px;
     margin-top:160px;
 }
 
 .section__userSpan{
-    position: absolute;
-    width:5px;
-    height: 7%;
-    margin-left:42px;
     margin-top:160px;
 }
 
@@ -86,14 +81,14 @@ aside svg:hover{
     position: relative;
     display: flex;
     background-color:#262733;
-    height: 95px;
+    height:12vh;
     z-index: 2;
     box-shadow: 120px 10px 30px 0px rgba(0, 0, 0, 0.178);
 }
 
 .sections{
     flex:1;
-    height: 90vh;
+    height: 88vh;
     z-index: 0;
     color:#dc323c;
     background-color: #353642;
