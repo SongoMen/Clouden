@@ -116,7 +116,7 @@ export default class Dashboard extends Component{
     render(){
         const data = [
             {name: 'Free Space', value: 5000000000 - this.state.spaceInBytes},
-            {name: 'Used Space', value: this.state.spaceInBytes},
+            {name: 'Used Space', value: (this.state.spaceInBytes * 2) - this.state.spaceInBytes},
         ];
         var metadata = {
             customMetadata: {
@@ -124,60 +124,58 @@ export default class Dashboard extends Component{
               'activity': 'Hiking'
             }
         }
-        console.log(data)
         var user = firebase.auth().currentUser.displayName;
         return(
-                <Panel content = {[                
-                    <div className="sections" key={1}>
-                        <div className="sections__disk">
-                        
-                            <h1>Space Usage</h1>
-                            {this.state.isUploading &&
-                                <p>Progress: {this.state.progress}</p>
+            <Panel content = {[                
+                <div className="sections" key={1}>
+                    <div className="sections__disk">
+                    
+                        <h1>Space Usage</h1>
+                        {this.state.isUploading &&
+                            <p>Progress: {this.state.progress}</p>
+                        }
+                        {this.state.avatarURL &&
+                            <img src={this.state.avatarURL} alt="xdxd"/>
+                        }
+                        {this.state.totalSize}
+                        <FileUploader
+                            id="fileupload"
+                            accept="image/*"
+                            name="avatar"
+                            metadata={metadata}
+                            storageRef={firebase.storage().ref(user)}
+                            onUploadStart={this.handleUploadStart}
+                            onUploadError={this.handleUploadError}
+                            onUploadSuccess={this.handleUploadSuccess}
+                            onProgress={this.handleProgress}
+                        />
+                        <PieChart width={350} height={350} onMouseEnter={this.onPieEnter}>
+                            <Pie
+                            data={data}
+                            cx={120}
+                            cy={200}
+                            innerRadius={85}
+                            outerRadius={120}
+                            stroke=""
+                            paddingAngle={0}
+                            dataKey="value"
+                            >
+                            {
+                                data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>)
                             }
-                            {this.state.avatarURL &&
-                                <img src={this.state.avatarURL} alt="xdxd"/>
-                            }
-                            {this.state.totalSize}
-                            <FileUploader
-                                id="fileupload"
-                                accept="image/*"
-                                name="avatar"
-                                metadata={metadata}
-                                storageRef={firebase.storage().ref(user)}
-                                onUploadStart={this.handleUploadStart}
-                                onUploadError={this.handleUploadError}
-                                onUploadSuccess={this.handleUploadSuccess}
-                                onProgress={this.handleProgress}
-                            />
-                            <PieChart width={350} height={350} onMouseEnter={this.onPieEnter}>
-                                <Pie
-                                data={data}
-                                cx={120}
-                                cy={200}
-                                innerRadius={85}
-                                outerRadius={120}
-                                stroke=""
-                                paddingAngle={0}
-                                dataKey="value"
-                                >
-                                {
-                                    data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>)
-                                }
-                                </Pie>
-                            </PieChart>
-                        </div>
-                        <div className="sections__files">
-                            <h1>Lastest uploaded files</h1>
-                            <ul id="lastFiles" className="sections__lastFiles">
-                            </ul>
-                            <p onClick = {() => {
-                                logout()
-                            }}>Logout</p>
-                        </div>
+                            </Pie>
+                        </PieChart>
                     </div>
-                ]}/>
+                    <div className="sections__files">
+                        <h1>Lastest uploaded files</h1>
+                        <ul id="lastFiles" className="sections__lastFiles">
+                        </ul>
+                        <p onClick = {() => {
+                            logout()
+                        }}>Logout</p>
+                    </div>
+                </div>
+            ]}/>
         )
     }
-
 }

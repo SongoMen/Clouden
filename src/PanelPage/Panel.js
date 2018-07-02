@@ -80,7 +80,6 @@ class Panel extends Component {
         userSpan:"section__userSpan section__span--active",
       })
     }
-    console.log(window.location.href)
   }
 
   /*<p onClick = {() => {
