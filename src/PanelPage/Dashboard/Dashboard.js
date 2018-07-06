@@ -43,17 +43,24 @@ export default class Dashboard extends Component{
 
         firebase.storage().ref(user).child(filename).getMetadata()
             .then(function(metadata) {
-                dbref.ref().child(`users/${uid}/info`)
-                    .update ({
-                        spaceInBytes: this.state.spaceInBytes + metadata.size,
-                    })
+                dbref.ref(`users/${uid}/info/spaceInBytes`)
+                .once('value', function(snapshot) {
+                    setTimeout(() => {
+                        this.setState({
+                            spaceInBytes:snapshot.val() + metadata.size
+                        })
+                    }, 1000);
+                    dbref.ref().child(`users/${uid}/info`)
+                        .update ({
+                            spaceInBytes: snapshot.val() + metadata.size,
+                        })
+                }.bind(this));
             }.bind(this))
 
             .catch(function(error) {
                 console.log(error)
 <<<<<<< HEAD
             });
-
         var filenameText = filename.replace(/\.[^/.]+$/, "");      
         dbref.ref(`users/${uid}/info/disk`)
             .update({
@@ -79,10 +86,7 @@ export default class Dashboard extends Component{
         var uid = firebase.auth().currentUser.uid
         dbref.ref(`users/${uid}/info/spaceInBytes`)
         .once('value', function(snapshot) {
-            this.setState({
-                spaceInBytes:snapshot.val()
-            })
-            var bytes = this.state.spaceInBytes
+            var bytes = snapshot.val()
                     
             if (bytes>=1073741824){
                 bytes=(bytes/1073741824).toFixed(1)+' GB';
@@ -106,7 +110,6 @@ export default class Dashboard extends Component{
             this.setState({
                 totalSize:bytes
             });
-
         }.bind(this))
 <<<<<<< HEAD
         firebase.database().ref(`/users/${uid}/info/disk`).on("value", function(snapshot) {
@@ -115,7 +118,7 @@ export default class Dashboard extends Component{
                 var content = "";
 
                 content += '<li>' + key + '</li>';
-            $('#lastFiles').append(content);
+            $('#xdxd').append(content);
                 console.log(key)
             });
         });
@@ -126,7 +129,7 @@ export default class Dashboard extends Component{
     render(){
         const data = [
             {name: 'Free Space', value: 5000000000 - this.state.spaceInBytes},
-            {name: 'Used Space', value: (this.state.spaceInBytes * 2) - this.state.spaceInBytes},
+            {name: 'Used Space', value: this.state.spaceInBytes},
         ];
         var metadata = {
             customMetadata: {
@@ -138,8 +141,12 @@ export default class Dashboard extends Component{
         return(
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of dbdd8a8... changed logout icon, updated landing page
                 <Panel content = {[                
                     <div className="sections" key={1}>
+                    <ul id="xdxd"></ul>
                         <div className="sections__disk">
                         
                             <h1>Space Usage</h1>
@@ -180,8 +187,11 @@ export default class Dashboard extends Component{
                         </div>
                         <div className="sections__files">
                             <h1>Lastest uploaded files</h1>
-                            <ul id="xdxd"></ul>
+                            <p onClick = {() => {
+                                logout()
+                            }}>Logout</p>
                         </div>
+<<<<<<< HEAD
 =======
             <Panel content = {[                
                 <div className="sections" key={1}>
@@ -264,17 +274,11 @@ export default class Dashboard extends Component{
                             </Pie>
                         </PieChart>
 >>>>>>> fddacf127404edac26c762d02d99092b37f91d72
+=======
+>>>>>>> parent of dbdd8a8... changed logout icon, updated landing page
                     </div>
-                    <div className="sections__files">
-                        <h1>Lastest uploaded files</h1>
-                        <ul id="lastFiles" className="sections__lastFiles">
-                        </ul>
-                        <p onClick = {() => {
-                            logout()
-                        }}>Logout</p>
-                    </div>
-                </div>
-            ]}/>
+                ]}/>
         )
     }
+
 }

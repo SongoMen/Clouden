@@ -30,12 +30,17 @@ body{
 
 aside{
 <<<<<<< HEAD
+<<<<<<< HEAD
     height: 88vh;
     width:5%;
 =======
     height: 90vh;
     width:110px;
 >>>>>>> parent of 7de2f50... change secondary color, added jquery, showing uploaded files
+=======
+    height: 90vh;
+    width:90px;
+>>>>>>> parent of dbdd8a8... changed logout icon, updated landing page
     background-color:#262733;
     z-index: 1;
     display: flex;
@@ -57,10 +62,11 @@ aside svg:hover{
     cursor: pointer;
 }
 
-.section__cloudSpan, .section__monitorSpan, .section__userSpan{
+.section__monitorSpan{
     position: absolute;
     width:5px;
     height: 7%;
+<<<<<<< HEAD
 <<<<<<< HEAD
     margin-left:36px;
 }
@@ -69,21 +75,14 @@ aside svg:hover{
 =======
     margin-left:52px;
 >>>>>>> parent of 7de2f50... change secondary color, added jquery, showing uploaded files
+=======
+    margin-left:42px;
+>>>>>>> parent of dbdd8a8... changed logout icon, updated landing page
     margin-top:40px;
 }
 
 .section__cloudSpan{
 <<<<<<< HEAD
-=======
-    position: absolute;
-    width:5px;
-    height: 7%;
-    margin-left:52px;
->>>>>>> parent of 7de2f50... change secondary color, added jquery, showing uploaded files
-    margin-top:160px;
-}
-
-.section__userSpan{
 <<<<<<< HEAD
 =======
     position: absolute;
@@ -91,12 +90,31 @@ aside svg:hover{
     height: 7%;
     margin-left:52px;
 >>>>>>> parent of 7de2f50... change secondary color, added jquery, showing uploaded files
+=======
+    position: absolute;
+    width:5px;
+    height: 7%;
+    margin-left:42px;
+>>>>>>> parent of dbdd8a8... changed logout icon, updated landing page
     margin-top:160px;
 }
 
-.section__exit{
-    margin-top: auto;
-    width:30px;
+.section__userSpan{
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    position: absolute;
+    width:5px;
+    height: 7%;
+    margin-left:52px;
+>>>>>>> parent of 7de2f50... change secondary color, added jquery, showing uploaded files
+=======
+    position: absolute;
+    width:5px;
+    height: 7%;
+    margin-left:42px;
+>>>>>>> parent of dbdd8a8... changed logout icon, updated landing page
+    margin-top:160px;
 }
 
 
@@ -113,22 +131,25 @@ aside svg:hover{
     position: relative;
     display: flex;
     background-color:#262733;
-    height:12vh;
+    height: 95px;
     z-index: 2;
     box-shadow: 120px 10px 30px 0px rgba(0, 0, 0, 0.178);
 }
 
 .sections{
     flex:1;
-    height: 88vh;
+    height: 90vh;
     z-index: 0;
 <<<<<<< HEAD
     color:#dc323c;
+<<<<<<< HEAD
     display: flex;
     
 =======
     color:#ff2020;
 >>>>>>> parent of 7de2f50... change secondary color, added jquery, showing uploaded files
+=======
+>>>>>>> parent of dbdd8a8... changed logout icon, updated landing page
     background-color: #353642;
 }
 
