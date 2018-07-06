@@ -1,10 +1,13 @@
-.sections__disk, .sections__files{
-    background-color:#262733;
-    width:30%;
-    height: 30%;
+.sections__disk, .sections__files, .sections__upload{
     margin:50px;
     border-radius: 10px;
     padding: 25px;
+}
+
+.sections__disk, .sections__files{
+    background-color:#262733;
+    width:35%;
+    height: 400px;
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.233);
 
 }
@@ -12,4 +15,34 @@
 .sections__files h1, .sections__disk h1{
     margin: 0;
     font-size: 23px;
+}
+
+.sections__upload{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+
+    width:20%;
+    height: 400px;
+
+    text-align: center;
+
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.233);
+    background-color:#262733;
+    color:#8d8d8d;
+    fill:#8d8d8d;
+
+    transition: all .5s;
+}
+
+.sections__upload svg{
+    width:70px;
+}
+
+.sections__upload:hover{
+    color:#dc323c;
+    fill:#dc323c;
+    cursor: pointer;
 }
