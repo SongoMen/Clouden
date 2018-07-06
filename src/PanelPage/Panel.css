@@ -4,15 +4,21 @@ body{
     background-color:#353642;
 }
 
-.nav__menu li{
+.grey{
+    color:#8d8d8d;
+    font-size: 18px;
+    font-weight: light;
+}
+
+.panel-menu li{
     text-transform: none;
 }
 
-.section__span--active{
+.active{
     background: linear-gradient(to bottom, #ff2020 1%,#ff4a26 99%);
 }
 
-.section__icon--active{
+.activeTab{
     fill:url(#lgrad);
 }
 
@@ -46,7 +52,7 @@ aside{
     display: flex;
     align-items: center;
     flex-direction: column;
-    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.171);
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.281);
 }
 
 aside svg{
@@ -62,7 +68,7 @@ aside svg:hover{
     cursor: pointer;
 }
 
-.section__monitorSpan{
+.monitor{
     position: absolute;
     width:5px;
     height: 7%;
@@ -81,10 +87,14 @@ aside svg:hover{
     margin-top:40px;
 }
 
+<<<<<<< HEAD
 .section__cloudSpan{
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
+=======
+.cloud{
+>>>>>>> parent of 04dabff... fixed css classes
     position: absolute;
     width:5px;
     height: 7%;
@@ -99,10 +109,14 @@ aside svg:hover{
     margin-top:160px;
 }
 
+<<<<<<< HEAD
 .section__userSpan{
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
+=======
+.user{
+>>>>>>> parent of 04dabff... fixed css classes
     position: absolute;
     width:5px;
     height: 7%;
@@ -125,7 +139,7 @@ aside svg:hover{
     flex-flow: row wrap;
 }
 
-.nav__bar{
+.panel-bar__nav{
     top:0;
     width:100vw;
     position: relative;
@@ -133,10 +147,10 @@ aside svg:hover{
     background-color:#262733;
     height: 95px;
     z-index: 2;
-    box-shadow: 120px 10px 30px 0px rgba(0, 0, 0, 0.178);
+    box-shadow: 120px 10px 30px 0px rgba(0, 0, 0, 0.281);
 }
 
-.sections{
+.panel-sections{
     flex:1;
     height: 90vh;
     z-index: 0;
@@ -153,26 +167,36 @@ aside svg:hover{
     background-color: #353642;
 }
 
-.nav__menu{
+.panel-menu{
     display: flex;
     margin-top:35px;
 }
 
-.nav__menu a{
+.panel-menu a{
     text-transform: none;
     display: block;
 }
 
-.nav__icon, .nav__icon1{
+.panel-active__span{
+    width:60px;
+    height: 4px;
+    border-radius: 50px;
+    background-color:#ff2020;
+    display: block;
+    margin-left:80px;
+    margin-top:8px;
+}
+
+.panel-icon, .panel-icon1{
     margin-right: -40px;
 }
 
-.nav__icon1{
+.panel-icon1{
     padding-left:60px;
     margin-top:-3px;
 }
 
-.nav__icon{
+.panel-icon{
     margin-top:-3px;
     padding-left:40px;
 }
@@ -192,11 +216,11 @@ li img:hover{
 
 /*######################################################### TOP BAR TABS #########################################################*/
 
-.nav__icon2{
+.downArrow-icon{
     margin-left:-20px;
 }
 
-.nav__wrapper{
+.profileMenu-wrapper{
     width:150px;
     top:80px;
     height: 200px;

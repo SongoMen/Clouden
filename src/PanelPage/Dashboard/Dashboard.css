@@ -1,15 +1,14 @@
-.sections__disk, .sections__files{
-    background-color:#262733;
+.panel-sections__disk, .panel-sections__files{
+    background-color:#18161f;
     width:30%;
     height: 40%;
     margin:50px;
-    border-radius: 10px;
     padding: 25px;
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.233);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.418);
 
 }
 
-.sections__files h1, .sections__disk h1{
+.panel-sections__files h1, .panel-sections__disk h1{
     margin: 0;
     font-size: 23px;
 }

@@ -52,32 +52,32 @@ class Panel extends Component {
   componentDidMount(){
     if(window.location.href === "http://localhost:3000/Dashboard" || window.location.href === "http://localhost:3000/dashboard"){
       this.setState({
-        monitorTab: "section__monitor section__icon--active",
-        cloudTab:"section__cloud",
-        userTab:"section__user",
-        monitorSpan:"section__monitorSpan section__span--active",
-        cloudSpan:"section__cloudSpan",
-        userSpan:"section__userSpan",
+        monitorTab: "section-monitor activeTab",
+        cloudTab:"section-cloud",
+        userTab:"section-user",
+        monitorSpan:"monitor active",
+        cloudSpan:"cloud",
+        userSpan:"user",
       })
     }
     else if(window.location.href === "http://localhost:3000/cloud" || window.location.href === "http://localhost:3000/Cloud"){
       this.setState({
-        monitorTab: "asideMenu__monitor",
-        cloudTab:"asideMenu__cloud section__icon--active",
-        userTab:"asideMenu__user",
-        monitorSpan:"section__monitorSpan",
-        cloudSpan:"section__cloudSpan section__span--active",
-        userSpan:"section__userSpan",
+        monitorTab: "section-monitor",
+        cloudTab:"section-cloud activeTab",
+        userTab:"section-user",
+        monitorSpan:"monitor",
+        cloudSpan:"cloud active",
+        userSpan:"user",
       })
     }
     else{
       this.setState({
-        monitorTab: "section__monitor",
-        cloudTab:"section__cloud",
-        userTab:"section__user section__icon--active",
-        monitorSpan:"section__monitorSpan",
-        cloudSpan:"section__cloudSpan",
-        userSpan:"section__userSpan section__span--active",
+        monitorTab: "section-monitor",
+        cloudTab:"section-cloud",
+        userTab:"section-user activeTab",
+        monitorSpan:"monitor",
+        cloudSpan:"cloud",
+        userSpan:"user active",
       })
     }
     console.log(window.location.href)
@@ -91,18 +91,18 @@ class Panel extends Component {
     const showProfileTab = this.state.profileTab;
     var user = firebase.auth().currentUser.displayName;
     return (
-      <div className="nav">
-        <nav className="nav__bar">
-          <ul className="nav__menu">
-            <li className="nav__icon1"><img src={notification} alt="notification"
+      <div className="Panel">
+        <nav className="panel-bar__nav">
+          <ul className="panel-menu">
+            <li className="panel-icon1"><img src={notification} alt="notification" className="notification-icon"
             onClick={this.showNotificationTab}/></li>
-            <li className="nav__icon"><img src={settings} alt="settings" className="settings__icon"/></li>
+            <li className="panel-icon"><img src={settings} alt="settings" className="settings-icon"/></li>
             <li>{user}</li>
-            <li><img src={downArrow} alt="downArrow" className="nav__icon2" 
+            <li><img src={downArrow} alt="downArrow" className="downArrow-icon" 
             onClick={this.showProfileTab}/></li>
           </ul>
           {showProfileTab ? (
-              <div className="nav__wrapper">
+              <div className="profileMenu-wrapper">
               </div>
           ) : (
             <div></div>
