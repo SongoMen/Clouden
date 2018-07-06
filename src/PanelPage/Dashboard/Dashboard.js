@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import {logout} from '../../helpers/auth';
 import * as firebase from 'firebase';
 import FileUploader from 'react-firebase-file-uploader';
 import { PieChart, Pie, Cell } from 'recharts';
