@@ -127,6 +127,7 @@ export default class Dashboard extends Component{
         var user = firebase.auth().currentUser.displayName;
         return(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <Panel content = {[                
                     <div className="sections" key={1}>
                         <div className="sections__disk">
@@ -171,6 +172,47 @@ export default class Dashboard extends Component{
                             <h1>Lastest uploaded files</h1>
                             <ul id="xdxd"></ul>
                         </div>
+=======
+            <Panel content = {[                
+                <div className="sections" key={1}>
+                    <div className="sections__disk">
+                    
+                        <h1>Space Usage</h1>
+                        {this.state.isUploading &&
+                            <p>Progress: {this.state.progress}</p>
+                        }
+                        {this.state.avatarURL &&
+                            <img src={this.state.avatarURL} alt="xdxd"/>
+                        }
+                        {this.state.totalSize}
+                        <FileUploader
+                            id="fileupload"
+                            accept="image/*"
+                            name="avatar"
+                            metadata={metadata}
+                            storageRef={firebase.storage().ref(user)}
+                            onUploadStart={this.handleUploadStart}
+                            onUploadError={this.handleUploadError}
+                            onUploadSuccess={this.handleUploadSuccess}
+                            onProgress={this.handleProgress}
+                        />
+                        <PieChart width={350} height={350} onMouseEnter={this.onPieEnter}>
+                            <Pie
+                            data={data}
+                            cx={120}
+                            cy={200}
+                            innerRadius={85}
+                            outerRadius={120}
+                            stroke=""
+                            paddingAngle={0}
+                            dataKey="value"
+                            >
+                            {
+                                data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>)
+                            }
+                            </Pie>
+                        </PieChart>
+>>>>>>> fddacf127404edac26c762d02d99092b37f91d72
 =======
             <Panel content = {[                
                 <div className="sections" key={1}>
