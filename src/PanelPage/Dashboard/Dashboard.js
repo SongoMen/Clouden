@@ -146,9 +146,14 @@ export default class Dashboard extends Component{
 >>>>>>> parent of dbdd8a8... changed logout icon, updated landing page
                 <Panel content = {[                
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <div className="sections" key={1}>
                     <ul id="xdxd"></ul>
                         <div className="sections__disk">
+=======
+                    <div className="panel-sections" key={1}>
+                        <div className="panel-sections__disk">
+>>>>>>> parent of 04dabff... fixed css classes
 =======
                     <div className="panel-sections" key={1}>
                         <div className="panel-sections__disk">
