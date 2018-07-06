@@ -1,24 +1,14 @@
 /*######################################################### BASICS ##############################################################*/
 
-body{
-    background-color:#353642;
-}
-
-.grey{
-    color:#8d8d8d;
-    font-size: 18px;
-    font-weight: light;
-}
-
-.panel-menu li{
+.nav__menu li{
     text-transform: none;
 }
 
-.active{
-    background: linear-gradient(to bottom, #ff2020 1%,#ff4a26 99%);
+.section__span--active{
+    background: linear-gradient(to bottom, #dc323c 1%,#ff4a26 99%);
 }
 
-.activeTab{
+.section__icon--active{
     fill:url(#lgrad);
 }
 
@@ -35,24 +25,14 @@ body{
 /*######################################################## LEFT BAR #################################################################*/
 
 aside{
-<<<<<<< HEAD
-<<<<<<< HEAD
     height: 88vh;
     width:5%;
-=======
-    height: 90vh;
-    width:110px;
->>>>>>> parent of 7de2f50... change secondary color, added jquery, showing uploaded files
-=======
-    height: 90vh;
-    width:90px;
->>>>>>> parent of dbdd8a8... changed logout icon, updated landing page
     background-color:#262733;
     z-index: 1;
     display: flex;
     align-items: center;
     flex-direction: column;
-    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.281);
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.171);
 }
 
 aside svg{
@@ -68,143 +48,79 @@ aside svg:hover{
     cursor: pointer;
 }
 
-.monitor{
+.section__cloudSpan, .section__monitorSpan, .section__userSpan{
     position: absolute;
     width:5px;
     height: 7%;
-<<<<<<< HEAD
-<<<<<<< HEAD
     margin-left:36px;
 }
 
 .section__monitorSpan{
-=======
-    margin-left:52px;
->>>>>>> parent of 7de2f50... change secondary color, added jquery, showing uploaded files
-=======
-    margin-left:42px;
->>>>>>> parent of dbdd8a8... changed logout icon, updated landing page
     margin-top:40px;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 .section__cloudSpan{
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-.cloud{
->>>>>>> parent of 04dabff... fixed css classes
-=======
-.cloud{
->>>>>>> parent of 04dabff... fixed css classes
-    position: absolute;
-    width:5px;
-    height: 7%;
-    margin-left:52px;
->>>>>>> parent of 7de2f50... change secondary color, added jquery, showing uploaded files
-=======
-    position: absolute;
-    width:5px;
-    height: 7%;
-    margin-left:42px;
->>>>>>> parent of dbdd8a8... changed logout icon, updated landing page
     margin-top:160px;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 .section__userSpan{
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-.user{
->>>>>>> parent of 04dabff... fixed css classes
-=======
-.user{
->>>>>>> parent of 04dabff... fixed css classes
-    position: absolute;
-    width:5px;
-    height: 7%;
-    margin-left:52px;
->>>>>>> parent of 7de2f50... change secondary color, added jquery, showing uploaded files
-=======
-    position: absolute;
-    width:5px;
-    height: 7%;
-    margin-left:42px;
->>>>>>> parent of dbdd8a8... changed logout icon, updated landing page
     margin-top:160px;
+}
+
+.section__exit{
+    margin-top: auto;
+    width:30px;
 }
 
 
 /*######################################################### TOP BAR #########################################################*/
 
-.asideMenu{
+.content{
     display: flex;
     flex-flow: row wrap;
 }
 
-.panel-bar__nav{
+.nav__bar{
     top:0;
     width:100vw;
     position: relative;
     display: flex;
     background-color:#262733;
-    height: 95px;
+    height:10vh;
     z-index: 2;
-    box-shadow: 120px 10px 30px 0px rgba(0, 0, 0, 0.281);
+    box-shadow: 120px 10px 30px 0px rgba(0, 0, 0, 0.178);
 }
 
-.panel-sections{
+.sections{
     flex:1;
     height: 90vh;
     z-index: 0;
-<<<<<<< HEAD
     color:#dc323c;
-<<<<<<< HEAD
     display: flex;
     
-=======
-    color:#ff2020;
->>>>>>> parent of 7de2f50... change secondary color, added jquery, showing uploaded files
-=======
->>>>>>> parent of dbdd8a8... changed logout icon, updated landing page
     background-color: #353642;
 }
 
-.panel-menu{
+.nav__menu{
     display: flex;
     margin-top:35px;
 }
 
-.panel-menu a{
+.nav__menu a{
     text-transform: none;
     display: block;
 }
 
-.panel-active__span{
-    width:60px;
-    height: 4px;
-    border-radius: 50px;
-    background-color:#ff2020;
-    display: block;
-    margin-left:80px;
-    margin-top:8px;
-}
-
-.panel-icon, .panel-icon1{
+.nav__icon, .nav__icon1{
     margin-right: -40px;
 }
 
-.panel-icon1{
+.nav__icon1{
     padding-left:60px;
     margin-top:-3px;
 }
 
-.panel-icon{
+.nav__icon{
     margin-top:-3px;
     padding-left:40px;
 }
@@ -224,11 +140,11 @@ li img:hover{
 
 /*######################################################### TOP BAR TABS #########################################################*/
 
-.downArrow-icon{
+.nav__icon2{
     margin-left:-20px;
 }
 
-.profileMenu-wrapper{
+.nav__wrapper{
     width:150px;
     top:80px;
     height: 200px;

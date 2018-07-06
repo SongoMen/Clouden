@@ -78,19 +78,8 @@ class Main extends Component {
 							</Link>
 						</div>
 					</div>
-				</div>
-				<div className="section1">
-					<div className="text">
-						<span className="section1-line"></span>
-						<h2>ABOUT US</h2>
-						<h1>Who we are?</h1>
-						<p className="description">
-							sdadsadsad
-						</p>
-					</div>
-					<div className="bottomBar">
-						ffsafas
-					</div>
+					<div className="banner-image"></div>
+					<div className="banner-cover"></div>
 				</div>
 			</div>
 		)

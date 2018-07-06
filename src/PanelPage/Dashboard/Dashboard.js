@@ -3,13 +3,14 @@ import {logout} from '../../helpers/auth';
 import * as firebase from 'firebase';
 import FileUploader from 'react-firebase-file-uploader';
 import { PieChart, Pie, Cell } from 'recharts';
+import $ from 'jquery'; 
 
 import './Dashboard.css'
 import Panel from '../Panel.js'
 
 var dbref = firebase.database();
   
-const COLORS = ['#2a2832', '#ffc84a'];
+const COLORS = ['#353642', '#ffc84a'];
   
 
 export default class Dashboard extends Component{
@@ -33,7 +34,7 @@ export default class Dashboard extends Component{
       this.setState({isUploading: false});
       console.error(error);
     }
-    handleUploadSuccess = (filename) => {
+    handleUploadSuccess = (filename,snapshot) => {
         var user = firebase.auth().currentUser.displayName;
         var uid = firebase.auth().currentUser.uid
 
@@ -43,42 +44,27 @@ export default class Dashboard extends Component{
 
         firebase.storage().ref(user).child(filename).getMetadata()
             .then(function(metadata) {
-                dbref.ref(`users/${uid}/info/spaceInBytes`)
-                .once('value', function(snapshot) {
-                    setTimeout(() => {
-                        this.setState({
-                            spaceInBytes:snapshot.val() + metadata.size
-                        })
-                    }, 1000);
-                    dbref.ref().child(`users/${uid}/info`)
-                        .update ({
-                            spaceInBytes: snapshot.val() + metadata.size,
-                        })
-                }.bind(this));
+                dbref.ref().child(`users/${uid}/info`)
+                    .update ({
+                        spaceInBytes: this.state.spaceInBytes + metadata.size,
+                    })
             }.bind(this))
 
             .catch(function(error) {
                 console.log(error)
-<<<<<<< HEAD
             });
+
         var filenameText = filename.replace(/\.[^/.]+$/, "");      
         dbref.ref(`users/${uid}/info/disk`)
             .update({
                 [filenameText]:filename
             })
-=======
-            });      
-            dbref.ref(`users/${uid}/info/disk`)
-                .update({
-                    filename:filename
-                })
->>>>>>> parent of 7de2f50... change secondary color, added jquery, showing uploaded files
     };
 
     componentDidUpdate(prevState) {
         var uid = firebase.auth().currentUser.uid
         if (this.state.spaceInBytes !== prevState.spaceInBytes) {
-            console.log("xdxd")
+            
         }
     }
 
@@ -86,7 +72,10 @@ export default class Dashboard extends Component{
         var uid = firebase.auth().currentUser.uid
         dbref.ref(`users/${uid}/info/spaceInBytes`)
         .once('value', function(snapshot) {
-            var bytes = snapshot.val()
+            this.setState({
+                spaceInBytes:snapshot.val()
+            })
+            var bytes = this.state.spaceInBytes
                     
             if (bytes>=1073741824){
                 bytes=(bytes/1073741824).toFixed(1)+' GB';
@@ -110,26 +99,24 @@ export default class Dashboard extends Component{
             this.setState({
                 totalSize:bytes
             });
+
         }.bind(this))
-<<<<<<< HEAD
         firebase.database().ref(`/users/${uid}/info/disk`).on("value", function(snapshot) {
             snapshot.forEach(function(childSnapshot) {
                 var key = childSnapshot.key;
                 var content = "";
 
                 content += '<li>' + key + '</li>';
-            $('#xdxd').append(content);
+            $('#lastFiles').append(content);
                 console.log(key)
             });
         });
-=======
->>>>>>> parent of 7de2f50... change secondary color, added jquery, showing uploaded files
     };
 
     render(){
         const data = [
             {name: 'Free Space', value: 5000000000 - this.state.spaceInBytes},
-            {name: 'Used Space', value: this.state.spaceInBytes},
+            {name: 'Used Space', value: (this.state.spaceInBytes * 2) - this.state.spaceInBytes},
         ];
         var metadata = {
             customMetadata: {
@@ -139,25 +126,9 @@ export default class Dashboard extends Component{
         }
         var user = firebase.auth().currentUser.displayName;
         return(
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of dbdd8a8... changed logout icon, updated landing page
                 <Panel content = {[                
-<<<<<<< HEAD
-<<<<<<< HEAD
                     <div className="sections" key={1}>
-                    <ul id="xdxd"></ul>
                         <div className="sections__disk">
-=======
-                    <div className="panel-sections" key={1}>
-                        <div className="panel-sections__disk">
->>>>>>> parent of 04dabff... fixed css classes
-=======
-                    <div className="panel-sections" key={1}>
-                        <div className="panel-sections__disk">
->>>>>>> parent of 04dabff... fixed css classes
                         
                             <h1>Space Usage</h1>
                             {this.state.isUploading &&
@@ -178,14 +149,13 @@ export default class Dashboard extends Component{
                                 onUploadSuccess={this.handleUploadSuccess}
                                 onProgress={this.handleProgress}
                             />
-                            <PieChart width={600} height={600} onMouseEnter={this.onPieEnter}>
+                            <PieChart width={350} height={350} onMouseEnter={this.onPieEnter}>
                                 <Pie
                                 data={data}
                                 cx={120}
                                 cy={200}
                                 innerRadius={85}
                                 outerRadius={120}
-                                fill="#8884d8"
                                 stroke=""
                                 paddingAngle={0}
                                 dataKey="value"
@@ -196,100 +166,20 @@ export default class Dashboard extends Component{
                                 </Pie>
                             </PieChart>
                         </div>
-                        <div className="panel-sections__files">
+                        <div className="sections__files">
                             <h1>Lastest uploaded files</h1>
-                            <p onClick = {() => {
-                                logout()
-                            }}>Logout</p>
+                            <ul id="xdxd"></ul>
                         </div>
-<<<<<<< HEAD
-=======
-            <Panel content = {[                
-                <div className="sections" key={1}>
-                    <div className="sections__disk">
-                    
-                        <h1>Space Usage</h1>
-                        {this.state.isUploading &&
-                            <p>Progress: {this.state.progress}</p>
-                        }
-                        {this.state.avatarURL &&
-                            <img src={this.state.avatarURL} alt="xdxd"/>
-                        }
-                        {this.state.totalSize}
-                        <FileUploader
-                            id="fileupload"
-                            accept="image/*"
-                            name="avatar"
-                            metadata={metadata}
-                            storageRef={firebase.storage().ref(user)}
-                            onUploadStart={this.handleUploadStart}
-                            onUploadError={this.handleUploadError}
-                            onUploadSuccess={this.handleUploadSuccess}
-                            onProgress={this.handleProgress}
-                        />
-                        <PieChart width={350} height={350} onMouseEnter={this.onPieEnter}>
-                            <Pie
-                            data={data}
-                            cx={120}
-                            cy={200}
-                            innerRadius={85}
-                            outerRadius={120}
-                            stroke=""
-                            paddingAngle={0}
-                            dataKey="value"
-                            >
-                            {
-                                data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>)
-                            }
-                            </Pie>
-                        </PieChart>
->>>>>>> fddacf127404edac26c762d02d99092b37f91d72
-=======
-            <Panel content = {[                
-                <div className="sections" key={1}>
-                    <div className="sections__disk">
-                    
-                        <h1>Space Usage</h1>
-                        {this.state.isUploading &&
-                            <p>Progress: {this.state.progress}</p>
-                        }
-                        {this.state.avatarURL &&
-                            <img src={this.state.avatarURL} alt="xdxd"/>
-                        }
-                        {this.state.totalSize}
-                        <FileUploader
-                            id="fileupload"
-                            accept="image/*"
-                            name="avatar"
-                            metadata={metadata}
-                            storageRef={firebase.storage().ref(user)}
-                            onUploadStart={this.handleUploadStart}
-                            onUploadError={this.handleUploadError}
-                            onUploadSuccess={this.handleUploadSuccess}
-                            onProgress={this.handleProgress}
-                        />
-                        <PieChart width={350} height={350} onMouseEnter={this.onPieEnter}>
-                            <Pie
-                            data={data}
-                            cx={120}
-                            cy={200}
-                            innerRadius={85}
-                            outerRadius={120}
-                            stroke=""
-                            paddingAngle={0}
-                            dataKey="value"
-                            >
-                            {
-                                data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>)
-                            }
-                            </Pie>
-                        </PieChart>
->>>>>>> fddacf127404edac26c762d02d99092b37f91d72
-=======
->>>>>>> parent of dbdd8a8... changed logout icon, updated landing page
+                    <div className="sections__files">
+                        <h1>Lastest uploaded files</h1>
+                        <ul id="lastFiles" className="sections__lastFiles">
+                        </ul>
+                        <p onClick = {() => {
+                            logout()
+                        }}>Logout</p>
                     </div>
-                ]}/>
+                </div>
+            ]}/>
         )
     }
-
 }
