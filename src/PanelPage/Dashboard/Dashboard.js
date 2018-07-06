@@ -168,16 +168,8 @@ export default class Dashboard extends Component{
                         </div>
                         <div className="sections__files">
                             <h1>Lastest uploaded files</h1>
-                            <ul id="xdxd"></ul>
+                            <ul id="lastFiles"></ul>
                         </div>
-                    <div className="sections__files">
-                        <h1>Lastest uploaded files</h1>
-                        <ul id="lastFiles" className="sections__lastFiles">
-                        </ul>
-                        <p onClick = {() => {
-                            logout()
-                        }}>Logout</p>
-                    </div>
                 </div>
             ]}/>
         )
