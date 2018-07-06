@@ -19,7 +19,7 @@ body{
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #dc323c; 
+    background: #ff2020; 
 }
 .route-wrapper {
   position: relative;
@@ -65,33 +65,25 @@ body{
 /*
 ################################################  MENU #############################################
 */
+<<<<<<< HEAD
+=======
+
+
+
+.main{
+	background-position-y: -130px;
+	background-repeat: no-repeat;
+	background-image: url(../images/bg.png);
+	width: 100%;
+	height: 120vh;
+}
+
+>>>>>>> parent of 7de2f50... change secondary color, added jquery, showing uploaded files
 .banner{
 	padding-left:100px;
 	padding-right: 100px;
 	width: 100%;
 	height: 100%;
-}
-
-.banner-image{
-	position: absolute;
-	margin-left:-100px;
-	top:0;
-	background-repeat: no-repeat;
-	background-size: cover;
-	z-index: -1;
-	background-image: url(../images/bg11.png);
-	width: 100%;
-	height: 100vh;
-}
-
-.banner-cover{
-    background: linear-gradient(135deg, rgba(44, 44, 44, 0.822) 0%,rgba(26, 26, 26, 0.795) 100%);
-    position: absolute;
-    top: 0;
-	left: 0;
-	z-index: -1;
-    width: 100%;
-    height: 100%;
 }
 
 .banner nav{
@@ -126,7 +118,7 @@ nav ul li {
 .banner nav a{
 	position: relative;
 	display: inline-block;
-	background: linear-gradient(to bottom, transparent 60%, #dc323c 0) center center/0% 75% no-repeat;
+	background: linear-gradient(to bottom, transparent 60%, #ff2020 0) center center/0% 75% no-repeat;
 	z-index: 1;
 }
 
@@ -149,12 +141,12 @@ nav ul li {
 	height: 40px;
 	width: 110px;
 	border-radius: 5px;
-	border: solid #dc323c 2px;
+	border: solid #ff2020 2px;
 	box-shadow:0px 0px 15px 0px rgba(0, 0, 0, 0.25);
 	transition: all .4s ease-in-out;
 	margin-left: 15px;
 	margin-right: -20px;
-	color:#dc323c;
+	color:#ff2020;
 }
 
 .login2 h1{
@@ -164,7 +156,7 @@ nav ul li {
 }
 
 .login2:hover{
-	background-color: #dc323c;
+	background-color: #ff2020;
 	color:white;
 }
 
@@ -173,7 +165,7 @@ nav ul li {
 	height: 40px;
 	width: 170px;
 	border-radius: 5px;
-	background-color: #dc323c;
+	background-color: #ff2020;
 	box-shadow:0px 0px 15px 0px rgba(0, 0, 0, 0.25);
 	margin-top: 10px;
 }
@@ -219,7 +211,7 @@ nav ul li {
 	height: 4px;
 	position: absolute;
 	width:200px;
-	background-color:#dc323c;
+	background-color:#ff2020;
 	margin-top: 0px;
 }	
 
@@ -237,7 +229,7 @@ nav ul li {
 	height: 55px;
 	width: 280px;
 	border-radius: 5px;
-	background-color:#dc323c;
+	background-color:#ff2020;
 	box-shadow:0px 0px 15px 0px rgba(0, 0, 0, 0.25);
 
 }
@@ -256,8 +248,8 @@ nav ul li {
 	height: 55px;
 	width: 300px;
 	border-radius: 5px;
-	color:#dc323c;
-	border:solid #dc323c 2px;
+	color:#ff2020;
+	border:solid #ff2020 2px;
 	box-shadow:0px 0px 15px 0px rgba(0, 0, 0, 0.25);
 	transition: all .4s ease-in-out;
 }
@@ -270,7 +262,7 @@ nav ul li {
 }
 
 .register1:hover{
-	background-color:#dc323c;
+	background-color:#ff2020;
 	color:white;
 }
 

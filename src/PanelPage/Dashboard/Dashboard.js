@@ -3,7 +3,6 @@ import {logout} from '../../helpers/auth';
 import * as firebase from 'firebase';
 import FileUploader from 'react-firebase-file-uploader';
 import { PieChart, Pie, Cell } from 'recharts';
-import $ from 'jquery'; 
 
 import './Dashboard.css'
 import Panel from '../Panel.js'
@@ -34,7 +33,7 @@ export default class Dashboard extends Component{
       this.setState({isUploading: false});
       console.error(error);
     }
-    handleUploadSuccess = (filename,snapshot) => {
+    handleUploadSuccess = (filename) => {
         var user = firebase.auth().currentUser.displayName;
         var uid = firebase.auth().currentUser.uid
 
@@ -52,6 +51,7 @@ export default class Dashboard extends Component{
 
             .catch(function(error) {
                 console.log(error)
+<<<<<<< HEAD
             });
 
         var filenameText = filename.replace(/\.[^/.]+$/, "");      
@@ -59,12 +59,19 @@ export default class Dashboard extends Component{
             .update({
                 [filenameText]:filename
             })
+=======
+            });      
+            dbref.ref(`users/${uid}/info/disk`)
+                .update({
+                    filename:filename
+                })
+>>>>>>> parent of 7de2f50... change secondary color, added jquery, showing uploaded files
     };
 
     componentDidUpdate(prevState) {
         var uid = firebase.auth().currentUser.uid
         if (this.state.spaceInBytes !== prevState.spaceInBytes) {
-            
+            console.log("xdxd")
         }
     }
 
@@ -101,6 +108,7 @@ export default class Dashboard extends Component{
             });
 
         }.bind(this))
+<<<<<<< HEAD
         firebase.database().ref(`/users/${uid}/info/disk`).on("value", function(snapshot) {
             snapshot.forEach(function(childSnapshot) {
                 var key = childSnapshot.key;
@@ -111,6 +119,8 @@ export default class Dashboard extends Component{
                 console.log(key)
             });
         });
+=======
+>>>>>>> parent of 7de2f50... change secondary color, added jquery, showing uploaded files
     };
 
     render(){

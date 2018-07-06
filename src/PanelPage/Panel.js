@@ -108,7 +108,7 @@ class Panel extends Component {
             <div></div>
           )}
           </nav>
-          <div className="content">
+          <div className="asideMenu">
             <aside>
               <a href="/dashboard">
                 <svg className={this.state.monitorTab} xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 511.999 511.999">

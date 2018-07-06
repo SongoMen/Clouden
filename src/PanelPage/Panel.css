@@ -1,11 +1,15 @@
 /*######################################################### BASICS ##############################################################*/
 
+body{
+    background-color:#353642;
+}
+
 .nav__menu li{
     text-transform: none;
 }
 
 .section__span--active{
-    background: linear-gradient(to bottom, #dc323c 1%,#ff4a26 99%);
+    background: linear-gradient(to bottom, #ff2020 1%,#ff4a26 99%);
 }
 
 .section__icon--active{
@@ -25,8 +29,13 @@
 /*######################################################## LEFT BAR #################################################################*/
 
 aside{
+<<<<<<< HEAD
     height: 88vh;
     width:5%;
+=======
+    height: 90vh;
+    width:110px;
+>>>>>>> parent of 7de2f50... change secondary color, added jquery, showing uploaded files
     background-color:#262733;
     z-index: 1;
     display: flex;
@@ -52,18 +61,36 @@ aside svg:hover{
     position: absolute;
     width:5px;
     height: 7%;
+<<<<<<< HEAD
     margin-left:36px;
 }
 
 .section__monitorSpan{
+=======
+    margin-left:52px;
+>>>>>>> parent of 7de2f50... change secondary color, added jquery, showing uploaded files
     margin-top:40px;
 }
 
 .section__cloudSpan{
+<<<<<<< HEAD
+=======
+    position: absolute;
+    width:5px;
+    height: 7%;
+    margin-left:52px;
+>>>>>>> parent of 7de2f50... change secondary color, added jquery, showing uploaded files
     margin-top:160px;
 }
 
 .section__userSpan{
+<<<<<<< HEAD
+=======
+    position: absolute;
+    width:5px;
+    height: 7%;
+    margin-left:52px;
+>>>>>>> parent of 7de2f50... change secondary color, added jquery, showing uploaded files
     margin-top:160px;
 }
 
@@ -75,7 +102,7 @@ aside svg:hover{
 
 /*######################################################### TOP BAR #########################################################*/
 
-.content{
+.asideMenu{
     display: flex;
     flex-flow: row wrap;
 }
@@ -95,9 +122,13 @@ aside svg:hover{
     flex:1;
     height: 88vh;
     z-index: 0;
+<<<<<<< HEAD
     color:#dc323c;
     display: flex;
     
+=======
+    color:#ff2020;
+>>>>>>> parent of 7de2f50... change secondary color, added jquery, showing uploaded files
     background-color: #353642;
 }
 
