@@ -185,6 +185,7 @@ export default class Dashboard extends Component{
                                     onProgress={this.handleProgress}
                                 />
                                 <p>Click here to quickly upload<br/> everything you want !</p>
+                                <div id="flat-slider"></div>
                         </label>
                     </div>
                 </div>

@@ -49,53 +49,16 @@
     cursor: pointer;
 }
 
-/* ##### Tabs ##### */
-
-.tabs__fullupload{
-    display: flex;
-    align-content: center;
-    justify-content: center;
-}
-
-.tabs__upload{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: column;
-    position: absolute;
-    z-index: 2;
-
-    margin-top: 150px;
-    width:45%;
-    height: 500px;
-
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.233);
-    background-color:#262733;
-
-    animation:show .5s;
-}
-
-.tabs--span{
-    border-bottom: 1px solid #8d8d8d;
-    width:111px;
-    margin-top:15px;
-}
-
-.tabs--button{
-    color:white;
-    width:100px;
-    background-color: #dc323c;
-    padding:10px;
-    border:0;
-    margin:15px;
-}
-
-.tabs__bg{
-    display: flex;
-    background-color:black;
-    opacity: 0.5;
-    width:95%;
-    z-index: 1;
-    height: 90%;
-    position: absolute;
-}
+/* ##### SLIDER ##### */
+[id*=flat-slider] {
+    background: #7e8c9f;
+  }
+  
+  [id*=flat-slider] {
+    border-left-color: #434d5a;
+  }
+  
+  [id*=flat-slider] {
+    border-color: white;
+  }
+  
