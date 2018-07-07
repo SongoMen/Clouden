@@ -25,10 +25,11 @@ export default class Dashboard extends Component{
             uploadTab:false
         }
         this.handleUploadSuccess = this.handleUploadSuccess.bind(this);
-        this.handleClickUpload = this.handleClickUpload.bind(this);
     }
 
-    handleChangeUsername = (event) => this.setState({username: event.target.value});
+    handleChangeUsername = (event) => {
+        this.setState({username: event.target.value});
+    }
     handleUploadStart = () => this.setState({isUploading: true, progress: 0});
     handleProgress = (progress) => this.setState({progress});
     handleUploadError = (error) => {
@@ -112,20 +113,6 @@ export default class Dashboard extends Component{
             });
         });
     };
-
-    handleClickUpload(){
-        if(this.state.uploadTab === false){
-            this.setState({
-                uploadTab:true
-            })
-        }
-
-        if(this.state.uploadTab === true){
-            this.setState({
-                uploadTab:false
-            })
-        }
-    }
 
     render(){
         const data = [
