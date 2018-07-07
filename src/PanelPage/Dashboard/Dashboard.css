@@ -75,18 +75,6 @@
     animation:show .5s;
 }
 
-.tabs--label{
-    font-weight: 700;
-    background-color:#8d8d8d;
-    cursor: pointer;
-    padding:20px;
-    transition: all .5s
-}
-
-.tabs--label:hover{
-    background-color:#dc323c;
-}
-
 .tabs--span{
     border-bottom: 1px solid #8d8d8d;
     width:111px;
