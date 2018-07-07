@@ -1,3 +1,5 @@
+/* ##### Sections ##### */
+
 .sections__disk, .sections__files, .sections__upload{
     margin:50px;
     border-radius: 10px;
@@ -45,4 +47,67 @@
     color:#dc323c;
     fill:#dc323c;
     cursor: pointer;
+}
+
+/* ##### Tabs ##### */
+
+.tabs__fullupload{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.tabs__upload{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+
+    margin-top: 150px;
+    width:45%;
+    height: 500px;
+
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.233);
+    background-color:#262733;
+
+    animation:show .5s;
+}
+
+.tabs--label{
+    font-weight: 700;
+    background-color:#8d8d8d;
+    cursor: pointer;
+    padding:20px;
+    transition: all .5s
+}
+
+.tabs--label:hover{
+    background-color:#dc323c;
+}
+
+.tabs--span{
+    border-bottom: 1px solid #8d8d8d;
+    width:111px;
+    margin-top:15px;
+}
+
+.tabs--button{
+    color:white;
+    width:100px;
+    background-color: #dc323c;
+    padding:10px;
+    border:0;
+    margin:15px;
+}
+
+.tabs__bg{
+    display: flex;
+    background-color:black;
+    opacity: 0.5;
+    width:95%;
+    z-index: 1;
+    height: 90%;
+    position: absolute;
 }

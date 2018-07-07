@@ -21,16 +21,18 @@ body{
 ::-webkit-scrollbar-thumb {
     background: #dc323c; 
 }
+
+input[type=button]{
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
 .route-wrapper {
   position: relative;
 }
 
 .route-wrapper > div {
   position: absolute;
-}
-
-.register h1, .login2 h1{
-	font-weight: 700;
 }
 
 .register1 h1, .login1 h1{

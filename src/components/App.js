@@ -8,6 +8,7 @@ import Main from '../containers/Main'
 import Dashboard from '../PanelPage/Dashboard/Dashboard'
 import forgotPassword from './forgotPassword'
 import ErrorPage from './ErrorPage'
+import '../helpers/scripts'
 
 function PrivateRoute ({component: Component, authed, ...rest}) {
   return (

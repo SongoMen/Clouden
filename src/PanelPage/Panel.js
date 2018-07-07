@@ -82,11 +82,6 @@ class Panel extends Component {
       })
     }
   }
-
-  /*<p onClick = {() => {
-    logout()
-  }}>Logout</p>*/
-
   render() {
     const showProfileTab = this.state.profileTab;
     var user = firebase.auth().currentUser.displayName;
