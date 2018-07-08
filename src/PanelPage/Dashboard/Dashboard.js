@@ -11,7 +11,6 @@ var dbref = firebase.database();
   
 const COLORS = ['#353642', '#dc323c'];
   
-
 export default class Dashboard extends Component{
 
     constructor(){
@@ -30,12 +29,27 @@ export default class Dashboard extends Component{
     handleChangeUsername = (event) => {
         this.setState({username: event.target.value});
     }
-    handleUploadStart = () => this.setState({isUploading: true, progress: 0});
+
+    handleUploadStart = (filename) => { 
+        var uid = firebase.auth().currentUser.uid
+        var filenameText = filename.replace(/\.[^/.]+$/, "");   
+
+        firebase.database().ref(`/users/${uid}/info/disk`).child(filenameText).once('value', function(snapshot) {
+            if (snapshot.exists()) {
+              alert('exists');
+            }
+        });
+
+        this.setState({isUploading: true, progress: 0});
+    }
+
     handleProgress = (progress) => this.setState({progress});
+    
     handleUploadError = (error) => {
       this.setState({isUploading: false});
       console.error(error);
     }
+
     handleUploadSuccess = (filename) => {
         var user = firebase.auth().currentUser.displayName;
         var uid = firebase.auth().currentUser.uid
