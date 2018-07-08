@@ -145,19 +145,21 @@ export default class Dashboard extends Component{
             <Panel content = {[       
                 <div className="dashboard" key={1}>         
                     <div className="sections">
-                        <div className="sections__disk">           
+                        <div className="sections__disk">     
+                            <div className="sections__disk_heading">
                             <h1>Space Usage</h1>
                             {this.state.isUploading &&
                                 <p>Progress: {this.state.progress}</p>
                             }
                             {this.state.totalSize}
-                            <PieChart width={350} height={350} onMouseEnter={this.onPieEnter} style={{transform:'rotate(-90deg)'}}>
+                            </div>
+                            <PieChart width={350} height={350} onMouseEnter={this.onPieEnter} style={{transform:'rotate(-90deg)'}} className="sections__chart">
                                 <Pie
                                 data={data}
                                 cx={120}
                                 cy={200}
-                                innerRadius={85}
-                                outerRadius={120}
+                                innerRadius={75}
+                                outerRadius={105}
                                 stroke=""
                                 metadata={metadata}
                                 paddingAngle={0}
