@@ -38,9 +38,10 @@ export default class Dashboard extends Component{
             if (snapshot.exists()) {
               alert('exists');
             }
+            else{
+                this.setState({isUploading: true, progress: 0});
+            }
         });
-
-        this.setState({isUploading: true, progress: 0});
     }
 
     handleProgress = (progress) => this.setState({progress});
