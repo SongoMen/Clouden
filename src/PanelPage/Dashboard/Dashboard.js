@@ -32,7 +32,7 @@ export default class Dashboard extends Component{
 
     handleUploadStart = (filename) => { 
         var uid = firebase.auth().currentUser.uid
-        var filenameText = filename.replace(/\.[^/.]+$/, "");   
+        var filenameText = filename.name.replace(/\.[^/.]+$/, "");   
 
         firebase.database().ref(`/users/${uid}/info/disk`).child(filenameText).once('value', function(snapshot) {
             if (snapshot.exists()) {
