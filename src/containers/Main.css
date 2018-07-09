@@ -5,6 +5,7 @@ body{
 	height: 100%;
 	letter-spacing: 0;
 	font-family:Montserrat;
+	background-color:#262733;
 }
 
 ::-webkit-scrollbar {
@@ -38,6 +39,14 @@ input[type=button]{
 .register1 h1, .login1 h1{
 	font-weight: 500 !important;
 }
+
+/*################################################ LOADER ################################*/
+.loader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top:25%;
+  }
 
 /*################################################ ANIMATIONS ###############################################
 */
