@@ -119,23 +119,23 @@ export default class Dashboard extends Component{
             });
 
         }.bind(this))
-        firebase.database().ref(`/users/${uid}/info/disk`).on("value", function(snapshot) {
-            snapshot.forEach(function(childSnapshot) {
-                var key = childSnapshot.key;
-                var content = "";
 
-                content += '<li>' + key + '</li>';
-            $('#lastFiles').append(content);
-                console.log(key)
-            });
-        });
-        setTimeout(() => {
-            
-        if(this.state.totalSize !== 0){
-            this.setState({
-                loading:false
-            })
-        }
+        setTimeout(() => { 
+            if(this.state.totalSize !== 0){
+                this.setState({
+                    loading:false
+                })
+                firebase.database().ref(`/users/${uid}/info/disk`).on("value", function(snapshot) {
+                    snapshot.forEach(function(childSnapshot) {
+                        var key = childSnapshot.key;
+                        var content = "";
+        
+                        content += '<li>' + key + '</li>';
+                    $('#lastFiles').append(content);
+                        console.log(key)
+                    });
+                });
+            }
         }, 1500);
     };
 
