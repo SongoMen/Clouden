@@ -95,9 +95,10 @@ aside svg:hover{
     flex:1;
     height: 90vh;
     z-index: 0;
-    color:#dc323c;
+    color:#8d8d8d;
     width:95vw;
     display: flex;
+    flex-wrap: wrap;
     
     background-color: #353642;
 }

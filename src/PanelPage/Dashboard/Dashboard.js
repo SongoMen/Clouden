@@ -151,7 +151,7 @@ export default class Dashboard extends Component{
                             {this.state.isUploading &&
                                 <p>Progress: {this.state.progress}</p>
                             }
-                            {this.state.totalSize}
+                            <p className="sections--paragraph">{this.state.totalSize}/5.0</p>
                             </div>
                             <PieChart width={350} height={350} onMouseEnter={this.onPieEnter} style={{transform:'rotate(-90deg)'}} className="sections__chart">
                                 <Pie
@@ -204,6 +204,8 @@ export default class Dashboard extends Component{
                                 <p>Click here to quickly upload<br/> everything you want !</p>
                                 <div id="flat-slider"></div>
                         </label>
+                        <div className="sections__stats">
+                        </div>
                     </div>
                 </div>
             ]}/>
