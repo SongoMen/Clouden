@@ -229,6 +229,7 @@ export default class Dashboard extends Component{
                                 <div id="flat-slider"></div>
                         </label>
                         <div className="sections__stats">
+                            <h1>Statistics</h1>
                         </div>
                     </div>
                 </div>
