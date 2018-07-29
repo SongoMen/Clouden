@@ -25,8 +25,8 @@
 /*######################################################## LEFT BAR #################################################################*/
 
 aside{
-    height: 90vh;
-    width:5%;
+    height: 93vh;
+    width:4%;
     background-color:#262733;
     z-index: 1;
     display: flex;
@@ -36,9 +36,9 @@ aside{
 }
 
 aside svg{
-    height: 40px;
+    height: 35px;
     margin-bottom: 30px;
-    width:40px;
+    width:35px;
     margin-top:50px;
     fill:#8d8d8d;
 }
@@ -50,21 +50,21 @@ aside svg:hover{
 
 .section__cloudSpan, .section__monitorSpan, .section__userSpan{
     position: absolute;
-    width:5px;
-    height: 7%;
-    margin-left:2.3%;
+    width:3px;
+    height: 5%;
+    margin-left:2%;
 }
 
 .section__monitorSpan{
-    margin-top:40px;
+    margin-top:43px;
 }
 
 .section__cloudSpan{
-    margin-top:160px;
+    margin-top:163px;
 }
 
 .section__userSpan{
-    margin-top:160px;
+    margin-top:163px;
 }
 
 .section__exit{
@@ -86,17 +86,17 @@ aside svg:hover{
     position: relative;
     display: flex;
     background-color:#262733;
-    height:10vh;
+    height:7vh;
     z-index: 2;
     box-shadow: 120px 10px 30px 0px rgba(0, 0, 0, 0.178);
 }
 
 .sections{
     flex:1;
-    height: 90vh;
+    height: 93vh;
     z-index: 0;
     color:#8d8d8d;
-    width:95vw;
+    width:96vw;
     display: flex;
     flex-wrap: wrap;
     
@@ -105,7 +105,7 @@ aside svg:hover{
 
 .nav__menu{
     display: flex;
-    margin-top:35px;
+    margin-top:20px;
 }
 
 .nav__menu a{
