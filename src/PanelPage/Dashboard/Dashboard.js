@@ -86,8 +86,10 @@ export default class Dashboard extends Component{
         }
     }
 
-    componentDidMount = () => {
+    componentDidMount = (filename) => {
         var uid = firebase.auth().currentUser.uid
+        var user = firebase.auth().currentUser.displayName;
+
         dbref.ref(`users/${uid}/info/spaceInBytes`)
         .once('value', function(snapshot) {
             this.setState({
@@ -125,14 +127,23 @@ export default class Dashboard extends Component{
                 this.setState({
                     loading:false
                 })
+                
                 firebase.database().ref(`/users/${uid}/info/disk`).on("value", function(snapshot) {
-                    snapshot.forEach(function(childSnapshot) {
-                        var key = childSnapshot.key;
+                    snapshot.forEach(function(Snapshot) {
+                        var key = Snapshot.key;
+                        var keyURL = snapshot.val().key
                         var content = "";
-        
-                        content += '<li>' + key + '</li>';
-                    $('#lastFiles').append(content);
+                        firebase.storage().ref(user).child(keyURL).getDownloadURL().then(function(url){
+                            this.setState({
+                                avatarURL: url
+                            })
+                        })
+                        
+                        content += '<a href =#'  + '<li>' + key + '</li> </a>' ;
+
+                        $('#lastFiles').append(content);
                         console.log(key)
+                        console.log(keyURL)
                     });
                 });
             }
