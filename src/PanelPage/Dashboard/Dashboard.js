@@ -20,7 +20,7 @@ export default class Dashboard extends Component{
             isUploading: false,
             spaceInBytes:"",
             avatar: '',
-            avatarURL: '',
+            URL: ' ',
             uploadTab:false,
             loading:true
         }
@@ -87,6 +87,7 @@ export default class Dashboard extends Component{
     }
 
     componentDidMount = (filename) => {
+        var returnVal;
         var uid = firebase.auth().currentUser.uid
         var user = firebase.auth().currentUser.displayName;
 
@@ -121,29 +122,21 @@ export default class Dashboard extends Component{
             });
 
         }.bind(this))
-
         setTimeout(() => { 
             if(this.state.totalSize !== 0){
                 this.setState({
                     loading:false
                 })
-                
                 firebase.database().ref(`/users/${uid}/info/disk`).on("value", function(snapshot) {
                     snapshot.forEach(function(Snapshot) {
                         var key = Snapshot.key;
-                        var keyURL = snapshot.val().key
                         var content = "";
-                        firebase.storage().ref(user).child(keyURL).getDownloadURL().then(function(url){
-                            this.setState({
-                                avatarURL: url
-                            })
-                        })
-                        
-                        content += '<a href =#'  + '<li>' + key + '</li> </a>' ;
-
-                        $('#lastFiles').append(content);
-                        console.log(key)
-                        console.log(keyURL)
+                        firebase.storage().ref(user).child(snapshot.child(key).val()).getDownloadURL()
+                            .then(function (url) {
+                                returnVal = url.slice(70, url.length)
+                                content += '<a target = _blank href = https://firebasestorage.googleapis.com/v0/b/webapp-0021.appspot.com/o/' + returnVal +' download = "'+ key + '"><li>' + key + '</li> </a>' ;
+                                $('#lastFiles').append(content);
+                            });
                     });
                 });
             }

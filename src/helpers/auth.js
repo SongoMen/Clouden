@@ -43,9 +43,6 @@ export function resetPassword (email) {
   return firebaseAuth().sendPasswordResetEmail(email)
 }
 
-export function uploadFile (email) {
-  return firebaseAuth().sendPasswordResetEmail(email)
-}
 
 export function saveUser (user) {
   var username = localStorage.getItem('user')

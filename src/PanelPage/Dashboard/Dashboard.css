@@ -1,5 +1,9 @@
 /* ##### Sections ##### */
 
+.dashboard{
+    display: flex;
+}
+
 .sections__disk, .sections__files, .sections__upload, .sections__stats{
     margin:30px;
     border-radius: 5px;

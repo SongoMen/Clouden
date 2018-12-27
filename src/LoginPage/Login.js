@@ -69,11 +69,14 @@ class Login extends Component {
 							authClass:"",
 							authText:""
 						})
-					}, 3800);
+					}, 3500);
 				})
 		}
 
 		handleClickRegisterUser(e) {
+				var re = /^(([^<>()\\.,;:\s@"]+(\.[^<>()\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+				if(this.password.value.length > 6 && re.test(String(this.email.value).toLowerCase())){
 				localStorage.setItem('password', this.password.value);
 				localStorage.setItem('user', this.username.value);
 				auth(this.email.value, this.password.value, this.username.value)
@@ -82,7 +85,14 @@ class Login extends Component {
 						localStorage.removeItem('password');
 						localStorage.removeItem('user');
 				}, 1500);
-		
+			}
+			if(this.password.value.length < 6){
+				alert("Password must have at least 6 characters too short");
+
+			}
+			if (re.test(String(this.email.value).toLowerCase()) === false){
+				alert("wrong email adress")
+			}
 		}
 	
 		handleClickRegister(e){
@@ -197,7 +207,7 @@ class Login extends Component {
 								<label className="fadeIn second">Email</label>
 								<br/>
 								<input 
-									type="text" 
+									type="email" 
 									id="login" 
 									className="fadeIn second" 
 									name="Email" 
@@ -226,6 +236,8 @@ class Login extends Component {
 						</div>
 				</div>
 			</div>
+			<div className="banner-image" style={{marginLeft:0}}></div>
+			<div className="banner-cover"></div>
     	</div>
     );
   }
