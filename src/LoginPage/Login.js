@@ -73,7 +73,7 @@ class Login extends Component {
 				})
 		}
 
-		handleClickRegisterUser(e) {
+		handleClickRegisterUser() {
 				var re = /^(([^<>()\\.,;:\s@"]+(\.[^<>()\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 				if(this.password.value.length > 6 && re.test(String(this.email.value).toLowerCase())){
@@ -87,7 +87,7 @@ class Login extends Component {
 				}, 1500);
 			}
 			if(this.password.value.length < 6){
-				alert("Password must have at least 6 characters too short");
+				alert("Password must have at least 6 characters");
 
 			}
 			if (re.test(String(this.email.value).toLowerCase()) === false){
@@ -199,7 +199,7 @@ class Login extends Component {
 									type="text" 
 									id="login" 
 									className="fadeIn first" 
-									name="Email" 
+									name="username" 
 									placeholder="Type your username here" 
 									ref={(username) => this.username = username}
 								/>
@@ -208,7 +208,7 @@ class Login extends Component {
 								<br/>
 								<input 
 									type="email" 
-									id="login" 
+									id="email" 
 									className="fadeIn second" 
 									name="Email" 
 									placeholder="Type your email here" 

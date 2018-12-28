@@ -131,11 +131,11 @@ input[type=submit]:active  {
   transform: scale(0.95);
 }
 
-#login{
+#login,#email{
   margin-bottom: 35px;
 }
 
-#login, #password {
+#login, #email, #password {
   background-color: transparent;
   color: white;
   padding: 5px 0px 10px 0px;

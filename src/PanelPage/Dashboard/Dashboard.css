@@ -2,6 +2,8 @@
 
 .dashboard{
     display: flex;
+    width:96%;
+    flex-wrap: wrap;
 }
 
 .sections__disk, .sections__files, .sections__upload, .sections__stats{
@@ -15,6 +17,7 @@
     background-color:#262733;
     width:35%;
     height: 350px;
+    min-width: 500px;
 }
 
 .sections__files h1, .sections__disk h1{
@@ -37,8 +40,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-
-
+    min-width: 350px;
     width:20%;
     height: 350px;
 
@@ -79,3 +81,11 @@
     border-color: white;
   }
   
+  @media screen and (max-width:1200px){
+      aside{
+          display: none!important;
+      }
+      .dashboard{
+          width:100%;
+      }
+  }

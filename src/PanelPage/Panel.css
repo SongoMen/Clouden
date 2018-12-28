@@ -99,7 +99,7 @@ aside svg:hover{
     width:96vw;
     display: flex;
     flex-wrap: wrap;
-    
+    height: 100%;
     background-color: #353642;
 }
 

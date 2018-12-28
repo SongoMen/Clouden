@@ -17,7 +17,6 @@ export const firebaseAuth = firebase.auth
 
 export function loginWithGoogle() {
   return firebaseAuth().signInWithRedirect(googleProvider);
-  //return authenticate(loginWithFirebase(googleProvider));
 }
 
 export function auth (email, pw) {
