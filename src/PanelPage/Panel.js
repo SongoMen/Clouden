@@ -51,7 +51,8 @@ class Panel extends Component {
   }
 
   componentDidMount(){
-    if(window.location.href === "http://localhost:3000/Dashboard" || window.location.href === "http://localhost:3000/dashboard"){
+    let url = window.location.href.split("/")
+    if(url[url.length -1 ] === "Dashboard" || url[url.length -1 ] === "dashboard"){
       this.setState({
         monitorTab: "section__monitor section__icon--active",
         cloudTab:"section__cloud",
@@ -61,7 +62,7 @@ class Panel extends Component {
         userSpan:"section__userSpan",
       })
     }
-    else if(window.location.href === "http://localhost:3000/cloud" || window.location.href === "http://localhost:3000/Cloud"){
+    else if(url[url.length -1 ] === "cloud" || url[url.length -1 ] === "Cloud"){
       this.setState({
         monitorTab: "asideMenu__monitor",
         cloudTab:"asideMenu__cloud section__icon--active",
