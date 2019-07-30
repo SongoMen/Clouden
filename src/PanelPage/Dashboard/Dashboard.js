@@ -232,9 +232,6 @@ export default class Dashboard extends Component{
                                 <p>Click here to quickly upload<br/> everything you want !</p>
                                 <div id="flat-slider"></div>
                         </label>
-                        <div className="sections__stats">
-                            <h1>Statistics</h1>
-                        </div>
                     </div>
                 </div>
             ]}/>

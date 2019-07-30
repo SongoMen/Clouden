@@ -45,7 +45,7 @@ input[type=button]{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-top:25%;
+	margin: auto;
 	overflow: hidden
   }
 
@@ -145,6 +145,7 @@ nav ul li {
   
 .banner nav li a:hover {
 	background-size: 100% 100%;
+	text-decoration: none!important
 }
 
 .banner nav li a:active{

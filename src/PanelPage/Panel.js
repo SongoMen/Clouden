@@ -3,8 +3,6 @@ import * as firebase from 'firebase';
 import {logout} from '../helpers/auth';
 
 import './Panel.css';
-import settings from '../images/settings.png';
-import notification from '../images/notification-bell.png';
 import downArrow from '../images/down-arrow.png'
 
 
@@ -24,7 +22,6 @@ class Panel extends Component {
     }
 
     this.showProfileTab = this.showProfileTab.bind(this);
-    this.showNotificationTab = this.showNotificationTab.bind(this);
   }
 
   showProfileTab(){
@@ -38,18 +35,6 @@ class Panel extends Component {
     }
     console.log(this.state.profileTab)
   }
-
-  showNotificationTab(){
-    this.setState({
-      notificationTab:true,
-    })
-    if(this.state.notificationTab === true){
-      this.setState({
-        notificationTab:false
-      })
-    }
-  }
-
   componentDidMount(){
     let url = window.location.href.split("/")
     if(url[url.length -1 ] === "Dashboard" || url[url.length -1 ] === "dashboard"){
@@ -90,9 +75,6 @@ class Panel extends Component {
       <div className="nav">
         <nav className="nav__bar">
           <ul className="nav__menu">
-            <li className="nav__icon1"><img src={notification} alt="notification"
-            onClick={this.showNotificationTab}/></li>
-            <li className="nav__icon"><img src={settings} alt="settings" className="settings__icon"/></li>
             <li>{user}</li>
             <li><img src={downArrow} alt="downArrow" className="nav__icon2" 
             onClick={this.showProfileTab}/></li>

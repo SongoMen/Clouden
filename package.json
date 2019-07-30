@@ -2,6 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://webapp-0021.web.app/",
   "dependencies": {
     "axios": "^0.18.0",
     "firebase": "^4.13.1",
