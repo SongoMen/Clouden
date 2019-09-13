@@ -7,7 +7,7 @@
 }
 
 .sections__disk, .sections__files, .sections__upload, .sections__stats{
-    margin:30px;
+    margin:10px;
     border-radius: 5px;
     padding: 40px;
     transition: all .5s;

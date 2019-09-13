@@ -13,8 +13,8 @@ const COLORS = ['#353642', '#dc323c'];
   
 export default class Dashboard extends Component{
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             totalSize:"",
             isUploading: false,
@@ -22,7 +22,8 @@ export default class Dashboard extends Component{
             avatar: '',
             URL: ' ',
             uploadTab:false,
-            loading:true
+            loading:true,
+            progress: ""
         }
         this.handleUploadSuccess = this.handleUploadSuccess.bind(this);
         this.handleUploadStart = this.handleUploadStart.bind(this);
@@ -43,7 +44,7 @@ export default class Dashboard extends Component{
             else{
                 this.setState({isUploading: true, progress: 0});
             }
-        });
+        }.bind(this));
     }
 
     handleProgress = (progress) => this.setState({progress});
@@ -128,6 +129,7 @@ export default class Dashboard extends Component{
                     loading:false
                 })
                 firebase.database().ref(`/users/${uid}/info/disk`).on("value", function(snapshot) {
+                    document.getElementById('lastFiles').innerHTML = ""
                     snapshot.forEach(function(Snapshot) {
                         var key = Snapshot.key;
                         var content = "";

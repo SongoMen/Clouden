@@ -30,12 +30,6 @@ class Main extends Component {
 				<div className="banner">
 					<nav>
 						<ul>
-							<li className="float"><a>Features</a></li>
-							<li className="float">
-							<a>About Us</a>
-							</li>
-							<li className="float"><a>Why us</a></li>
-							<li className="float"><a>Pricing</a></li>
 							{this.state.authed === true ?
 							<Link to = "/login">
 								<li>

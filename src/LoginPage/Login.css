@@ -9,6 +9,9 @@ a {
   transition: .5s
 }
 
+input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s!important;
+}
 h4{
   display: inline-block;
   padding-right:10px;
@@ -275,7 +278,7 @@ input[type=submit]:active  {
 .authContent{
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
-  background: black;
+  background: linear-gradient(135deg, rgb(38, 82, 95) 0%, rgba(16,39,46,1) 100%);
   z-index:50;
   padding: 30px;
   width: 90%;

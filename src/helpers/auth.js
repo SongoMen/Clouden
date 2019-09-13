@@ -51,7 +51,8 @@ export function saveUser (user) {
       email: user.email,
       username:username,
       password:pw,
-      uid: user.uid
+      uid: user.uid,
+      spaceInBytes: 0
     })
     .then(() => user)
 }
