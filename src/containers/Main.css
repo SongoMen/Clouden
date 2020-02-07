@@ -36,7 +36,10 @@ input[type=button]{
   position: absolute;
 }
 
-.register1 h1, .login1 h1{
+h4{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
 	font-weight: 500 !important;
 }
 
@@ -109,21 +112,19 @@ input[type=button]{
 	display: flex;
 	width:100%;
 	height: 150px;
-	order:2;
-	flex:1;
+    align-items: center;
+    justify-content: flex-end
 }
 
 nav ul{
-	margin-left: auto;
 	list-style-type: none;
-	margin-top:50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav ul li {
-	top:20px;
-	display: inline;
 	text-transform: uppercase;
-	padding-left: 44px;
 	color: white;
 	font-weight: 700;
 	font-size: 18px;
@@ -136,8 +137,6 @@ nav ul li {
 
 .banner nav a{
 	position: relative;
-	display: inline-block;
-	background: linear-gradient(to bottom, transparent 60%, #dc323c 0) center center/0% 75% no-repeat;
 	z-index: 1;
 }
 
@@ -151,9 +150,11 @@ nav ul li {
 	background-size: 80% 100%;
 }
 
-.login2, .register{
+.login2, .register2{
 	animation: show 0.4s 1s ease 1 both;
-	display: inline-block;
+	display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .login2{
@@ -169,7 +170,7 @@ nav ul li {
 	color:#dc323c;
 }
 
-.login2 h1{
+.login2 h4{
 	text-transform: uppercase;
 	text-align: center;
 	font-size: 12px;
@@ -180,22 +181,21 @@ nav ul li {
 	color:white;
 }
 
-.register{
+.register2{
+    margin-left: 40px;
 	cursor: pointer;
 	height: 40px;
 	width: 170px;
 	border-radius: 5px;
 	background-color: #dc323c;
 	box-shadow:0px 0px 15px 0px rgba(0, 0, 0, 0.25);
-	margin-top: 10px;
 }
 
-.register h1{
+.register2 h4{
 	font-size: 12px;
 	text-transform: uppercase;
 	color: white;
 	text-align: center;
-	padding-top:3px;
 }
   
 .float{
@@ -236,11 +236,12 @@ nav ul li {
 
 .heading-buttons{
 	display: flex;
-	display: inline-block;
 }
 
 .login1, .register1{
-	display: inline-block;
+	display: flex;
+    align-items: center;
+    justify-content: center
 }
 
 .login1{
@@ -253,12 +254,11 @@ nav ul li {
 
 }
 
-.login1 h1{
+.login1 h4{
 	text-transform: uppercase;
 	text-align: center;
 	color: white;
 	font-size: 16px;
-	padding-top: 8px;
 }
 
 .register1{
@@ -273,11 +273,10 @@ nav ul li {
 	transition: all .4s ease-in-out;
 }
 
-.register1 h1{
+.register1 h4{
 	font-size: 16px;
 	text-transform: uppercase;
 	text-align: center;
-	padding-top: 5px;
 }
 
 .register1:hover{
@@ -300,4 +299,10 @@ nav ul li {
 	padding: 22px;
 	width: 16px;
 	height: 16px;
+}
+@media screen and (max-width: 915px){
+    .heading h1{
+        font-size: 30px
+    }
+
 }

@@ -1,83 +1,79 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import {firebaseAuth} from '../helpers/auth'
+import React, {Component} from "react";
+import {Link} from "react-router-dom";
+import {firebaseAuth} from "../helpers/auth";
 
-import './Main.css';
+import "./Main.css";
 
 class Main extends Component {
+  state = {
+    authed: false,
+  };
 
-	state = {
-		authed: false,
-	}
+  componentDidMount() {
+    this.removeListener = firebaseAuth().onAuthStateChanged(user => {
+      if (user) {
+        this.setState({
+          authed: true,
+        });
+      } else {
+        this.setState({
+          authed: false,
+        });
+      }
+    });
+  }
 
-	componentDidMount () {
-		this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
-		  if (user) {
-			this.setState({
-			  authed: true,
-			})
-		  } else {
-			this.setState({
-			  authed: false,
-			})
-		  }
-		})
-	  }
-
-	render(){
-		return(
-			<div className="main">
-				<div className="banner">
-					<nav>
-						<ul>
-							{this.state.authed === true ?
-							<Link to = "/login">
-								<li>
-									<div className="login2" style={{width:'150px'}}>
-										<h1>MY ACCOUNT</h1>
-									</div>
-								</li>
-							</Link>	 : (
-							<Link to = "/login">
-								<li>
-									<div className="login2">
-										<h1>SIGN IN</h1>
-									</div>
-								</li>
-							</Link>
-							)}	
-							<Link to = "/register">					
-								<li>
-									<div className="register">
-										<h1>Create account</h1>
-									</div>
-								</li>
-							</Link>
-						</ul>
-					</nav>
-					<div className = "heading">
-						<h1>Meet Clouden</h1>
-						<span className="heading-uderline"></span>
-						<p>Cloud built for the future with <br/>comfortable dashboard and best security.</p>
-						<div className="heading-buttons">
-							<Link to = "/login">
-							<div className="login1">
-								<h1>explore the features</h1>
-							</div>
-							</Link>
-							<Link to = "/register">
-							<div className="register1">
-								<h1>click here to register</h1>
-							</div>
-							</Link>
-						</div>
-					</div>
-					<div className="banner-image"></div>
-					<div className="banner-cover"></div>
-				</div>
-			</div>
-		)
-	}
-
+  render() {
+    return (
+      <div className="main">
+        <div className="banner">
+          <nav>
+            <ul>
+              {this.state.authed === true ? (
+                <li>
+                  <Link to="/login" className="login2">
+                    <h4>MY ACCOUNT</h4>
+                  </Link>
+                </li>
+              ) : (
+                <li>
+                  <Link to="/login" className="login2">
+                    <h4>SIGN IN</h4>
+                  </Link>
+                </li>
+              )}
+              <li>
+                <Link to="/register" class="register2">
+                  <h4>Create account</h4>
+                </Link>
+              </li>
+            </ul>
+          </nav>
+          <div className="heading">
+            <h1>Meet Clouden</h1>
+            <span className="heading-uderline"></span>
+            <p>
+              Cloud built for the future with <br />
+              comfortable dashboard and best security.
+            </p>
+            <div className="heading-buttons">
+              <Link to="/login">
+                <div className="login1">
+                  <h4>explore the features</h4>
+                </div>
+              </Link>
+              <Link to="/register">
+                <div className="register1">
+                  <h4>click here to register</h4>
+                </div>
+              </Link>
+            </div>
+          </div>
+          <div className="banner-image"></div>
+          <div className="banner-cover"></div>
+        </div>
+      </div>
+    );
+  }
 }
 export default Main;

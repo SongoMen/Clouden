@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { Helmet } from "react-helmet";
+import React, {Component} from "react";
+import {Helmet} from "react-helmet";
 
 import "./Login.css";
-import { login, auth } from "../helpers/auth";
+import {login, auth} from "../helpers/auth";
 
 function setErrorMsg(error) {
   return {
-    loginMessage: error
+    loginMessage: error,
   };
 }
 
@@ -27,16 +27,16 @@ class Login extends Component {
       authClass: "",
       authText: "",
       Classtab: "loginactive",
-      Classtab2: "inactive underlineHover"
+      Classtab2: "inactive underlineHover",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
-  state = { loginMessage: null };
+  state = {loginMessage: null};
 
   handleChange(e) {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
+    const {name, value} = e.target;
+    this.setState({[name]: value});
   }
 
   handleClick(e) {
@@ -46,7 +46,7 @@ class Login extends Component {
       classText: "authText ",
       classBg: "auth-bg ",
       authText: "Authenticating...",
-      clicked: this.state.clicked + 1
+      clicked: this.state.clicked + 1,
     });
     e.preventDefault();
     login(this.email.value, this.password.value).catch(error => {
@@ -55,7 +55,7 @@ class Login extends Component {
           classCircle: "circle-loader load-complete red ",
           classTick2: "checkmark2 draw show",
           authText: "Wrong username or pasword",
-          clicked: this.state.clicked + 1
+          clicked: this.state.clicked + 1,
         });
       }, 2000);
       setTimeout(() => {
@@ -66,7 +66,7 @@ class Login extends Component {
           classText: "",
           classBg: "",
           authClass: "",
-          authText: ""
+          authText: "",
         });
       }, 3500);
     });
@@ -81,9 +81,11 @@ class Login extends Component {
     ) {
       localStorage.setItem("password", this.password.value);
       localStorage.setItem("user", this.username.value);
-      auth(this.email.value, this.password.value, this.username.value).catch(
-        e => this.setState(setErrorMsg(e))
-      );
+      auth(
+        this.email.value,
+        this.password.value,
+        this.username.value,
+      ).catch(e => this.setState(setErrorMsg(e)));
       setTimeout(() => {
         localStorage.removeItem("password");
         localStorage.removeItem("user");
@@ -106,7 +108,7 @@ class Login extends Component {
       Classtab2: "loginactive",
       username: "",
       password: "",
-      email: ""
+      email: "",
     });
   }
 
@@ -116,7 +118,7 @@ class Login extends Component {
     this.setState({
       showLogin: true,
       Classtab: "loginactive",
-      Classtab2: "inactive underlineHover"
+      Classtab2: "inactive underlineHover",
     });
   }
 
@@ -152,16 +154,14 @@ class Login extends Component {
               <div className="login-tabs fadeIn first">
                 <h4
                   className={this.state.Classtab}
-                  onClick={e => this.handleClickLogin(e)}
-                >
+                  onClick={e => this.handleClickLogin(e)}>
                   {" "}
                   Sign In{" "}
                 </h4>
                 <span className="login-line" />
                 <h4
                   className={this.state.Classtab2}
-                  onClick={e => this.handleClickRegister(e)}
-                >
+                  onClick={e => this.handleClickRegister(e)}>
                   {" "}
                   Sign Up{" "}
                 </h4>
@@ -250,7 +250,7 @@ class Login extends Component {
             </div>
           </div>
         </div>
-        <div className="banner-image" style={{ marginLeft: 0 }} />
+        <div className="banner-image" style={{marginLeft: 0}} />
         <div className="banner-cover" />
       </div>
     );
