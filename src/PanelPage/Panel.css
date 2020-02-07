@@ -96,7 +96,7 @@ aside svg:hover{
 
 .sections{
     flex:1;
-    height: 93vh;
+    min-height: 93vh;
     z-index: 0;
     color:#8d8d8d;
     width:96vw;

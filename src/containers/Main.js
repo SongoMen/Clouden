@@ -51,7 +51,6 @@ class Main extends Component {
           </nav>
           <div className="heading">
             <h1>Meet Clouden</h1>
-            <span className="heading-uderline"></span>
             <p>
               Cloud built for the future with <br />
               comfortable dashboard and best security.

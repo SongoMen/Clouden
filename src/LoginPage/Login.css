@@ -1,26 +1,25 @@
-
 /* BASIC */
-*{
+* {
   letter-spacing: 1px;
 }
 
 a {
   text-decoration: none;
-  transition: .5s
+  transition: 0.5s;
 }
 
 input:-webkit-autofill {
-  transition: background-color 5000s ease-in-out 0s!important;
+  transition: background-color 5000s ease-in-out 0s !important;
 }
-h4{
+h4 {
   display: inline-block;
-  padding-right:10px;
+  padding-right: 10px;
   margin-bottom: 50px;
   font-size: 22px;
 }
 
-label{
-  color:white;
+label {
+  color: white;
   font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
@@ -34,47 +33,58 @@ label{
   padding: 20px;
 }
 
+.loginScreen {
+  width: 100%;
+}
+
 .loginContent {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 20px 20px 20px 20px;
   background: #fff;
   padding: 30px;
   width: 70%;
-  max-width:800px;
-  height:600px;
+  max-width: 800px;
+  height: 600px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 0px;
-  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
 }
 
-.formContent-text{
-  float:right;
-  padding-top:10%;
-  width:55%;
+.formContent-text {
+  float: right;
+  padding-top: 10%;
+  width: 55%;
   height: 100%;
   border-radius: 0px 17px 17px 0px;
-  padding-left:50px;
-  background: linear-gradient(135deg, rgb(38, 82, 95) 0%, rgba(16,39,46,1) 100%);
-
+  padding-left: 50px;
+  background: linear-gradient(
+    135deg,
+    rgb(38, 82, 95) 0%,
+    rgba(16, 39, 46, 1) 100%
+  );
 }
 
-.infoContent{
-  background: linear-gradient(135deg, rgb(255, 59, 59) 0%,rgb(255, 120, 120) 100%);
-  width:45%;
+.infoContent {
+  background: linear-gradient(
+    135deg,
+    rgb(255, 59, 59) 0%,
+    rgb(255, 120, 120) 100%
+  );
+  width: 45%;
   border-radius: 20px 0px 0px 20px;
   opacity: 1;
   height: 100%;
-  float:left;
+  float: left;
 }
 
 /* TABS */
 
-.login-tabs{
-  white-space:nowrap;
+.login-tabs {
+  white-space: nowrap;
 }
 
 h4.inactive {
@@ -83,10 +93,10 @@ h4.inactive {
   cursor: pointer;
 }
 
-.login-line{
-  padding-right:10px;
-  width:1px;
-  border-left: 2px solid #ff2020; 
+.login-line {
+  padding-right: 10px;
+  width: 1px;
+  border-left: 2px solid #ff2020;
 }
 
 h4.loginactive {
@@ -94,10 +104,8 @@ h4.loginactive {
   font-weight: 500;
 }
 
-
-
 /* FORM TYPOGRAPHY*/
-input[type=submit] {
+input[type="submit"] {
   background-color: #ffff;
   border: none;
   color: #ff2020;
@@ -120,13 +128,13 @@ input[type=submit] {
   font-weight: 500;
 }
 
-input[type=submit]:hover  {
+input[type="submit"]:hover {
   background-color: #ff2020;
   color: white;
   cursor: pointer;
 }
 
-input[type=submit]:active  {
+input[type="submit"]:active {
   -moz-transform: scale(0.95);
   -webkit-transform: scale(0.95);
   -o-transform: scale(0.95);
@@ -134,31 +142,35 @@ input[type=submit]:active  {
   transform: scale(0.95);
 }
 
-#login,#email{
+#login,
+#email {
   margin-bottom: 35px;
 }
 
-#login, #email, #password {
+#login,
+#email,
+#password {
   background: transparent;
   color: white;
   padding: 5px 0px 10px 0px;
   text-decoration: none;
-  border:none;
-  margin-top:5px;
+  border: none;
+  margin-top: 5px;
   font-size: 14px;
   width: 80%;
   border-bottom: 1px solid #f6f6f6;
   transition: all 0.5s ease-in-out;
 }
 
-#login:focus, #password:focus {
+#login:focus,
+#password:focus {
   border-bottom: 1px solid #ff2020;
 }
 
-.forgot-password{
-  margin-left:20px;
+.forgot-password {
+  margin-left: 20px;
   cursor: pointer;
-  color:white;
+  color: white;
 }
 
 ::placeholder {
@@ -182,28 +194,48 @@ input[type=submit]:active  {
   }
   100% {
     opacity: 1;
-
   }
 }
 
 /* Simple CSS3 Fade-in Animation */
-@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 .fadeIn {
-  opacity:0;
-  -webkit-animation:fadeIn ease-in 1;
-  -moz-animation:fadeIn ease-in 1;
-  animation:fadeIn ease-in 1;
+  opacity: 0;
+  -webkit-animation: fadeIn ease-in 1;
+  -moz-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
 
-  -webkit-animation-fill-mode:forwards;
-  -moz-animation-fill-mode:forwards;
-  animation-fill-mode:forwards;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
 
-  -webkit-animation-duration:1s;
-  -moz-animation-duration:1s;
-  animation-duration:1s;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
 }
 
 .fadeIn.first {
@@ -231,7 +263,7 @@ input[type=submit]:active  {
 }
 
 /* Simple CSS3 Fade-in Animation */
-.underlineHover{
+.underlineHover {
   display: inline-block;
   padding-top: 10px;
 }
@@ -250,36 +282,38 @@ input[type=submit]:active  {
   color: white;
 }
 
-.underlineHover:hover:after{
+.underlineHover:hover:after {
   width: 100%;
 }
 
-
 *:focus {
-    outline: none;
-} 
-
+  outline: none;
+}
 
 * {
   box-sizing: border-box;
 }
 
 /*######################### AUTH ######################*/
-.auth{
+.auth {
   display: flex;
   align-items: center;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: center;
   width: 100%;
   min-height: 100%;
   position: absolute;
 }
 
-.authContent{
+.authContent {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
-  background: linear-gradient(135deg, rgb(38, 82, 95) 0%, rgba(16,39,46,1) 100%);
-  z-index:50;
+  background: linear-gradient(
+    135deg,
+    rgb(38, 82, 95) 0%,
+    rgba(16, 39, 46, 1) 100%
+  );
+  z-index: 50;
   padding: 30px;
   width: 90%;
   max-width: 550px;
@@ -287,13 +321,13 @@ input[type=submit]:active  {
   display: block;
   position: relative;
   padding: 0px;
-  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   text-align: center;
 }
 
 .circle-loader {
-  margin:25px auto 25px auto;
+  margin: 25px auto 25px auto;
   border: 2px solid rgba(0, 0, 0, 0.2);
   border-left-color: #ff2020;
   animation: loader-spin 1.2s infinite linear;
@@ -306,7 +340,7 @@ input[type=submit]:active  {
 
 .circle-loader.load-complete {
   -webkit-animation: none;
-  margin:25px auto 25px auto;
+  margin: 25px auto 25px auto;
   animation: none;
   display: block;
   border-color: #5cb85c;
@@ -314,9 +348,9 @@ input[type=submit]:active  {
   z-index: 50;
 }
 
-.circle-loader.load-complete.red{
+.circle-loader.load-complete.red {
   -webkit-animation: none;
-  margin:25px auto 25px auto;
+  margin: 25px auto 25px auto;
   animation: none;
   display: block;
   border-color: red;
@@ -342,13 +376,13 @@ input[type=submit]:active  {
 }
 .checkmark.show:after {
   opacity: 1;
-  height:56px;
+  height: 56px;
   width: 28px;
   z-index: 50;
   transform-origin: left top;
   border-right: 3px solid #5cb85c;
   border-top: 3px solid #5cb85c;
-  content: '';
+  content: "";
   left: 28px;
   top: 56px;
   position: absolute;
@@ -364,12 +398,12 @@ input[type=submit]:active  {
 
 .checkmark2.show:after {
   opacity: 1;
-  height:74px;
+  height: 74px;
   width: 28px;
   z-index: 50;
   transform-origin: left top;
   border-right: 3px solid red;
-  content: '';
+  content: "";
   left: 60px;
   top: 104px;
   position: absolute;
@@ -385,44 +419,44 @@ input[type=submit]:active  {
 
 .checkmark2.show::before {
   opacity: 1;
-  height:74px;
+  height: 74px;
   width: 28px;
   z-index: 50;
   transform-origin: left top;
   border-right: 3px solid red;
-  content: '';
+  content: "";
   left: 8px;
   top: 63px;
   position: absolute;
 }
 
-.auth-bg{
+.auth-bg {
   display: block;
-  background-color:black;
-  width:100%;
+  background-color: black;
+  width: 100%;
   position: absolute;
   height: 100vh;
-  margin:0;
+  margin: 0;
   opacity: 0.5;
   z-index: 1;
   animation: fadeBg 2s;
 }
 
-.authText{
+.authText {
   text-align: center;
-  color:white;
-  margin-top:0px;
-  font-weight:300; 
+  color: white;
+  margin-top: 0px;
+  font-weight: 300;
   display: block;
   z-index: 50;
 }
 
-@keyframes FadeBg{
-  0%{
+@keyframes FadeBg {
+  0% {
     opacity: 0;
   }
-  100%{
-    opacity: 0.5
+  100% {
+    opacity: 0.5;
   }
 }
 
@@ -439,10 +473,28 @@ input[type=submit]:active  {
     height: 0;
     opacity: 1;
   }
-  50%{
+  50% {
     height: 74px;
   }
   100% {
     height: 74px;
+  }
+}
+@media only screen and (max-width: 1050px) {
+  .infoContent {
+    display: none;
+  }
+  .formContent-text {
+    float: left;
+    border-radius: 17px;
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .loginContent {
+    width: 100%;
+  }
+  input[type="submit"] {
+    width: 85% !important;
   }
 }
